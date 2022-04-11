@@ -1,0 +1,106 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1622/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1622/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1622/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:#include <stdlib.h>
+        -:    4:#define MAXM 100005
+        -:    5:
+        1:    6:int main(int argc, char *argv[])
+        -:    7:{
+        -:    8:	static char data[MAXM];
+        1:    9:	scanf("%s",data);
+        -:   10:	int N;
+        1:   11:	N = strlen(data);
+        -:   12:	int a[10];
+        1:   13:	memset(a,0,sizeof(a));
+        -:   14:	int i;
+        5:   15:	for (i = 0; i < N; i++)
+        -:   16:	{
+        4:   17:		a[(int)(data[i] - '0')]++;
+        -:   18:	}
+        -:   19:	int A[10];
+        -:   20:	int B[10];
+        -:   21:	int z, k, j;
+        1:   22:	int res = a[0];
+        1:   23:	int resz = a[0];
+        1:   24:	int resvar = -1;
+        -:   25:	int temp;
+        3:   26:	for (z = 0; z <= a[0]; z++)
+        -:   27:	{
+        2:   28:		memcpy(A,a,sizeof(a));
+        2:   29:		memcpy(B,a,sizeof(a));
+        2:   30:		A[0] -= z;
+        2:   31:		B[0] -= z;
+       12:   32:		for (k = 1; k <= 5; k++)
+        -:   33:		{
+       10:   34:			if ((A[k]) && (B[10-k]))
+        -:   35:			{
+    #####:   36:				A[k]--;
+    #####:   37:				B[10-k]--;
+    #####:   38:				temp = z + 1;
+    #####:   39:				for (i = 0; i <= 9; i++)
+        -:   40:				{
+    #####:   41:					if (A[i] < B[9-i]) temp += A[i];
+    #####:   42:					else temp += B[9-i];
+        -:   43:				}
+    #####:   44:				if (temp > res)
+        -:   45:				{
+    #####:   46:					res = temp;
+    #####:   47:					resz = z;
+    #####:   48:					resvar = k;
+        -:   49:				}
+    #####:   50:				A[k]++;
+    #####:   51:				B[10-k]++;
+        -:   52:			}
+        -:   53:		}
+        -:   54:	}
+        -:   55:	static char resa[MAXM];
+        -:   56:	static char resb[MAXM];
+        1:   57:	resa[N] = 0;
+        1:   58:	resb[N] = 0;
+        1:   59:	int pos = N - 1;
+        1:   60:	memcpy(A,a,sizeof(a));
+        1:   61:	memcpy(B,a,sizeof(a));
+        2:   62:	for (i = 0; i < resz; i++)
+        -:   63:	{
+        1:   64:		resa[pos] = '0';
+        1:   65:		resb[pos] = '0';
+        1:   66:		pos--;
+        1:   67:		A[0]--;
+        1:   68:		B[0]--;
+        -:   69:	}
+        1:   70:	if (resvar != -1)
+        -:   71:	{
+    #####:   72:		resa[pos] = (char)(resvar) + '0';
+    #####:   73:		resb[pos] = (char)(10-resvar) + '0';
+    #####:   74:		pos--;
+    #####:   75:		A[resvar]--;
+    #####:   76:		B[10-resvar]--;
+    #####:   77:		for (i = 0; i <= 9; i++)
+        -:   78:		{
+    #####:   79:			while ((A[i]) && (B[9-i]))
+        -:   80:			{
+    #####:   81:				resa[pos] = (char)(i) + '0';
+    #####:   82:				resb[pos] = (char)(9-i) + '0';
+    #####:   83:				pos--;
+    #####:   84:				A[i]--;
+    #####:   85:				B[9-i]--;
+        -:   86:			}
+        -:   87:		}
+        -:   88:	}
+        1:   89:	i = 0; j = 0;
+        4:   90:	while (pos >= 0)
+        -:   91:	{
+        9:   92:		while (A[i] == 0) i++;
+        9:   93:		while (B[j] == 0) j++;
+        3:   94:		resa[pos] = (char)(i) + '0';
+        3:   95:		resb[pos] = (char)(j) + '0';
+        3:   96:		pos--;
+        3:   97:		A[i]--;
+        3:   98:		B[j]--;
+        -:   99:	}
+        1:  100:	printf("%s\n%s\n",resa,resb);
+        1:  101:	return 0;
+        -:  102:}

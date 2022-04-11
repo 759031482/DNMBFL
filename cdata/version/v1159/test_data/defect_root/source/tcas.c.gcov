@@ -1,0 +1,58 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1159/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1159/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1159/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        2:    3:int main(int argc, char *argv[])
+        -:    4:{
+        2:    5:    int i,j,k,l,m,x,p=0,q,l1,l2,h=0;
+        -:    6:    char arr[2][1000000],t;
+        6:    7:    for(i=0;i<2;i++)
+        4:    8:    scanf("%s",arr[i]);
+        2:    9:    l1=strlen(arr[0]);
+        2:   10:    l2=strlen(arr[1]);
+        2:   11:    if(l1!=l2)
+    #####:   12:    printf("NO");
+        -:   13:    else
+        -:   14:    {
+        2:   15:        i=0;
+        2:   16:        while(i<l1)
+        -:   17:        {
+        2:   18:            if(arr[0][i]!=arr[1][i])
+        -:   19:            {
+        2:   20:                j=i+1;
+       10:   21:                while(arr[0][j]!='\0')
+        -:   22:                {
+       10:   23:                    x=0;
+       10:   24:                    if(arr[1][i]==arr[0][j]&&arr[0][j]!=arr[1][j])
+        -:   25:                    {
+        2:   26:                        t=arr[0][j];
+        2:   27:                        arr[0][j]=arr[0][i];
+        2:   28:                        arr[0][i]=t;
+        2:   29:                        x=1;
+        -:   30:                    }
+       10:   31:                    if(x==1)
+        2:   32:                    break;
+        8:   33:                    j++;
+        -:   34:                }
+        -:   35:            }
+        2:   36:                if(x==1)
+        2:   37:                    break;
+    #####:   38:        i++;
+        -:   39:        }
+        2:   40:            k=0;
+       20:   41:    while(k<l1)
+        -:   42:    {
+       18:   43:        if(arr[0][k]!=arr[1][k])
+    #####:   44:        p=1;
+       18:   45:        k++;
+        -:   46:    }
+        2:   47:    if(p==1)
+    #####:   48:    printf("NO");
+        -:   49:    else
+        2:   50:    printf("YES");
+        -:   51:    }
+        -:   52:
+        2:   53:return 0;
+        -:   54:}

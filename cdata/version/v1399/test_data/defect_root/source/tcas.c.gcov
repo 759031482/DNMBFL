@@ -1,0 +1,22 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1399/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1399/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1399/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:17
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:
+       17:    5:int main(int argc, char *argv[]) {
+       17:    6:	int i,j,k,l,m,n,d,dem=0;
+       17:    7:	scanf("%d",&k);
+       17:    8:	scanf("%d",&l);
+       17:    9:	scanf("%d",&m);
+       17:   10:	scanf("%d",&n);
+       17:   11:	scanf("%d",&d);
+   697079:   12:	for(i=1;i<=d;i++){
+   697062:   13:		if ((i%k == 0) || (i%l == 0) || (i%m == 0) || (i%n == 0))
+   303940:   14:		dem++;
+        -:   15:	}
+       17:   16:	printf("%d",dem);
+       17:   17:	return 0;
+        -:   18:}

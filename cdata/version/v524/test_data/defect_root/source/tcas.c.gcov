@@ -1,0 +1,28 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v524/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v524/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v524/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:5
+        -:    1:#include<stdio.h>
+        5:    2:int main(int argc, char *argv[]){
+        -:    3:    int a,b,t,t_div;
+        5:    4:    scanf("%d %d",&a,&b);
+        5:    5:    t=a+b;
+        5:    6:    t_div=t/3;
+        5:    7:    if(a>=t_div && b>=t_div){
+    #####:    8:        printf("%d",t_div);
+        -:    9:    }
+        5:   10:    else if(a>=t_div && b<t_div){
+        5:   11:        printf("%d",b);
+        -:   12:    }
+    #####:   13:    else if(a<t_div){
+    #####:   14:        printf("%d",a);
+        -:   15:        
+        -:   16:    }
+    #####:   17:    else if(a==0 || t_div==0 ||b==0)
+        -:   18:    {
+    #####:   19:    printf("0");}
+        -:   20:    
+        -:   21:    
+        -:   22:    
+        5:   23:    return 0;
+        -:   24:}

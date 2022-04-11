@@ -1,0 +1,117 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1564/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1564/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1564/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        2:    3:int main(int argc, char *argv[])
+        -:    4:{
+        2:    5:    int n,i,j,l=0,a[100],count0=0,b[100],temp,length;
+        -:    6:    char str[100];
+        2:    7:    scanf("%d",&n);
+        2:    8:    scanf("%s",str);
+        2:    9:    length=strlen(str);
+        2:   10:    if(n!=0)
+        -:   11:    {
+    #####:   12:        while(n)
+        -:   13:    {
+    #####:   14:        if(n%10==0)
+        -:   15:        {
+    #####:   16:            a[l++]=0;
+    #####:   17:            n=n/10;
+    #####:   18:            count0++;
+        -:   19:        }
+        -:   20:        else
+        -:   21:        {
+    #####:   22:            a[l++]=n%10;
+    #####:   23:            n=n/10;
+        -:   24:        }
+        -:   25:    }
+    #####:   26:    for(i=0;i<l;i++)
+        -:   27:    {
+    #####:   28:        for(j=0;j<l;j++)
+        -:   29:        {
+    #####:   30:            if(a[i]<a[j])
+        -:   31:            {
+    #####:   32:                temp=a[i];
+    #####:   33:                a[i]=a[j];
+    #####:   34:                a[j]=temp;
+        -:   35:            }
+        -:   36:        }
+        -:   37:    }
+        -:   38:
+    #####:   39:    temp=0;
+    #####:   40:    if(count0==0)
+        -:   41:    {
+    #####:   42:      for(i=0;str[i]!='\0';i++)
+        -:   43:      {
+    #####:   44:          if(str[i]==a[i]+48)
+        -:   45:          {
+    #####:   46:              temp=0;
+        -:   47:          }
+        -:   48:          else
+        -:   49:          {
+    #####:   50:              temp=1;printf("WRONG_ANSWER");break;
+        -:   51:          }
+        -:   52:      }
+    #####:   53:      if(temp==0)
+    #####:   54:        printf("OK");
+        -:   55:    }
+    #####:   56:    else if(count0==(l-1))
+        -:   57:    {
+    #####:   58:        temp=0;
+    #####:   59:        for(i=0;i<l;i++)
+        -:   60:        {
+    #####:   61:            if(str[i]=='0')
+        -:   62:            {
+    #####:   63:                temp=0;
+        -:   64:            }
+        -:   65:            else
+        -:   66:
+        -:   67:            {
+    #####:   68:                temp=1;printf("WRONG_ANSWER");break;
+        -:   69:            }
+        -:   70:        }
+    #####:   71:        if(temp==0)
+    #####:   72:            printf("OK");
+        -:   73:    }
+    #####:   74:    else if(count0<(l-1))
+        -:   75:    {
+    #####:   76:        temp=0;
+    #####:   77:        b[0]=a[count0];
+    #####:   78:        for(i=1;i<=count0;i++)
+        -:   79:        {
+    #####:   80:            b[i]=0;
+        -:   81:        }
+    #####:   82:        for(i=count0+1;i<l;i++)
+        -:   83:        {
+    #####:   84:            b[i]=a[i];
+        -:   85:        }
+    #####:   86:        for(i=0;i<l;i++)
+        -:   87:        {
+    #####:   88:            if(str[i]==b[i]+48)
+        -:   89:            {
+    #####:   90:                temp=0;
+        -:   91:            }
+        -:   92:            else
+        -:   93:            {
+    #####:   94:                temp=1; printf("WRONG_ANSWER");
+    #####:   95:                break;
+        -:   96:            }
+        -:   97:        }
+    #####:   98:        if(temp==0)
+    #####:   99:            printf("OK");
+        -:  100:    }
+        -:  101:    }
+        2:  102:    else if(n==0 && length==1)
+        -:  103:    {
+    #####:  104:        if(str[0]=='0')
+    #####:  105:            printf("OK");
+        -:  106:
+        -:  107:        else
+    #####:  108:            printf("WRONG_ANSWER");
+        -:  109:    }
+        2:  110:    else if(n==0 && length>1)
+        2:  111:        printf("WRONG_ANSWER");
+        2:  112:return 0;
+        -:  113:}

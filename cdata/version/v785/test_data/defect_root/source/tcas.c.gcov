@@ -1,0 +1,39 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v785/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v785/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v785/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:14
+        -:    1:#include<stdio.h>
+       14:    2:int main(int argc, char *argv[]){
+       14:    3:	int i,w=0,b=0;
+        -:    4:	char a;
+     1008:    5:	for(i=0;i<71;i++){
+      994:    6:		scanf("%c",&a);
+      994:    7:		if(a=='Q')
+       37:    8:			w+=9;
+      994:    9:		if(a=='R')
+       10:   10:			w+=5;
+      994:   11:		if(a=='B')
+       10:   12:			w+=3;
+      994:   13:		if(a=='N')
+        9:   14:			w+=3;
+      994:   15:		if(a=='P')
+       30:   16:			w+=1;
+      994:   17:		if(a=='q')
+       36:   18:			b+=9;
+      994:   19:		if(a=='r')
+        8:   20:			b+=5;
+      994:   21:		if(a=='b')
+        9:   22:			b+=3;
+      994:   23:		if(a=='n')
+        9:   24:			b+=3;
+      994:   25:		if(a=='p')
+       35:   26:			b+=1;
+        -:   27:	}
+       14:   28:	if(w>b)
+        6:   29:		printf("White");
+        8:   30:	else if(b>w)
+        4:   31:		printf("Black");
+        4:   32:	else if(w==b)
+        4:   33:		printf("Draw");
+       14:   34:return 0;
+        -:   35:}

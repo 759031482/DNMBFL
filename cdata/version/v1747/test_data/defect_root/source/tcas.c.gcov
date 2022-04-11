@@ -1,0 +1,49 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1747/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1747/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1747/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include<math.h>
+        -:    4:#define REP(i,a,b) for(i=a;i<b;i++)
+        -:    5:#define rep(i,n) REP(i,0,n)
+        -:    6:
+        -:    7:int x,y,sx,sy;
+        -:    8:double dp[1100][1100], tmp;
+        -:    9:
+ 89729040:   10:double ab(double x){ if(x<0) return -x; return x; }
+        -:   11:
+        1:   12:int main(int argc, char *argv[]){
+        -:   13:  int i,j,k,l,m,n,loop,loop_mx;
+        -:   14:  double per;
+        -:   15:
+        1:   16:  scanf("%d%d%d%d",&x,&y,&sx,&sy);
+        1:   17:  sx--; sy--;
+        -:   18:
+       1*:   19:  if(y==1){ printf("%.10lf\n",2.0*(x-1-sx)); return 0; }
+        -:   20:
+       1*:   21:  if(y==1) per = 3;
+        1:   22:  else     per = (3+3+4*(y-2))/(double)y;
+        -:   23:  
+   195693:   24:  rep(i,x) rep(j,y) dp[i][j]=(x-1-i)*per;
+        -:   25:
+        1:   26:  loop_mx = 90000000 / x / y;
+        -:   27:
+      812:   28:  for(i=x-2;i>=0;i--){
+   374682:   29:    rep(loop,loop_mx){
+   373871:   30:      double err=0;
+ 90102911:   31:      rep(j,y){
+ 89729040:   32:        if(j==0)        tmp = (dp[i+1][j] + dp[i][j] + dp[i][j+1])/3;
+ 89355169:   33:        else if(j==y-1) tmp = (dp[i+1][j] + dp[i][j] + dp[i][j-1])/3;
+ 88981298:   34:        else            tmp = (dp[i+1][j] + dp[i][j] + dp[i][j-1] + dp[i][j+1])/4;
+ 89729040:   35:        tmp += 1;
+ 89729040:   36:        err += ab(dp[i][j]-tmp);
+ 89729040:   37:        dp[i][j]=tmp;
+        -:   38:      }
+        -:   39:    }
+        -:   40:  }
+        -:   41:
+        1:   42:  printf("%.10lf\n",dp[sx][sy]);
+        -:   43:
+        1:   44:  return 0;
+        -:   45:}

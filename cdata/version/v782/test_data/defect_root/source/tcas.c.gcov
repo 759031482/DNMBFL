@@ -1,0 +1,23 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v782/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v782/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v782/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:5
+        -:    1:#include<stdio.h>
+        -:    2:#include<math.h>
+        5:    3:int main(int argc, char *argv[])
+        -:    4:{
+        5:    5:    long long int n,i,j,count=0;
+        5:    6:    scanf("%lld",&n);
+        -:    7:    
+        -:    8:    //j=sqrt(n);
+        5:    9:    j = (sqrt(1+24*n)-1)/6;
+  1834605:   10:    for(i=1;i<=j;i++)
+        -:   11:    {
+  1834600:   12:        if((n+i)%3==0)
+   611532:   13:            count++;
+        -:   14:    }
+        -:   15:    
+        5:   16:    printf("%lld\n",count);
+        -:   17:    
+        5:   18:    return 0;
+        -:   19:}

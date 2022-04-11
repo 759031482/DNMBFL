@@ -1,0 +1,115 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1441/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1441/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1441/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:4
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include<string.h>
+        -:    4:#define max(a,b) a>b ? a : b
+        -:    5:#define min(a,b) a>b ? b : a
+        -:    6:/*
+        -:    7:   typedef struct node
+        -:    8:   {
+        -:    9:   int x;
+        -:   10:   int y;
+        -:   11:   int z;
+        -:   12:   }node;
+        -:   13:
+        -:   14:   node tree[400010];
+        -:   15:
+        -:   16:   node merge(node *l, node *r)
+        -:   17:   {
+        -:   18:   node c;
+        -:   19:   c.x = l->x + r->x;
+        -:   20:   c.y = l->y + r->y;
+        -:   21:   c.z = l->z + r->z;
+        -:   22:   return c;
+        -:   23:   }
+        -:   24:
+        -:   25:   void build(int idx, int start, int end)
+        -:   26:   {
+        -:   27:   if( start > end ) return;
+        -:   28:
+        -:   29:   if( start == end )
+        -:   30:   {
+        -:   31:   tree[idx].x = tree[idx].y = tree[idx].z = 0;
+        -:   32:   if( str[end] == 'x' )
+        -:   33:   tree[idx].x = 1;
+        -:   34:   else if( str[end] == 'y' )
+        -:   35:   tree[idx].y = 1;
+        -:   36:   else
+        -:   37:   tree[idx].z = 1;
+        -:   38:   }
+        -:   39:
+        -:   40:   int mid = (start+end)/2, left = 2*idx, right = left | 1;
+        -:   41:   build( left, start, mid);
+        -:   42:   build( right, mid+1, end);
+        -:   43:
+        -:   44:   tree[idx] = merge(tree[left],tree[right]);
+        -:   45:   }
+        -:   46:
+        -:   47:   node query(int index
+        -:   48: */
+        -:   49:
+        -:   50:int x[100010]={0},y[100010]={0},z[100010]={0};
+        -:   51:
+        4:   52:int main(int argc, char *argv[])
+        -:   53:{
+        -:   54:   int n,p,q,i,tmp;
+        -:   55:
+        -:   56:   char str[100010];
+        4:   57:   scanf("%s",str);
+        4:   58:   int len = strlen(str);
+        -:   59:
+        4:   60:   if( str[0] == 'x' ) x[1] = 1;
+        3:   61:   else if( str[0] == 'y' ) y[1] = 1;
+        1:   62:   else z[1] = 1;
+        -:   63:
+      238:   64:   for(i=1;i<len;i++)
+        -:   65:   {
+      234:   66:      x[i+1] = x[i];
+      234:   67:      y[i+1] = y[i];
+      234:   68:      z[i+1] = z[i];
+        -:   69:
+      234:   70:      if( str[i] == 'x' ) x[i+1]++;
+      157:   71:      else if(str[i] == 'y' ) y[i+1]++;
+       80:   72:      else z[i+1]++;
+        -:   73:   }
+        -:   74:
+        4:   75:   scanf("%d",&n);
+      139:   76:   while(n--)
+        -:   77:   {
+      135:   78:      scanf("%d %d",&p,&q);
+      135:   79:      int x1 = x[q] - x[p-1];
+      135:   80:      int y1 = y[q] - y[p-1];
+      135:   81:      int z1 = z[q] - z[p-1];
+        -:   82:
+      135:   83:      if( (q-p+1) < 3 ) printf("YES\n");
+        -:   84:      else
+        -:   85:      {
+      120:   86:	 int div = (q-p+1)/3;
+      120:   87:	 int rem = (q-p+1)%3;
+        -:   88:
+      120:   89:	 if( rem == 0 )
+        -:   90:	 {
+       32:   91:	    if( x1 == y1 && y1 == z1) printf("YES\n");
+       10:   92:	    else printf("NO\n");
+        -:   93:	 }
+       88:   94:	 else if(rem == 1)
+        -:   95:	 {
+       69:   96:	    if( x1 == div && y1 == div && z1 == div+1 ) printf("YES\n");
+       63:   97:	    else if( x1 == div && y1 == div+1 && z1 == div ) printf("YES\n");
+       52:   98:	    else if( x1 == div+1 && y1 == div && z1 == div ) printf("YES\n");
+        6:   99:	    else printf("NO\n");
+        -:  100:	 }
+        -:  101:	 else
+        -:  102:	 {
+       19:  103:	    if( x1 == div && y1 == div+1 && z1 == div+1) printf("YES\n");
+       16:  104:	    else if( x1 == div+1 && y1 == div && z1 == div+1) printf("YES\n");
+        7:  105:	    else if( x1 == div+1 && y1 == div+1 && z1 == div) printf("YES\n");
+    #####:  106:	    else printf("NO\n");
+        -:  107:	 }
+        -:  108:      }
+        -:  109:   }
+        4:  110:   return 0;
+        -:  111:}

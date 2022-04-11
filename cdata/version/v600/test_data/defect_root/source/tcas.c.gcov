@@ -1,0 +1,71 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v600/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v600/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v600/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:int path[1005];
+        -:    4:int we[11];
+        2:    5:int main(int argc, char *argv[])
+        -:    6:{
+        2:    7:    int i, j, flag = 0, m, k;
+        2:    8:    char weight[11], count = 0;
+       22:    9:    for(i = 1; i <= 10; i++)
+       20:   10:        scanf("%c", weight + i);
+       22:   11:    for(i = 1; i <= 10; i++)
+        -:   12:    {
+       20:   13:        if(weight[i] == '1')
+    #####:   14:            we[i] = i;
+       20:   15:        else we[i] = 0;
+        -:   16:    }
+        2:   17:    scanf("%d", &m);
+        -:   18:    int left, right;
+       22:   19:    for(k = 1; k <= 10; k++)
+        -:   20:    {
+       20:   21:        left = 0; right = 0;
+       20:   22:        if(we[k])
+        -:   23:        {
+    #####:   24:            flag=1;
+    #####:   25:            path[1] = k;
+    #####:   26:            left += we[k];
+        -:   27:        }
+       20:   28:        else continue;
+    #####:   29:    for(i = 2; i <= m; i++)
+        -:   30:    {
+    #####:   31:        flag = 0;
+    #####:   32:        if(i % 2)
+        -:   33:        {
+    #####:   34:            for(j = 1; j <= 10; j++)
+    #####:   35:                if((we[j] + left > right) && (j != path[i - 1]) && we[j])
+        -:   36:            {
+    #####:   37:                path[i] = j;
+    #####:   38:                left += we[j];
+    #####:   39:                flag = 1;
+    #####:   40:                break;
+        -:   41:            }
+        -:   42:        }
+        -:   43:        else
+        -:   44:        {
+    #####:   45:            for(j = 1; j <= 10; j++)
+    #####:   46:                if((we[j] + right > left) && (j != path[i - 1]) && we[j])
+        -:   47:            {
+    #####:   48:                path[i] = j;
+    #####:   49:                right += we[j];
+    #####:   50:                flag = 1;
+    #####:   51:                break;
+        -:   52:            }
+        -:   53:        }
+    #####:   54:        if(flag == 0) break;
+        -:   55:    }
+    #####:   56:    if(flag == 1) break;
+        -:   57:    }
+        2:   58:    if(flag == 0) printf("NO\n");
+        -:   59:    else
+        -:   60:    {
+    #####:   61:        printf("YES\n");
+    #####:   62:        for(i = 1; i < m; i++)
+    #####:   63:            printf("%d ", path[i]);
+    #####:   64:        printf("%d\n", path[i]);
+        -:   65:    }
+        2:   66:    return 0;
+        -:   67:}

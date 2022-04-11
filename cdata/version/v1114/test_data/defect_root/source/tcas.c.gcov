@@ -1,0 +1,76 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1114/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1114/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1114/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include "stdio.h"
+        -:    2:
+        -:    3:
+        2:    4:int main(int argc, char* argv[])
+        -:    5:{
+        -:    6:    int n,m,q;
+        2:    7:    scanf("%d%d%d",&n,&m,&q);
+        -:    8:    int a[501][501];
+        -:    9:    int i,j;
+        -:   10:    int x,y,count[501],max[501];
+       12:   11:    for(i=1;i<=n;i++){
+       60:   12:        for(j=1;j<=m;j++){
+       50:   13:            scanf("%d",&a[i][j]);
+        -:   14:        }
+        -:   15:    }
+        -:   16:    
+       12:   17:    for(i=1;i<=n;i++){
+       10:   18:        count[i]=0;
+       10:   19:        max[i]=0;
+       60:   20:        for(j=1;j<=m;j++){
+       50:   21:            if(a[i][j]==1)
+       26:   22:                count[i]++;
+        -:   23:            else{
+       24:   24:                if(count[i]>max[i])
+        6:   25:                    max[i]=count[i];
+       24:   26:                count[i]=0;
+        -:   27:            }
+        -:   28:        }
+       10:   29:        if(count[i]>max[i])
+        2:   30:            max[i]=count[i];
+        -:   31:        
+        -:   32:    }
+        -:   33:    
+        -:   34:    
+       62:   35:    while(q--){
+        -:   36:
+       60:   37:        scanf("%d%d",&x,&y);
+        -:   38:
+       60:   39:        if(a[x][y]==1)
+       30:   40:            a[x][y]=0;
+        -:   41:        else
+       30:   42:            a[x][y]=1;
+        -:   43:    
+       60:   44:        count[x]=0;
+       60:   45:        max[x]=0;
+      360:   46:        for(j=1;j<=m;j++){
+        -:   47:                
+      300:   48:                if(a[x][j]==1)
+      150:   49:                  count[x]++;
+        -:   50:                else{
+      150:   51:                    if(count[x]>max[x])
+       52:   52:                        max[x]=count[x];
+      150:   53:                    count[x]=0;
+        -:   54:                }   
+        -:   55:        }
+       60:   56:        if(count[x]>max[x])
+       12:   57:            max[x]=count[x];
+       60:   58:        int t=-1;
+        -:   59:        
+      360:   60:        for(i=1;i<=n;i++){
+      300:   61:            if(max[i]>t)
+      100:   62:                t=max[i];
+        -:   63:        }
+        -:   64:        
+       60:   65:        printf("%d\n",t);   
+        -:   66:        
+        -:   67:    }
+        -:   68:
+        -:   69:            
+        -:   70:
+        2:   71:    return 0;
+        -:   72:}

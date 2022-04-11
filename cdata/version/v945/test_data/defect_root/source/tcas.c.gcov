@@ -1,0 +1,82 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v945/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v945/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v945/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:10
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <math.h>
+        -:    4:#include <string.h>
+        -:    5:
+        -:    6:#define MAX (1L << 22)
+        -:    7:
+        -:    8:char iscomp[MAX];
+        -:    9:
+        -:   10:typedef long long ll;
+       10:   11:void do_comp (void)
+        -:   12:{
+        -:   13:	int i;
+        -:   14:
+       10:   15:	iscomp[1] = 1;
+        -:   16:
+    20520:   17:        for (i = 2; i < MAX; i++) {
+        -:   18:                int     jx;
+        -:   19:                int     sx;
+        -:   20:
+    20520:   21:                if (iscomp[i]) {
+    17420:   22:                        continue;
+        -:   23:                }
+        -:   24:
+     3100:   25:		if (i * i > MAX) {
+       10:   26:			break;
+        -:   27:		}
+ 93389690:   28:                for (jx = i; (jx * i) < MAX ;jx++) {
+ 93386600:   29:                        sx = jx * i;
+ 93386600:   30:                        if (!iscomp[sx]) iscomp[sx] = 1;
+        -:   31:                }
+        -:   32:        }
+       10:   33:}
+        -:   34:
+ 41943030:   35:int ispal (int inp)
+        -:   36:{
+        -:   37:	int	i, j;
+        -:   38:	char	tmp[32];
+        -:   39:	int	len;
+        -:   40:
+ 41943030:   41:	sprintf(tmp, "%d", inp);
+ 41943030:   42:	len = strlen(tmp)-1;
+        -:   43:	
+ 46639520:   44:	for (i = 0, j = len; i <= j; i++, --j) {
+ 46587600:   45:		if (tmp[i] != tmp[j]) {
+ 41891110:   46:			return 0;
+        -:   47:		}
+        -:   48:	} 
+        -:   49:	
+    51920:   50:	return 1;
+        -:   51:}
+        -:   52:
+       10:   53:int main(int argc, char *argv[])
+        -:   54:{
+       10:   55:	int	i,n = 1;
+        -:   56:	int	p, q;
+       10:   57:	int	npr = 0, npa = 0;
+       10:   58:	int	ans = 0;
+        -:   59:
+       10:   60:	do_comp();
+       10:   61:	scanf ("%d%d", &p, &q);
+        -:   62:
+ 41943040:   63:	for (i = 1; i < MAX; i++) {
+ 41943030:   64:		npa += ispal (i);
+ 41943030:   65:		npr += !(iscomp[i]);
+        -:   66:
+ 41943030:   67:		if ((ll)q * npr <= (ll)p * npa) {
+      205:   68:			ans = i;
+        -:   69:		}
+        -:   70:	}
+       10:   71:	if (ans) {
+       10:   72:		printf ("%d\n", ans);
+        -:   73:	} else {
+    #####:   74:		puts ("Palindromic tree is better than splay tree");
+        -:   75:	}
+        -:   76:	
+       10:   77:	return 0;
+        -:   78:}

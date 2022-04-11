@@ -1,0 +1,91 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1007/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:16
+        -:    1:#include<stdio.h>
+        -:    2:#include <string.h>
+        -:    3:#include <math.h>
+       16:    4:int main(int argc, char *argv[])//Aлгоритм обхода в глубину
+        -:    5:{
+       16:    6:	int i,j,n,m,x,i_temp=1;
+       16:    7:	scanf("%d %d",&n,&m);
+       16:    8:	if(n==0)
+        -:    9:	{
+    #####:   10:		printf("0 1\n");
+    #####:   11:		printf("0 %d\n",m);
+    #####:   12:		printf("0 0\n");
+    #####:   13:		printf("0 %d\n",(m-1));
+    #####:   14:		return 0;
+        -:   15:	}
+       16:   16:	else if(m==0)
+        -:   17:	{
+    #####:   18:		printf("1 0\n");
+    #####:   19:		printf("%d 0\n",n);
+    #####:   20:		printf("0 0\n");
+    #####:   21:		printf("%d 0\n",(n-1));
+    #####:   22:		return 0;
+        -:   23:	}
+        -:   24:
+      16*:   25:	else if((m==n)&&(n==1))
+        -:   26:	{
+    #####:   27:		printf("%d %d\n",n,m);
+    #####:   28:		printf("0 0\n");
+    #####:   29:		printf("%d 0\n",n);
+    #####:   30:		printf("0 %d\n",(m));
+    #####:   31:		return 0;
+        -:   32:	}
+       16:   33:	else if(m==n)
+        -:   34:	{
+    #####:   35:		if(m+m*1.41f>(2*sqrt((double)(m*m+(m-1)*(m-1)))))
+        -:   36:		{
+    #####:   37:			printf("%d %d\n",n,m);
+    #####:   38:			printf("0 0\n");
+    #####:   39:			printf("%d 0\n",n);
+    #####:   40:			printf("0 %d\n",n);
+        -:   41:		}
+        -:   42:		else 
+        -:   43:		{
+    #####:   44:			printf("%d %d\n",n-1,m);
+    #####:   45:			printf("0 0\n");
+    #####:   46:			printf("%d %d\n",n,m);
+    #####:   47:			printf("1 0\n");
+        -:   48:		}
+    #####:   49:		return 0;
+        -:   50:
+        -:   51:
+        -:   52:	}
+       16:   53:	else if(n<m)
+        -:   54:	{
+    #####:   55:		if(m+sqrt((double)n*n+m*m)<(2*sqrt((double)(n-1)*(n-1)+(m)*(m))))
+        -:   56:		{
+    #####:   57:			printf("%d %d\n",n-1,m);
+    #####:   58:			printf("0 0\n");
+    #####:   59:			printf("%d %d\n",n,m);
+    #####:   60:			printf("1 0\n");
+    #####:   61:			return 0;
+        -:   62:		}
+        -:   63:		else
+        -:   64:		{
+    #####:   65:			printf("%d %d\n0 0 \n0 %d\n%d 0\n",n,m,m,n);
+    #####:   66:			return 0;
+        -:   67:		}
+        -:   68:	}
+       16:   69:	else if(n>m)
+        -:   70:	{
+       16:   71:		if(n+sqrt((double)n*n+m*m)<(2*sqrt((double)n*n+(m-1)*(m-1))))
+        -:   72:		{
+    #####:   73:			printf("%d %d\n",n,m-1);
+    #####:   74:			printf("0 0\n");
+    #####:   75:			printf("%d %d\n",n,m);
+    #####:   76:			printf("0 1\n");
+    #####:   77:			return 0;
+        -:   78:		}
+        -:   79:		else
+        -:   80:		{
+       16:   81:			printf("%d %d\n0 0 \n%d 0\n0 %d\n",n,m,n,m);
+       16:   82:			return 0;
+        -:   83:		}
+        -:   84:
+        -:   85:	}
+    #####:   86:	return 0;
+        -:   87:}

@@ -1,0 +1,73 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1557/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1557/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1557/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#define N 100000
+        -:    2:#include<stdio.h>
+        -:    3:#include<stdlib.h>
+        9:    4:int compare(const void *a,const void *b){
+        9:    5:	return *(int *)b-*(int *)a;
+        -:    6:}
+        1:    7:void sort(int a[],int n){
+        1:    8:	qsort(a,n,sizeof(int),compare);
+        1:    9:}
+        -:   10://从大到小排列
+        1:   11:int main(int argc, char *argv[]) {
+        -:   12:	int n;
+        1:   13:	scanf("%d",&n);
+        -:   14:	int i;
+        -:   15:	int l[N];
+        8:   16:	for(i=0;i<n;i++){
+        7:   17:		scanf("%d",&l[i]);
+        -:   18:	}
+        1:   19:	sort(l,n);
+        1:   20:	long long area=0;
+        1:   21:	if(n<4){
+    #####:   22:		printf("0\n");
+        -:   23:	}else{
+        1:   24:		int a43start=0;
+        1:   25:		int a21start=0;
+        -:   26:		int a4,a3,a2,a1;
+        -:   27:		int find;
+        -:   28:		while(1){
+        2:   29:			find=0;
+       2*:   30:			for(i=a43start;i<n-1;i++){
+        2:   31:				if(l[i]==l[i+1]){
+        2:   32:					a4=l[i];
+        2:   33:					a3=l[i+1];
+        2:   34:					a21start=i+2;
+        2:   35:					find=1;
+        2:   36:					break;
+    #####:   37:				}else if(l[i]-1==l[i+1]){
+    #####:   38:					a4=l[i]-1;
+    #####:   39:					a3=l[i+1];
+    #####:   40:					a21start=i+2;
+    #####:   41:					find=1;
+    #####:   42:					break;
+        -:   43:				}
+        -:   44:			}
+       2*:   45:			if(!find)break;
+        2:   46:			find=0;
+       2*:   47:			for(i=a21start;i<n-1;i++){
+        1:   48:				if(l[i]==l[i+1]){
+        1:   49:					a2=l[i];
+        1:   50:					a1=l[i+1];
+        1:   51:					a43start=i+2;
+        1:   52:					find=1;
+        1:   53:					break;
+    #####:   54:				}else if(l[i]-1==l[i+1]){
+    #####:   55:					a2=l[i]-1;
+    #####:   56:					a1=l[i+1];
+    #####:   57:					a43start=i+2;
+    #####:   58:					find=1;
+    #####:   59:					break;
+        -:   60:				}
+        -:   61:			}
+        2:   62:			if(!find)break;
+        1:   63:			area+=(long long)a4*(long long)a1;
+        -:   64:		}
+        1:   65:		printf("%lld\n",area);
+        -:   66:	}
+        -:   67:	//最多减一
+        1:   68:	return 0;
+        -:   69:}

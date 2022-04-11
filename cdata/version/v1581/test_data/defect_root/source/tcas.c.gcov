@@ -1,0 +1,50 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1581/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1581/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1581/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:9
+        -:    1:#include<stdio.h>
+        -:    2:
+        9:    3:int main(int argc, char *argv[]){
+        -:    4:    char a[1000001],b[1000001];
+        9:    5:    int i=0,j=0,m,n,lengthA=0,lengthB=0,equal=0;
+        9:    6:    scanf("%s%s",a,b);
+      102:    7:    for(i=0;a[i]!='\0';i++){
+      93*:    8:        if(a[i]!='0') break;
+        -:    9:    }
+      181:   10:    for(j=0;b[j]!='\0';j++){
+     172*:   11:        if(b[j]!='0') break;
+        -:   12:    }
+        9:   13:    m=i;
+        9:   14:    while(a[i]!='\0'){
+    #####:   15:        lengthA++;
+    #####:   16:        i++;
+        -:   17:    }
+        9:   18:    n=j;
+        9:   19:    while(b[j]!='\0'){
+    #####:   20:        lengthB++;
+    #####:   21:        j++;
+        -:   22:    }
+        9:   23:    if(a[m]=='\0'&& b[n]=='\0') printf("=");
+    #####:   24:    else if(lengthA>lengthB) printf(">");
+    #####:   25:    else if(lengthA<lengthB) printf("<");
+        -:   26:    else{
+    #####:   27:        for(i=m;a[i]!='\0';i++){
+    #####:   28:            if(a[i]>b[n]){
+    #####:   29:                printf(">");
+    #####:   30:                equal=0;
+    #####:   31:                break;
+        -:   32:            }
+    #####:   33:            else if(a[i]<b[n]){
+    #####:   34:                printf("<");
+    #####:   35:                equal=0;
+    #####:   36:                break;
+        -:   37:            }
+        -:   38:            else {
+    #####:   39:                equal=1;
+    #####:   40:                n++;
+        -:   41:            }
+        -:   42:        }
+    #####:   43:        if(equal==1) printf("=");
+        -:   44:    }
+        9:   45:    return 0;
+        -:   46:}

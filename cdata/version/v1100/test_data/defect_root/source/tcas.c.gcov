@@ -1,0 +1,49 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1100/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1100/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1100/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:4
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        -:    3:char st[200000],ar[200000];
+        4:    4:int main(int argc, char *argv[])
+        -:    5:{
+        -:    6:    int l,k,a,b,m,i;
+        4:    7:    scanf("%s",st);
+        4:    8:    scanf("%s",ar);
+        4:    9:    l=strlen(st);
+        4:   10:    k=strlen(ar);
+        4:   11:    if(l!=k)
+        -:   12:    {
+    #####:   13:        printf("NO\n");
+    #####:   14:        return 0;
+        -:   15:    }
+        4:   16:    a=-1;
+        4:   17:    m=0;
+        4:   18:    b=-1;
+       14:   19:    for(i=0;i<l;i++)
+        -:   20:    {
+       14:   21:        if(st[i]==ar[i]);
+        -:   22:        else
+        -:   23:        {
+       12:   24:            if(b<0)
+        4:   25:            a=i;
+       12:   26:            if(a>=0)
+        -:   27:            {
+       12:   28:                b=i;
+        -:   29:            }
+       12:   30:            m++;
+       12:   31:            if(m>2)
+        4:   32:            break;
+        -:   33:        }
+        -:   34:    }
+        4:   35:    if(m>2)
+        -:   36:    {
+        4:   37:        printf("NO\n");
+        4:   38:        return 0;
+        -:   39:    }
+    #####:   40:    if(st[a]==ar[b]&&st[b]&&st[b]==ar[a])
+    #####:   41:    printf("YES\n");
+        -:   42:    else
+    #####:   43:    printf("NO\n");
+    #####:   44:    return 0;
+        -:   45:}

@@ -1,0 +1,96 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1256/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1256/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1256/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:7
+        -:    1:#include<stdio.h>
+        7:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:	char input[3001],space;
+        -:    5:	int n,i,vert_domino,count_dot,count,i1,i2;
+        7:    6:	count=0;
+        7:    7:	vert_domino=0;
+        7:    8:	count_dot=0;
+        7:    9:	i1=-1;
+        7:   10:	scanf("%d",&n);
+        7:   11:	scanf("%c",&space);
+        7:   12:	scanf("%c",&input[0]);
+        -:   13://	printf("%c",input[0]);
+        7:   14:	if(input[0]=='.')
+    #####:   15:		count=1;
+        -:   16:	else
+        7:   17:		i1=0;
+        -:   18://	{         
+        -:   19:			//while(input[i]!='R' || input[i]!='L')
+        7:   20:		i=1;
+     2324:   21:		while(i!=n)
+        -:   22:		{
+     2317:   23:			scanf("%c",&input[i]);
+        -:   24://			printf("%c input  %d ",input[i],i);
+     2317:   25:			if(input[i]=='.')
+        -:   26:			{
+        -:   27:
+      168:   28:				count++;
+        -:   29://				printf("%d count",count);
+      168:   30:				i++;
+      168:   31:				continue;
+        -:   32:			}
+    2149*:   33:			if(i1==-1 && input[i]=='R')
+        -:   34:			{
+    #####:   35:				vert_domino=count;
+    #####:   36:				i1=i;
+    #####:   37:				count=0;
+        -:   38://				printf("%d 2",vert_domino);
+        -:   39:	//			i++;
+        -:   40:			}
+    2149*:   41:			if(i1==-1 && input[i]=='L')
+        -:   42:			{
+    #####:   43:				count=0;
+    #####:   44:				i1=i;
+        -:   45://				printf("%c %d i1",input[i1],i1);
+        -:   46:	//			i++;
+        -:   47:			}
+     2149:   48:			if(input[i1]=='R' && input[i]=='L' && i!=i1+1)
+        -:   49:			{
+        -:   50://				printf("Even\n");
+       34:   51:				i2=i;
+       34:   52:				if(count%2!=0)
+        -:   53:				{
+       21:   54:					vert_domino++;
+       21:   55:					i1=i2;
+        -:   56:				//	count=0;
+        -:   57://				printf("%d 4",vert_domino);
+        -:   58:	//				i++;
+        -:   59:				}
+       34:   60:				i1=i2;
+       34:   61:				count=0;
+        -:   62:			}
+     2149:   63:			if(input[i1]=='R' && input[i]=='L' && i==i1+1)
+      296:   64:					i1=i;
+     2149:   65:			if(input[i1]=='L' && input[i]=='R' && i!=i1+1)
+        -:   66:				{
+       40:   67:					i2=i;
+        -:   68://					printf("%d i2",i2);
+        -:   69:				//	if(count%2!=0)
+        -:   70:				//	{
+       40:   71:						vert_domino+=count;
+        -:   72://				printf("%d 5",vert_domino);
+        -:   73://						printf("%d vert",vert_domino);
+       40:   74:						i1=i2;
+       40:   75:						count=0;
+        -:   76:	//					i++;
+        -:   77:				//	}
+        -:   78:				}
+     2149:   79:			if(input[i1]=='L' && input[i]=='R' && i==i1+1)
+      288:   80:				i1=i;
+     2149:   81:		        i++;
+        -:   82:		}
+        7:   83:		if(input[i1]=='L' && count!=0)
+        4:   84:			vert_domino+=count;
+        7:   85:		if(count==n)
+    #####:   86:			printf("%d\n",n);
+        -:   87:		else
+        7:   88:		printf("%d\n",vert_domino);
+        7:   89:		return 0;
+        -:   90:}
+        -:   91:
+        -:   92:

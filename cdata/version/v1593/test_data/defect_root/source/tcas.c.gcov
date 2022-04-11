@@ -1,0 +1,26 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1593/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1593/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1593/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        1:    2:int main(int argc, char *argv[])
+        -:    3:{
+        1:    4:    int i,a1,a2,temp,count=0;
+        1:    5:   while (2==scanf("%d %d",&a1,&a2)){
+      198:    6:    for (a1,a2;a2>=1;a1++,a2-=2){
+      197:    7:        if(a1>a2){
+       98:    8:            temp=a1;
+       98:    9:            a1=a2;
+       98:   10:            a2=temp;
+        -:   11:        }
+      197:   12:        count++;
+      197:   13:        if(a1==0||a2==0){
+        -:   14:            break ;
+      197:   15:        }if (a1==1&&a2==1){
+    #####:   16:            count=0;
+        -:   17:        }
+        -:   18:    }
+        1:   19:    printf("%d",count);
+        1:   20:    return 0;
+        -:   21:}
+        -:   22:}

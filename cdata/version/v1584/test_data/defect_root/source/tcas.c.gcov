@@ -1,0 +1,50 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1584/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1584/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1584/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:
+        1:    4:int main(int argc, char *argv[])
+        -:    5:{
+        -:    6:
+        -:    7:  int m,k,e,f,n,i,j,q,w;
+        1:    8:   q=0;e=0;f=0;
+        1:    9:   w=0;
+        1:   10:  scanf("%d %d %d",&n,&m,&k);
+        1:   11:  if((n>=1&&n<=1000)&&(m>=1&&m<=1000)&&(k>=1&&k<=1000))
+        1:   12:  {
+        1:   13:   int a[n];
+     1001:   14:   for(i=1;i<=n;i++)
+        -:   15:   {
+     1000:   16:   scanf("%d",&a[i]);
+        -:   17:   }
+     1001:   18:   for(j=1;j<=n;j++)
+        -:   19:   {
+     1000:   20:    if(a[j]==1)
+       20:   21:      q++;
+      980:   22:   else if(a[j]==2)
+      240:   23:    w++;
+        -:   24:   }
+        1:   25:   if(q>m)
+    #####:   26:    e=q-m;
+        -:   27:
+        -:   28:
+       1*:   29:   if(w>k&&q<m)
+    #####:   30:    f=w-k-(m-q);
+        1:   31:   else if(w>k)
+    #####:   32:    f=w-k;
+        1:   33:    if(f<0)
+    #####:   34:        f=0;
+        1:   35:   printf("%d",f+e);
+        1:   36:   return 0;
+        -:   37:   }
+        -:   38:   else
+    #####:   39:  return -1;
+        -:   40:
+        -:   41:   }
+        -:   42:
+        -:   43:
+        -:   44:
+        -:   45:
+        -:   46:

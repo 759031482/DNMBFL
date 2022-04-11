@@ -1,0 +1,42 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1643/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1643/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1643/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:
+        -:    2:
+        -:    3:#include <stdio.h>
+        -:    4:#include <stdlib.h>
+        -:    5:#include <string.h>
+        -:    6:
+        -:    7:
+        1:    8:int main(int argc, const char * argv[]) 
+        -:    9:{
+        -:   10:	int n,m;
+        -:   11:	int i,j;
+        -:   12:	char (*l1)[11],(*l2)[11];
+        -:   13:	char (*r)[11];
+        -:   14:	char lec[11];
+        1:   15:	scanf("%d",&n);
+        1:   16:	scanf("%d",&m);
+        1:   17:	l1 = malloc(sizeof(char)*11*m);
+        1:   18:	l2 = malloc(sizeof(char)*11*m);
+        1:   19:	r = malloc(sizeof(char)*11*m);
+        -:   20:	// lec = malloc(sizeof(char)*11*n);
+        6:   21:	for(i = 0; i < m; i++){
+        5:   22:		scanf("%s %s",l1[i],l2[i]);
+        5:   23:		if(strlen(l1[i]) <= strlen(l2[i]))
+        3:   24:			strcpy(r[i],l1[i]);
+        -:   25:		else
+        2:   26:			strcpy(r[i],l2[i]);
+        -:   27:		// printf("%s\n",r[i]);
+        -:   28:	}
+        6:   29:	for(i = 0; i < n; i++){
+        5:   30:		scanf("%s",lec);
+        -:   31:		//find index
+       14:   32:		for(j = 0; j < m; j++)
+       14:   33:			if(!strcmp(lec,l1[j]))
+        5:   34:				break;
+        5:   35:		printf((i!=n-1) ? "%s " : "%s\n",r[j]);
+        -:   36:	}
+        1:   37:return 0;
+        -:   38:}

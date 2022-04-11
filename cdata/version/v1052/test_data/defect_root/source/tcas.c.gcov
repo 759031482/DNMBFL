@@ -1,0 +1,49 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1052/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1052/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1052/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include<stdio.h>
+        -:    2:
+        3:    3:int main(int argc, char *argv[]){
+        -:    4:    int small, large, wsmall, n ,m;
+        3:    5:    int arr[101] = {0}, brr[101] = {0}, i, j;
+        3:    6:    scanf("%d %d", &n, &m);
+       10:    7:    for(i=0; i<n; i++){
+        7:    8:        scanf("%d", &j);
+        7:    9:        arr[j]++;
+        -:   10:    }
+        7:   11:    for(i=0; i<m; i++){
+        4:   12:        scanf("%d", &j);
+        4:   13:        brr[j]++;
+        -:   14:    }
+       15:   15:    for(i=0; i<101; i++){
+       15:   16:        if(arr[i]){
+        3:   17:            small = i;
+        3:   18:            break;
+        -:   19:        }
+        -:   20:    }
+      263:   21:    for(i=100; i>=0; i--){
+      263:   22:        if(arr[i]){
+        3:   23:            large = i;
+        3:   24:            break;
+        -:   25:        }
+        -:   26:    }
+       43:   27:    for(i=0; i<101; i++){
+       43:   28:        if(brr[i]){
+        3:   29:            wsmall = i;
+        3:   30:            break;
+        -:   31:        }
+        -:   32:    }
+       3*:   33:   if(large >= wsmall || (2 * small) >= wsmall){
+        3:   34:        printf("-1");
+        -:   35:    }
+        -:   36:    else{
+    #####:   37:        if(large > (2 * small)){
+    #####:   38:            printf("%d", large);
+        -:   39:        }
+        -:   40:        else{
+    #####:   41:            printf("%d", (2 * small));
+        -:   42:        }
+        -:   43:    }
+        3:   44:return 0;
+        -:   45:}

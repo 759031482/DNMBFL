@@ -1,0 +1,40 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1028/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1028/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1028/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:9
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        9:    3:int main(int argc, char *argv[])
+        -:    4:{
+        9:    5:    int i, j, m=0, p=0, max=0;
+        -:    6:    char st[305];
+        9:    7:    scanf("%s", st);
+      685:    8:    for(i=0;st[i];i++){
+      676:    9:        if(st[i]=='+'){
+      299:   10:            if(m>0){
+      263:   11:                m--;
+      263:   12:                p++;
+        -:   13:            }
+        -:   14:            else{
+       36:   15:                p++;
+        -:   16:            }
+        -:   17:        }
+        -:   18:        else{
+      377:   19:            if(p>0){
+      260:   20:                p--;
+      260:   21:                m++;
+        -:   22:            }
+        -:   23:            else{
+      117:   24:                m++;
+        -:   25:            }
+        -:   26:        }
+      676:   27:        if(max<m) max=m;
+      676:   28:        if(max<p) max=p;
+        -:   29:    }
+        9:   30:    printf("%d", max);
+        -:   31:
+        -:   32:
+        -:   33:
+        -:   34:
+        9:   35:    return 0;
+        -:   36:}

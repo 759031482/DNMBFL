@@ -1,0 +1,73 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1548/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1548/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1548/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:
+        7:    5:void q_sort(int *a, int left, int right)
+        -:    6:{
+        -:    7:    int i, j, k, t;
+        7:    8:    if (left < right) {
+        3:    9:        i = k = left;
+        3:   10:        j = right + 1;
+        -:   11:        while (1) {
+        4:   12:            while (a[++i] < a[k]);
+        9:   13:            while (a[--j] > a[k]);
+        4:   14:            if (i >= j) break;
+        1:   15:            t = a[i];
+        1:   16:            a[i] = a[j];
+        1:   17:            a[j] = t;
+        -:   18:        }
+        3:   19:        t = a[k];
+        3:   20:        a[k] = a[j];
+        3:   21:        a[j] = t;
+        3:   22:        q_sort(a, left, j-1);
+        3:   23:        q_sort(a, j+1, right);
+        -:   24:    }
+        7:   25:}
+        -:   26:
+        4:   27:int visit(int *a, int i, int j)
+        -:   28:{
+        4:   29:    if (j>1 && (a[i] + 1) == a[i+1]) {
+        -:   30:        //printf("%d -> %d\n", a[i], a[i+1]);
+    #####:   31:        return visit(a, i+1, j-1);
+        4:   32:    } else if (j>1 && (a[i]) == a[i+1]) {
+        1:   33:        return visit(a, i+1, j);
+        -:   34:    }
+       3*:   35:    if (j == 1) return 1;
+        3:   36:    return 0;
+        -:   37:}
+        1:   38:int main(int argc, char *argv[])
+        -:   39:{
+        -:   40:    int a[1000];
+        -:   41:    int n;
+        -:   42:    int i, j;
+        -:   43:    
+        1:   44:    memset(a, 0, sizeof(a));
+        -:   45:
+        1:   46:    scanf("%d", &n);
+        6:   47:    for (i=0; i<n; i++)
+        5:   48:        scanf("%d", &a[i]);
+        -:   49:
+        1:   50:    i = 0;
+        1:   51:    q_sort(a, i, n-1);
+        -:   52:
+        -:   53:#if 0
+        -:   54:    for (i=0; i<n; i++)
+        -:   55:        printf("%d ", a[i]);
+        -:   56:    printf("\n");
+        -:   57:#endif
+        -:   58:
+        4:   59:    for (i=0; i<(n-2); i++) {
+        3:   60:        j = visit(a, i, 3);
+        3:   61:        if (j) {
+    #####:   62:            printf("Yes\n");
+    #####:   63:            return 0;
+        -:   64:        }
+        -:   65:    }
+        1:   66:    printf("No\n");
+        -:   67:
+        1:   68:    return 0;
+        -:   69:}

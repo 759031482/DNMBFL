@@ -1,0 +1,53 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1443/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1443/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1443/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:4
+        -:    1: long long int constant,i,j,n,temp,tmp;
+        -:    2: long long int c,start,count,L,R,mid,ans=0,tmpans=0,y,z;
+    #####:    3: long long int f(long long int x)
+        -:    4:{
+    #####:    5:    long long int y = 9, z = 0, ans = 0, i;
+        -:    6:    
+    #####:    7:    for (i = 1; ; i++) {
+    #####:    8:        if (x <= y) {
+    #####:    9:            ans += (x - z) * i;
+        -:   10:            
+    #####:   11:            break;
+        -:   12:        }
+        -:   13:        
+    #####:   14:        ans += (y - z) * i;
+        -:   15:        
+    #####:   16:        z = y;
+    #####:   17:        y = y * 10 + 9;
+        -:   18:    }
+        -:   19:    
+    #####:   20:    return ans;
+        -:   21:}
+        -:   22:#include<stdio.h>
+        -:   23:#include<math.h>
+        4:   24:int main(int argc, char *argv[]){
+        -:   25:
+        4:   26:scanf("%lld %lld %lld",&c,&start,&constant);
+        -:   27:
+        4:   28:c=c/constant+1;
+        4:   29:temp=log10(start)+1;
+        4:   30:if(temp>c-1){puts("0");return 0;}
+    #####:   31:L=0;R=10e16/constant+1;
+    #####:   32:tmpans=f(start-1);
+    #####:   33:c+=f(start-1);
+    #####:   34:while(R-L>1){
+        -:   35:
+    #####:   36:mid=(L+R)/2;
+    #####:   37:count=mid+start;
+        -:   38:
+    #####:   39:ans=f(count);
+    #####:   40:if(c>ans)
+    #####:   41:L=mid;
+        -:   42:else
+    #####:   43:R=mid;
+        -:   44:}
+        -:   45:
+    #####:   46:printf("%lld",L+1);
+        -:   47:
+    #####:   48:return 0;
+        -:   49:}

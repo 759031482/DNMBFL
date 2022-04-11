@@ -1,0 +1,67 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v898/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v898/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v898/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:
+        2:    3:int main(int argc, char *argv[])
+        -:    4:{
+        2:    5:    int n0, n1, i, diff, j=0;
+        2:    6:    scanf("%d %d", &n0, &n1);
+        -:    7:    int h;
+        2:    8:    h = (2*n0)+2;
+        2:    9:    if(n1>h){
+    #####:   10:        printf("-1");
+    #####:   11:        return 0;
+        -:   12:    }
+        2:   13:    h = n0-1;
+        2:   14:    if(n1<h){
+    #####:   15:        printf("-1");
+    #####:   16:        return 0;
+        -:   17:    }
+        2:   18:    int sum=n0+n1;
+        2:   19:    if(n1<n0){
+    #####:   20:        printf("0");
+    #####:   21:        for(i=0;i<sum-1;i+=2){
+    #####:   22:            printf("10");
+        -:   23:        }
+    #####:   24:        return 0;
+        -:   25:    }
+       2*:   26:    if(n1>(2*n0) || n1==(2*n0)){
+        2:   27:        diff = n1-n0;
+        -:   28:
+        2:   29:        if(n1==2*n0){
+    #####:   30:            for(i=0;i<n0;i++){
+    #####:   31:                printf("110");
+        -:   32:            }
+    #####:   33:            return 0;
+        -:   34:        }
+       2*:   35:        else if(diff%n0==1 || (n0==1 && diff==2)){
+    #####:   36:            for(i=0;i<n0;i++){
+    #####:   37:                printf("110");
+        -:   38:            }
+    #####:   39:            printf("1");
+    #####:   40:            return 0;
+        -:   41:        }
+       2*:   42:        else if(diff%n0==2 || (n0==1 && diff==3) || (n0==2 && diff==4)){
+        6:   43:            for(i=0;i<n0;i++){
+        4:   44:                printf("110");
+        -:   45:            }
+        2:   46:            printf("11");
+        2:   47:            return 0;
+        -:   48:        }
+        -:   49:    }
+    #####:   50:    else if(n1<(2*n0)){
+    #####:   51:        diff = n1%n0;
+    #####:   52:        for(i=0;i<diff;i++){
+    #####:   53:            printf("110");
+    #####:   54:            j+=3;
+        -:   55:        }
+    #####:   56:        sum = sum-j;
+    #####:   57:        for(i=0;i<sum;i+=2){
+    #####:   58:            printf("10");
+        -:   59:        }
+    #####:   60:        return 0;
+        -:   61:    }
+    #####:   62:    return 0;
+        -:   63:}

@@ -1,0 +1,21 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v938/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v938/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v938/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:long long int phi[2002];
+        2:    3:int main(int argc, char *argv[])
+        -:    4:{
+        2:    5:    int i,j,N=2000,n;
+     4002:    6:    for(i=1;i<=N;i++)
+     4000:    7:    phi[i]=i;
+     4000:    8:    for(i=2;i<=N;i++)
+        -:    9:    {
+     3998:   10:                     if(phi[i]==i)
+     9514:   11:                     for(j=i;j<=N;j=j+i)
+     8908:   12:                     phi[j]=(phi[j]/i)*(i-1);
+        -:   13:    }
+        2:   14:    scanf("%d",&n);
+        2:   15:    printf("%lld\n",phi[phi[n]]);
+        2:   16:    return 0;
+        -:   17:}

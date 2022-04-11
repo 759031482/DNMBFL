@@ -1,0 +1,32 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1686/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1686/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1686/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        1:    2:int main(int argc, char *argv[])
+        -:    3:{
+        1:    4:int a,b,x[500],y[500],i,j,t=1;
+        1:    5:scanf("%d %d",&a,&b);
+        1:    6:x[0]=0;
+      101:    7:for(i=1;i<=400;i+=4)
+      100:    8:{x[i]=t;
+      100:    9:x[i+1]=t;
+      100:   10:x[i+2]=-1*t;
+      100:   11:x[i+3]=-1*t;
+      100:   12:t++;}
+        1:   13:x[401]=101;
+        1:   14:t=1;
+        1:   15:y[0]=0;
+        1:   16:y[1]=0;
+      101:   17:for(i=2;i<=400;i+=4)
+      100:   18:{y[i]=t;
+      100:   19:y[i+1]=t;
+      100:   20:y[i+2]=-1*t;
+      100:   21:y[i+3]=-1*t;
+      100:   22:t++;}
+        3:   23:for(i=0;i<=400;i++)
+        3:   24:{if(((a>=x[i]&&b>=y[i])&&(a<=x[i+1]&&b<=y[i+1]))||((a>=x[i+1]&&b>=y[i+1])&&(a<=x[i]&&b<=y[i])))
+        1:   25:{j=i;
+        1:   26:break;}}
+        1:   27:printf("%d",j);
+        1:   28:return(0);}

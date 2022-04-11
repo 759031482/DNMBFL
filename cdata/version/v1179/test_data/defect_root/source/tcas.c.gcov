@@ -1,0 +1,48 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1179/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1179/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1179/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:6
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include <math.h>
+        -:    5:
+        6:    6:int main(int argc, char *argv[])
+        -:    7:{
+        -:    8:	double a, v, l, d, w;
+        -:    9:	double t, lv, lw, v2;
+        6:   10:	scanf("%lf%lf%lf%lf%lf", &a, &v, &l, &d, &w);
+        -:   11:
+        6:   12:	lv = v * v / a / 2;
+        6:   13:	lw = w * w / a / 2;
+        6:   14:	if (w >= v){
+    #####:   15:		if (l < lv) t = sqrt(2 * l / a);
+    #####:   16:		else t = v / a + (l - lv) / v;
+        -:   17:	}
+        -:   18:	else{
+        6:   19:		if (d < lw){
+    #####:   20:			t = sqrt(2 * d / a);
+    #####:   21:			v2 = a * t;
+        -:   22:		}
+        -:   23:		else{
+        6:   24:			if (d < 2 * lv - lw){
+    #####:   25:				t = w / a + 2 * (sqrt(w * w - a * (lw - d)) - w) / a;
+    #####:   26:				v2 = w;
+        -:   27:			}
+        -:   28:			else{
+        6:   29:				t = (2 * v - w) / a + (d - 2 * lv + lw) / v;
+        6:   30:				v2 = w;
+        -:   31:			}
+        -:   32:		}
+        6:   33:		lv = (v * v - v2 * v2) / a / 2;
+        6:   34:		d = l - d;
+        6:   35:		if (d < lv){
+    #####:   36:			t += (sqrt(v2 * v2 + 2 * a * d) - v2) / a;
+        -:   37:		}
+        -:   38:		else{
+        6:   39:			t += (v - v2) / a + (d - lv) / v;
+        -:   40:		}
+        -:   41:	}
+        6:   42:	printf("%lf\n", t);
+        6:   43:	return 0;
+        -:   44:}

@@ -1,0 +1,37 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1209/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1209/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1209/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:7
+        -:    1:#include<stdio.h>
+        7:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:    int a,b,x1,y,z,x;
+        7:    5:    scanf("%d%d",&a,&b);
+        7:    6:    if(b>a)
+    #####:    7:        printf("%d",b);
+        -:    8:    else
+        7:    9:    {   x1=a+1;
+        -:   10:        while(1)
+    19424:   11:        { x=x1;
+    19424:   12:          y=b;
+    86886:   13:          while(x>0)
+        -:   14:          {
+    79511:   15:              z=x%10;
+    79511:   16:              if(z==4||z==7)
+        -:   17:              {
+    25014:   18:                  if(z==y%10)
+    12965:   19:                  y=y/10;
+        -:   20:                  else
+    12049:   21:                  break;
+        -:   22:              }
+    67462:   23:              x=x/10;
+        -:   24:          }
+    19424:   25:          if(y==0 && x==0)
+        -:   26:          {
+        7:   27:              printf("%d",x1);
+        7:   28:              break;
+        -:   29:          }
+    19417:   30:          x1++;
+        -:   31:        }}
+        7:   32:        return(0);
+        -:   33:        }

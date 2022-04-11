@@ -1,0 +1,26 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1122/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1122/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1122/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:4
+        -:    1:#include <stdio.h>
+        -:    2:#include <math.h>
+        -:    3:
+        4:    4:int main(int argc, char *argv[]) {
+        -:    5:	long long a,b,c,d;
+        -:    6:	double x1,x2;
+        4:    7:	scanf("%lld %lld %lld\n",&a,&b,&c);
+        4:    8:	if (a) {
+        4:    9:		d=b*b-4*a*c;
+        4:   10:		if (d>0) {
+        4:   11:			x1=(-b-sqrt(d))/2/a;
+        4:   12:			x2=(-b+sqrt(d))/2/a;
+       4*:   13:			if (a>0) printf("2\n%lf\n%lf\n",x1,x2);
+        4:   14:			else printf("2\n%lf\n%lf\n",x2,x1);
+    #####:   15:		} else if (d==0) {
+    #####:   16:			printf("1\n%lf\n",-1.*b/2/a);
+    #####:   17:		} else printf("0\n");
+    #####:   18:	} else if (b) printf("1\n%lf\n",-1.*c/b);
+    #####:   19:	else if (c) printf("0\n");
+    #####:   20:	else printf("-1\n");
+        4:   21:	return 0;
+        -:   22:}

@@ -1,0 +1,18 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1091/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1091/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1091/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:7
+        -:    1:#include<stdio.h>
+        7:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:    long long x,y,n,ans;
+        7:    5:    scanf("%lld%lld%lld",&x,&y,&n);
+        7:    6:    int a[6]={x,y,y-x,-x,-y,x-y};
+        7:    7:    ans=a[(n-1)%6];
+        7:    8:    if(ans<0)ans=(ans%1000000007)+1000000007;
+        7:    9:    printf("%lld",ans%1000000007);
+        7:   10:    return 0;
+        -:   11:
+        -:   12:
+        -:   13:
+        -:   14:}

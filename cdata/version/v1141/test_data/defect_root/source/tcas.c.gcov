@@ -1,0 +1,43 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1141/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1141/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1141/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:5
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        -:    3:
+        5:    4:int main(int argc, char *argv[])
+        -:    5:{
+        5:    6:    int arr[1000] = {0};
+        5:    7:    int n, k, i, j, s = 0, s1 = 0;
+        -:    8:    char str[1000][1000];
+        5:    9:    scanf("%d %d", &n, &k);
+       25:   10:    for(i = 0; i < n; i++)
+       20:   11:        scanf("%s", str[i]);
+        -:   12:
+       13:   13:    for(i = 0; i <= k; i++)
+        8:   14:        arr[i] = i;
+        -:   15:
+       25:   16:    for(i = 0; i < n; i++)
+        -:   17:    {
+      118:   18:        for(j = 0; j < strlen(str[i]); j++)
+        -:   19:        {
+       98:   20:            if(str[i][j] - '0' < 0)
+    #####:   21:                break;
+        -:   22:            else
+       98:   23:                arr[str[i][j] - '0'] = -1;
+        -:   24:        }
+       58:   25:        for(j = 0; j <= k; j++)
+        -:   26:        {
+       38:   27:            if(arr[j] == -1)
+       33:   28:                s1++;
+       38:   29:            arr[j] = j;
+        -:   30:        }
+       20:   31:        if(s1 == k + 1)
+       16:   32:            s++;
+       20:   33:        s1 = 0;
+        -:   34:    }
+        -:   35:
+        5:   36:    printf("%d", s);
+        -:   37:
+        5:   38:    return 0;
+        -:   39:}

@@ -1,0 +1,49 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1725/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1725/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1725/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:6
+        -:    1:#include <stdio.h>
+        -:    2:
+        6:    3:int main(int argc, char *argv[])
+        -:    4:{
+        6:    5:	short x=0;
+        6:    6:	long long first,last,z=0;
+        -:    7:	
+        6:    8:	scanf("%lld",&first);
+        6:    9:	scanf("%lld",&last);
+        -:   10:
+        -:   11://    first=146;
+        -:   12://    last=1913781536;
+        -:   13:
+        6:   14:	z=first;	
+        6:   15:	if(last%first==0)
+        -:   16:	{
+       58:   17:		while(z<last)
+        -:   18:		{
+       52:   19:		z=z*first;
+       52:   20:		x++;
+        -:   21:		//printf("Z:%d\n",z);
+        -:   22:	}
+        6:   23:	if(z==last)
+        -:   24:	{
+    #####:   25:	printf("YES\n");
+    #####:   26:	printf("%hd",x);
+        -:   27:	}
+        -:   28:	else
+        6:   29:	printf("NO");
+        -:   30:	}
+        -:   31:	else
+    #####:   32:	printf("NO");
+        -:   33:	
+        -:   34:
+        -:   35:
+        -:   36:
+        -:   37:
+        -:   38:
+        -:   39:
+        6:   40:return 0;
+        -:   41:}
+        -:   42:		
+        -:   43:
+        -:   44:
+        -:   45:	

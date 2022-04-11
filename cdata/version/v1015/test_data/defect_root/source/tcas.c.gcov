@@ -1,0 +1,44 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1015/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        3:    3:int main(int argc, char *argv[])
+        -:    4:{
+        -:    5:    int i,j,k,l,a,b,m,n,x,z;
+        3:    6:    char st[1000],ar[19]="nineteen",c;
+        3:    7:    gets(st);
+        3:    8:    l=strlen(st);
+        3:    9:    ar[3]=0;a=0;b=0;ar[2]=0;ar[0]=0;ar[1]=0;
+       64:   10:    for(i=0;i<l;i++)
+        -:   11:    {
+       61:   12:        if(st[i]=='n')
+        -:   13:        {
+    #####:   14:            a++;
+    #####:   15:            if(a==2){
+    #####:   16:            ar[0]++;a=0;}
+        -:   17:        }
+       61:   18:        if(st[i]=='e')
+        3:   19:        {b++;
+        3:   20:        if(b==3){
+    #####:   21:        ar[1]++;
+    #####:   22:        b=0;}
+        -:   23:        }
+       61:   24:        if(st[i]=='i')
+        1:   25:        ar[2]++;
+       61:   26:        if(st[i]=='t')
+        7:   27:        ar[3]++;
+        -:   28:
+        -:   29:    }
+        3:   30:    if(a==0&&ar[0]>0)
+    #####:   31:    ar[0]--;
+        3:   32:    int min=105;
+       15:   33:    for(i=0;i<4;i++)
+        -:   34:    {
+       12:   35:        if(ar[i]<min)
+        3:   36:        min=ar[i];
+        -:   37:    }
+        3:   38:    printf("%d\n",min);
+        3:   39:    return 0;
+        -:   40:}

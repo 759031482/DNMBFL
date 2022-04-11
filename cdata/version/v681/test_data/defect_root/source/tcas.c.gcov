@@ -1,0 +1,44 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v681/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v681/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v681/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:
+    #####:    4:void printArray(int n,int k){
+    #####:    5:    int i,j,m=1;
+    #####:    6:    for(i=0;i<n;i++){
+    #####:    7:        for(j=0;j<n;j++){
+    #####:    8:            if((i+j)%2==0&&m<=k){
+    #####:    9:                printf("L");
+    #####:   10:                m++;
+        -:   11:            }
+        -:   12:            else{
+    #####:   13:                printf("S");
+        -:   14:            }
+        -:   15:        }
+    #####:   16:        printf("\n");
+        -:   17:    }
+    #####:   18:}
+        2:   19:int main(int argc, char *argv[])
+        -:   20:{
+        -:   21:    int n,k;
+        2:   22:    scanf("%d%d",&n,&k);
+        -:   23:
+        2:   24:    if(n%2==0){
+    #####:   25:        if(k>(n/2*n))printf("NO");
+        -:   26:        else{
+    #####:   27:            printf("YES\n");
+    #####:   28:            printArray(n,k);
+        -:   29:        }
+        -:   30:    }
+        -:   31:
+        2:   32:    else if(n%2==1){
+        2:   33:        if(k>(((n/2)*(n/2)+(n/2+1)*(n/2+1))))printf("NO");
+        -:   34:        else{
+    #####:   35:            printf("YES\n");
+    #####:   36:            printArray(n,k);
+        -:   37:        }
+        -:   38:    }
+        2:   39:    return 0;
+        -:   40:}

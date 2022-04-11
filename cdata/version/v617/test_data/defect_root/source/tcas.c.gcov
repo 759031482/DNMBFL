@@ -1,0 +1,51 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v617/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v617/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v617/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:4
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        4:    3:int main(int argc, char *argv[])
+        -:    4:{
+        -:    5:    int i, j, lena, lenb, ar[27], br[27];
+        -:    6:    char a[101], b[101];
+        4:    7:    scanf("%s %s", a, b);
+        4:    8:    lena=strlen(a);
+        4:    9:    lenb=strlen(b);
+      108:   10:    for(i=0; i<26; i++)
+        -:   11:    {
+      104:   12:        ar[i]=0;
+      104:   13:        br[i]=0;
+        -:   14:    }
+      218:   15:    for(i=0; i<lena; i++)
+      214:   16:        ar[a[i]-'a']++;
+      161:   17:    for(i=0; i<lenb; i++)
+      157:   18:        br[b[i]-'a']++;
+      108:   19:    for(i=0; i<26; i++)
+      104:   20:        if(ar[i]<br[i])
+        -:   21:        {
+    #####:   22:            printf("need tree\n");
+    #####:   23:            return 0;
+        -:   24:        }
+        4:   25:    if(lena==lenb)
+    #####:   26:        printf("array\n");
+        -:   27:    else
+        -:   28:    {
+        4:   29:        i=0, j=0;
+       65:   30:        while(i<lena && j<lenb)
+        -:   31:        {
+      218:   32:            while(a[i]==b[j] && i<lena && j<lenb)
+        -:   33:            {
+        -:   34:                //printf("equal at i=%d j=%d a[i]=%c b[j]=%c\n", i, j, a[i], b[j]);
+      157:   35:                i++;
+      157:   36:                j++;
+        -:   37:            }
+       61:   38:            i++;
+        -:   39:        }
+        -:   40:        //printf("j=%d\n", j);
+        4:   41:        if(j==lenb)
+        4:   42:            printf("automaton\n");
+        -:   43:        else
+    #####:   44:            printf("both\n");
+        -:   45:    }
+        4:   46:    return 0;
+        -:   47:}

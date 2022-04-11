@@ -1,0 +1,66 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v668/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v668/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v668/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:10
+        -:    1:#include<stdio.h>
+        -:    2:int che[1000000];
+   594524:    3:void mergesort(int arr[1000000],int t)
+        -:    4:{
+   594524:    5:	if(t<=1)
+   297267:    6:		return;
+   297257:    7:	mergesort(arr,t/2);
+   297257:    8:	mergesort(&arr[t/2],t-t/2);
+   297257:    9:	int i=0,j=t/2,k=0;
+  5141337:   10:	while(i<t)
+        -:   11:	{
+  4844080:   12:		if(j==t)
+        -:   13:		{
+     2006:   14:			che[i]=arr[k];
+     2006:   15:			k++;
+        -:   16:		}
+  4842074:   17:		else if(k==t/2 || arr[k]>arr[j])
+        -:   18:		{
+  2484549:   19:			che[i]=arr[j];
+  2484549:   20:			j++;
+        -:   21:		}
+        -:   22:		else 
+        -:   23:		{
+  2357525:   24:			che[i]=arr[k];
+  2357525:   25:			k++;
+        -:   26:		}
+  4844080:   27:		i++;
+        -:   28:	}
+   297257:   29:	i=0;
+  5141337:   30:	while(i<t)
+        -:   31:	{
+  4844080:   32:		arr[i]=che[i];
+  4844080:   33:		i++;
+        -:   34:	}
+        -:   35:}
+        -:   36:
+       10:   37:int main(int argc, char *argv[])
+        -:   38:{
+       10:   39:	int i,j,n,a,max1=0,max2=0,arr[100010];
+       10:   40:	scanf("%d",&n);
+   297277:   41:	for(i=0;i<n;i++)
+        -:   42:	{
+   297267:   43:		scanf("%d",&arr[i]);
+        -:   44:
+        -:   45:	}
+       10:   46:	mergesort(arr,n);
+       10:   47:	int flag=1;
+   297267:   48:	for(i=0;i<n-1;i++)
+        -:   49:	{
+   297257:   50:		if(arr[i]*2>arr[i+1] && arr[i]!=arr[i+1])
+        -:   51:		{
+    #####:   52:			flag=0;
+    #####:   53:			break;
+        -:   54:		}
+        -:   55:	}
+       10:   56:	if(flag==0)
+    #####:   57:		printf("YES\n");
+        -:   58:	else
+       10:   59:		printf("NO\n");
+        -:   60:
+       10:   61:	return 0;
+        -:   62:}

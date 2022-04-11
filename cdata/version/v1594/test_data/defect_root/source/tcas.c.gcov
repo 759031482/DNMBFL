@@ -1,0 +1,142 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1594/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1594/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1594/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:#include <stdlib.h>
+        -:    4:#include <math.h>
+        -:    5:#include <time.h>
+        -:    6:
+        -:    7:#define lli long long int
+        -:    8:#define MAX INT_MAX
+        -:    9:#define sd second
+        -:   10:#define fs first
+        -:   11:#define endll '\n'
+        -:   12:#define PI acos(-1)
+        -:   13:#define mp make_pair
+        -:   14:#define pb push_back
+        -:   15:#define best 1000000007
+        -:   16:#define FOR(i,a,b) for(int i=a;i<=b;i++)
+        -:   17:#define ROF(i,a,b) for(int i=a;i>b;i--)
+        -:   18:#define buyuk(a,b) (a<b)? b:a
+        -:   19:#define kucuk(a,b) (a<b)? a:b
+        -:   20:#define ort(a,b) (a+b)/2
+        -:   21:#define carp(a,b) (a)*(b)
+        -:   22:#define OKU scanf
+        -:   23:#define YAZ printf
+        -:   24:
+        2:   25:int main(int argc, char *argv[]) {
+        -:   26:	int i,j,k,l,u;
+        -:   27:	char arr[2];
+        2:   28:	scanf("%s",arr);
+        2:   29:	if(strlen(arr)==1){
+        2:   30:		if(arr[0]=='0')
+        2:   31:			printf("zero");
+        2:   32:		if(arr[0]=='1')
+    #####:   33:						printf("one");
+        2:   34:		if(arr[0]=='2')
+    #####:   35:			            printf("two");
+        2:   36:		if(arr[0]=='3')
+    #####:   37:			            printf("three");
+        2:   38:		if(arr[0]=='4')
+    #####:   39:			            printf("four");
+        2:   40:		if(arr[0]=='5')
+    #####:   41:			            printf("five");
+        2:   42:		if(arr[0]=='6')
+    #####:   43:			            printf("six");
+        2:   44:		if(arr[0]=='7')
+    #####:   45:			            printf("seven");
+        2:   46:		if(arr[0]=='8')
+    #####:   47:			            printf("eight");
+        2:   48:		if(arr[0]=='9')
+    #####:   49:			            printf("nine");
+        -:   50:}
+        2:   51:if(strlen(arr)==2){
+        -:   52:	if(arr[0]=='1' && arr[1]=='0'){
+        -:   53:		printf("ten");
+        -:   54:		return 0;
+        -:   55:	}
+        -:   56:	if(arr[0]=='1' && arr[1]=='1'){
+        -:   57:		        printf("eleven");
+        -:   58:				return 0;
+        -:   59:	}
+        -:   60:
+        -:   61:	if(arr[0]=='1' && arr[1]=='2'){
+        -:   62:		        printf("twelve");
+        -:   63:				return 0;
+        -:   64:	}
+        -:   65:
+        -:   66:	if(arr[0]=='1' && arr[1]=='3'){
+        -:   67:		        printf("thirteen");
+        -:   68:				return 0;
+        -:   69:	}
+        -:   70:
+        -:   71:	if(arr[0]=='1' && arr[1]=='4'){
+        -:   72:		        printf("fourteen");
+        -:   73:				return 0;
+        -:   74:	}
+        -:   75:
+        -:   76:	if(arr[0]=='1' && arr[1]=='5'){
+        -:   77:		        printf("fifteen");
+        -:   78:				return 0;
+        -:   79:	}
+        -:   80:
+        -:   81:	if(arr[0]=='1' && arr[1]=='6'){
+        -:   82:		        printf("sixteen");
+        -:   83:				return 0;
+        -:   84:	}
+        -:   85:
+        -:   86:	if(arr[0]=='1' && arr[1]=='7'){
+        -:   87:		        printf("seventeen");
+        -:   88:				return 0;
+        -:   89:	}
+        -:   90:
+        -:   91:	if(arr[0]=='1' && arr[1]=='8'){
+        -:   92:		        printf("eighteen");
+        -:   93:				return 0;
+        -:   94:	}
+        -:   95:
+        -:   96:	if(arr[0]=='1' && arr[1]=='9'){
+        -:   97:		        printf("nineteen");
+        -:   98:				return 0;
+        -:   99:}
+        -:  100:
+        -:  101:	if(arr[0]=='2')
+        -:  102:		printf("twenty");
+        -:  103:	if(arr[0]=='3')
+        -:  104:		printf("thirty");
+        -:  105:	if(arr[0]=='4')
+        -:  106:		printf("forty");
+        -:  107:	if(arr[0]=='5')
+        -:  108:		printf("fifty");
+        -:  109:	if(arr[0]=='6')
+        -:  110:		printf("sixty");
+        -:  111:	if(arr[0]=='7')
+        -:  112:		printf("seventy");
+        -:  113:	if(arr[0]=='8')
+        -:  114:		printf("eighty");
+        -:  115:	if(arr[0]=='9')
+        -:  116:		printf("ninety");
+        -:  117:	if(arr[1]=='1')
+        -:  118:		printf("-one");
+        -:  119:	if(arr[1]=='2')
+        -:  120:		printf("-two");
+        -:  121:	if(arr[1]=='3')
+        -:  122:		printf("-three");
+        -:  123:	if(arr[1]=='4')
+        -:  124:		printf("-four");
+        -:  125:	if(arr[1]=='5')
+        -:  126:		printf("-five");
+        -:  127:	if(arr[1]=='6')
+        -:  128:		printf("-six");
+        -:  129:	if(arr[1]=='7')
+        -:  130:		printf("-seven");
+        -:  131:	if(arr[1]=='8')
+        -:  132:		printf("-eight");
+        -:  133:	if(arr[1]=='9')
+        -:  134:		printf("-nine");
+        -:  135:
+        -:  136:
+        -:  137:}}
+        -:  138:

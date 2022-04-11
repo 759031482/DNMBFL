@@ -1,0 +1,23 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1428/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1428/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1428/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:int n,i,k,l,m;
+       2*:    3:void f(int a){printf("%c",(a||l>=k)?'S':'L');if(!a)l++;}
+        2:    4:int main(int argc, char *argv[])
+        -:    5:{
+        2:    6:	scanf("%d%d",&n,&k);
+       2*:    7:	if((n%2 && k>(n/2)*n+n/2+1)||(n%2==0 && k>n/2*n))
+    #####:    8:	{printf("NO");return 0;}
+        2:    9:	printf("YES\n");
+        4:   10:	for(i=1;i<=n*n;i++)
+        -:   11:	{
+        2:   12:		if(i%n==1||i==1)m=1;
+        2:   13:		if(i%(2*n)==1)m=!m;
+        2:   14:		f(m);
+        2:   15:		m=!m;
+        2:   16:		if(i%n==0)puts("");
+        -:   17:	}
+        2:   18:	return 0;
+        -:   19:}

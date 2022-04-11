@@ -1,0 +1,87 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1153/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1153/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1153/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:5
+        -:    1:#include <stdio.h>
+        -:    2:
+        5:    3:int main(int argc, char *argv[])
+        -:    4:{
+        -:    5:  int a1,b1,a2,b2,a3,b3,cusa1,cusb1,cusa2,cusb2;
+        5:    6:  scanf("%d %d",&a1,&b1);
+        5:    7:  scanf("%d %d",&a2,&b2);
+        5:    8:  scanf("%d %d",&a3,&b3);
+        5:    9:  cusa1=a2+a3;
+        5:   10:  cusb1=b2+b3;
+        5:   11:  cusa2=a2+b3;
+        5:   12:  cusb2=b2+a3;
+        5:   13:  int f=0;
+        5:   14:  if(cusa1<=a1)
+        -:   15:  {
+       1*:   16:    if(b2<=b1 && b3<=b1 && f==0)
+        -:   17:    {
+    #####:   18:      printf("YES");
+    #####:   19:      f=1;
+        -:   20:    }  
+        -:   21:  }
+        5:   22:  if(cusa1<=b1 && f==0)
+        -:   23:  {
+        1:   24:    if(b2<=a1 && b3<=a1)
+        -:   25:    {
+    #####:   26:      printf("YES");
+    #####:   27:      f=1;
+        -:   28:    }
+        -:   29:  }   
+       5*:   30:  if(cusb1<=a1 && f==0)
+        -:   31:  {
+    #####:   32:    if(a2<=b1 && a3<=b1)
+        -:   33:    {
+    #####:   34:      printf("YES");
+    #####:   35:      f=1;
+        -:   36:    }
+        -:   37:  }
+       5*:   38:  if(cusb1<=b1 && f==0)
+        -:   39:  {
+    #####:   40:    if(a2<=a1 && a3<=a1)
+        -:   41:    {
+    #####:   42:      printf("YES");
+    #####:   43:      f=1;
+        -:   44:    }
+        -:   45:  }
+       5*:   46:  if(cusa2<=a1 && f==0)
+        -:   47:  {
+    #####:   48:    if(a3<=b1 && b2<=b1)
+        -:   49:    {
+    #####:   50:      printf("YES");
+    #####:   51:      f=1;
+        -:   52:    }
+        -:   53:  }
+       5*:   54:  if(cusa2<=b1 && f==0)
+        -:   55:  {
+    #####:   56:    if(a3<=a1 && b2<=a1)
+        -:   57:    {
+    #####:   58:      printf("YES");
+    #####:   59:      f=1;
+        -:   60:    }
+        -:   61:  }
+        5:   62:  if(cusb2<=a1 && f==0)
+        -:   63:  {
+        1:   64:    if(a2<=b1 && b3<=b1)
+        -:   65:    {
+    #####:   66:      f=1;
+    #####:   67:      printf("YES");
+        -:   68:    }
+        -:   69:  }
+        5:   70:  if(cusb2<=b1 && f==0)
+        -:   71:  {
+        5:   72:    if(a2<=a1 && b3<=a1)
+        -:   73:    {
+    #####:   74:      f=1;
+    #####:   75:      printf("YES");
+        -:   76:    }
+        -:   77:  }
+        5:   78:  if(f==0)
+        -:   79:  {
+        5:   80:    printf("NO");
+        -:   81:  }
+        5:   82:  return 0;
+        -:   83:}

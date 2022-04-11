@@ -1,0 +1,70 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v889/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v889/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v889/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:7
+        -:    1:#include<stdio.h>
+        -:    2://#include<conio.h>
+        7:    3:int main(int argc, char *argv[])
+        -:    4:{
+        7:    5:    int n,p,a[200],ans=0,i,k=0,d=0,m=0,g=0,f=0;
+        7:    6:    scanf("%d%d",&n,&p);
+      428:    7:    for (i=1;i<=n;i++)
+        -:    8:    {
+      421:    9:        scanf("%d",&a[i]);
+        -:   10:    }
+        7:   11:    a[n+1]=2000;
+        7:   12:    a[0]=1000;
+        7:   13:    if (a[p]==1)
+        5:   14:        ans++;
+      145:   15:    for (i=1;i<=n;i++)
+        -:   16:    {
+     145*:   17:          if ((a[p+i]==2000)&&(a[p-i]==1000))
+        -:   18:        {
+    #####:   19:            break;
+        -:   20:        }
+      145:   21:        if (a[p-i]==a[p+i])
+        -:   22:        {
+       16:   23:            if (a[p-i]==1)
+        8:   24:             ans=ans+2;
+        -:   25:        }
+      145:   26:        if (a[p-i]==1000)
+        -:   27:        {
+        7:   28:            if (a[p+i]==1)
+        6:   29:                ans++;
+        7:   30:            k=1;
+        7:   31:            d=i+1;
+        7:   32:            break;
+        -:   33:        }
+      138:   34:        if (a[p+i]==2000)
+        -:   35:        {
+    #####:   36:            if (a[p-i]==1)
+    #####:   37:                ans++;
+    #####:   38:            g=2;
+    #####:   39:            m=i+1;
+    #####:   40:            break;
+        -:   41:        }
+        -:   42:
+        -:   43:    }
+        7:   44:    if (k==1)
+        -:   45:    {
+      145:   46:       for (i=d;i<=n;i++)
+        -:   47:       {
+      144:   48:           if (p+i>n+1)
+        6:   49:            break;
+      138:   50:           if (a[p+i]==1)
+      105:   51:            ans++;
+        -:   52:       }
+        -:   53:    }
+        7:   54:    if (g==2)
+        -:   55:    {
+    #####:   56:       for (i=m;i<=n;i++)
+        -:   57:       {
+    #####:   58:           if (p-i<0)
+    #####:   59:            break;
+    #####:   60:           if (a[p-i]==1)
+    #####:   61:            ans++;
+        -:   62:       }
+        -:   63:    }
+        7:   64:    printf("%d",ans);
+        7:   65:    return 0;
+        -:   66:}

@@ -1,0 +1,23 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1012/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:13
+        -:    1:#include <stdio.h>
+        -:    2:
+       13:    3:int main(int argc, char *argv[])
+        -:    4:{
+        -:    5:    char string[100];
+       13:    6:    gets(string);
+       13:    7:    int i=0;
+      172:    8:    while(string[i])
+        -:    9:    {
+      159:   10:        if(string[i]=='H'||string[i]=='Q'||string[i]=='9')
+        -:   11:        {
+    #####:   12:            printf("YES");
+    #####:   13:            return 0;
+        -:   14:        }
+      159:   15:        i++;
+        -:   16:    }
+       13:   17:    printf("NO");
+       13:   18:    return 0;
+        -:   19:}

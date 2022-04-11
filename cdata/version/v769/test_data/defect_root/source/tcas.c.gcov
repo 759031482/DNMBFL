@@ -1,0 +1,26 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v769/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v769/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v769/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include <stdio.h>
+        -:    2:int x,y,i,j,max;
+        -:    3:int A[150][150];
+        -:    4:int B[150];
+        3:    5:int main(int argc, char *argv[])
+        -:    6:{
+        3:    7:	scanf("%d %d",&x,&y);
+        7:    8:	for(i=1;i<=x;i++)
+        4:    9:		B[i]=1500000000;
+        7:   10:	for(i=1;i<=x;i++)
+        8:   11:		for(j=1;j<=y;j++)
+        -:   12:		{
+        4:   13:			scanf("%d",&A[i][j]);
+        4:   14:			if(A[i][j]<B[i])
+        4:   15:				B[i]=A[i][j];
+        -:   16:		}
+        7:   17:	for(i=1;i<=x;i++)
+        4:   18:		if(B[i]>=max)
+        4:   19:			max=B[i];
+        3:   20:	printf("%d",max);
+        3:   21:	return 0;
+        -:   22:}

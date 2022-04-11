@@ -1,0 +1,44 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1020/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1020/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1020/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:10
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+       10:    3:int main(int argc, char *argv[])
+       10:    4:{	int n,i,count=0;
+        -:    5:	char array[1000];
+       10:    6:	scanf("%d",&n);
+      410:    7:	for(i=0;i<=n;i++)
+        -:    8:	{
+      400:    9:		scanf("%c",&array[i]);
+        -:   10:	}
+        -:   11://	for(i=0;i<=n;i++)
+        -:   12://		printf("array[%d]:%c\n",i,array[i]);
+       10:   13:	if(n>1)
+        -:   14:	{
+      10*:   15:		if(n==2&&array[1]==array[2])
+    #####:   16:			printf("1\n");
+        -:   17:		else
+        -:   18:		{
+      380:   19:		for(i=1;i<n-1;i++)
+        -:   20:		{
+        -:   21://			printf("array[%d]=%c:array[%d]=%c\n",i,array[i],i+1,array[i+1]);
+      370:   22:			if(array[i]==array[i+1])
+        -:   23:			{	
+        -:   24://				printf("count--incremented\n");
+      181:   25:				count++;
+        -:   26:			}
+        -:   27:		}
+       10:   28:		if(array[n-1]==array[n])
+       10:   29:			count++;
+       10:   30:		if(count==n)
+    #####:   31:		printf("%d\n",count-1);
+        -:   32:		else
+       10:   33:		printf("%d\n",count);
+        -:   34:		}
+        -:   35:	}
+        -:   36:	else
+    #####:   37:		printf("0\n");
+       10:   38:	return 0;
+        -:   39:}
+        -:   40:

@@ -1,0 +1,31 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v752/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v752/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v752/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:21
+        -:    1:#include <stdio.h>
+        -:    2:int solve(int, int);
+        -:    3:
+       21:    4:int main(int argc, char *argv[])
+        -:    5:{
+        -:    6:	int n, m;
+       21:    7:	scanf("%d %d", &n, &m);
+       21:    8:	printf("%d\n", solve(n, m));
+       21:    9:	return 0;
+        -:   10:}
+       33:   11:int solve(int n, int m)
+        -:   12:{
+       33:   13:	if (n > m)
+       12:   14:		return solve(m, n);
+       21:   15:	if (n == 1)
+    #####:   16:		return n*m;
+        -:   17:	else
+       21:   18:		if (n == 2)
+       21:   19:			return 2*(2*(m / 4) + ((m % 4 > 2)? 2 : (m % 4)));
+        -:   20:		else
+    #####:   21:			if (n*m % 2)
+    #####:   22:				return n*m / 2 + 1;
+        -:   23:			else
+    #####:   24:				return n*m / 2;
+        -:   25:}
+        -:   26:
+        -:   27:	

@@ -1,0 +1,57 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1495/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1495/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1495/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        2:    2:int main(int argc, char *argv[]) {
+        2:    3:	long long int flag2[2005],ans1=0,ans2=0,rem,max,flag1,min=10000000000,i,j,k,l,n,m,hi,a[2005],flag[2005] = {0},h[2005];
+        2:    4:	scanf("%lld%lld",&n,&hi);
+       18:    5:	for(i=0;i<n;i++){
+       16:    6:		scanf("%lld%lld%lld",&flag[i],&h[i],&a[i]);
+       16:    7:		flag2[i] = flag[i];
+        -:    8:	}
+        -:    9:	int p;
+        2:   10:	flag1 = 0;
+        2:   11:	long long int re = hi;
+        6:   12:	for(i=0;i<n;i++) {
+        6:   13:		max = -1;
+       54:   14:		for(j=0;j<n;j++) {
+       48:   15:			if(flag[j] == flag1 && h[j] <= hi && a[j] > max) {
+        6:   16:				max = a[j];
+        6:   17:				rem = j;
+        -:   18:			}
+        -:   19:		}
+        6:   20:		if(max == -1)
+        2:   21:			break;
+        -:   22:		else {
+        4:   23:			ans1++;
+        4:   24:			hi += max;
+        4:   25:			flag[rem] = -1;
+        -:   26:		}
+        4:   27:		flag1 = (flag1 + 1)%2;
+        -:   28:	}
+        2:   29:	flag1 = 1;
+        2:   30:	hi = re;
+       2*:   31:	for(i=0;i<n;i++) {
+        2:   32:		max = -1;
+       18:   33:		for(j=0;j<n;j++) {
+      16*:   34:			if(flag2[j] == flag1 && h[j] <= hi && a[j] > max) {
+    #####:   35:				max = a[j];
+    #####:   36:				rem = j;
+        -:   37:			}
+        -:   38:		}
+        2:   39:		if(max == -1)
+        2:   40:			break;
+        -:   41:		else {
+    #####:   42:			ans2++;
+    #####:   43:			hi += max;
+    #####:   44:			flag2[rem] = -1;
+        -:   45:		}
+    #####:   46:		flag1 = (flag1 + 1)%2;
+        -:   47:	}
+        2:   48:	if(ans1 > ans2)
+        2:   49:		printf("%lld\n",ans1);
+        -:   50:	else
+    #####:   51:		printf("%lld\n",ans2);
+        2:   52:	return 0;
+        -:   53:}

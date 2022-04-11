@@ -1,0 +1,26 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v563/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v563/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v563/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:7
+        -:    1:#include<stdio.h>
+        7:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:    int i,a[4];
+        7:    5:    scanf("%d",&a[0]);
+        7:    6:    int c=1;
+        7:    7:    scanf("%d",&a[1]);
+        7:    8:    if(a[1]!=a[0]) c++;
+        7:    9:    scanf("%d",&a[2]);
+        7:   10:    if(a[2]!=a[0] && a[2]!=a[1]) c++;
+        7:   11:    scanf("%d",&a[3]);
+       7*:   12:    if(a[3]!=a[2] && a[3]!=a[1] && a[3]!=a[0]) c++;
+        -:   13:
+        -:   14:   // printf("%d\n\n",c);
+        -:   15:
+        -:   16:    //total c shoes different;
+        7:   17:    printf("%d\n",4-c); //have to buy 4-c shoes;
+        -:   18:
+        -:   19:
+        -:   20:    //another way to solve, try set.
+        7:   21:    return 0;
+        -:   22:}

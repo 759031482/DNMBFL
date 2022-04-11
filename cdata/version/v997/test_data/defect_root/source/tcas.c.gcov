@@ -1,0 +1,56 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v997/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v997/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v997/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:#define N 100000
+        2:    3:int main(int argc, char *argv[]) {
+        -:    4:	int n,k;
+        2:    5:	scanf("%d%d",&n,&k);
+        -:    6:	int a[2*N];
+        -:    7:	int i;
+        -:    8:	//把第k个数等值的值加到最后面
+        4:    9:	for(i=0;i<n;i++){
+        2:   10:		scanf("%d",&a[i]);
+        -:   11:	}
+        2:   12:	int j=k-1;
+        4:   13:	for(i=0;i<n;i++){
+        2:   14:		if(j==n){
+    #####:   15:			j=k-1;
+        -:   16:		}
+        2:   17:		a[n+i]=a[j];
+        2:   18:		j++;
+        -:   19:	}
+        -:   20:	/*
+        -:   21:	for(i=0;i<2*n;i++){
+        -:   22:		printf(" %d",a[i]);
+        -:   23:	}
+        -:   24:	printf("\n");
+        -:   25:	*/
+        2:   26:	int before=0;
+        2:   27:	int count=0;
+        2:   28:	int operation=-1;
+       2*:   29:	for(i=0;i<=2*n-2;i++){
+        2:   30:		if(a[i]==before){
+    #####:   31:			count++;
+    #####:   32:			if(count>=n){
+    #####:   33:				operation=i;
+    #####:   34:				break;
+        -:   35:			}
+        -:   36:		}else{
+        2:   37:			count=1;
+        2:   38:			if(count>=n){
+        2:   39:				operation=i;
+        2:   40:				break;
+        -:   41:			}
+        -:   42:		}
+    #####:   43:		before=a[i];
+        -:   44:	}
+        -:   45:	//printf("operation=%d\n",operation);
+        2:   46:	if(operation==-1){
+    #####:   47:		printf("-1\n");
+        -:   48:	}else{
+        2:   49:		printf("%d\n",operation-n+1);
+        -:   50:	}
+        2:   51:	return 0;
+        -:   52:}

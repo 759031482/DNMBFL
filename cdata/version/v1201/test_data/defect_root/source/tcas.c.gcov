@@ -1,0 +1,168 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1201/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1201/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1201/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:
+        2:    3:int main(int argc, char *argv[]){
+        -:    4:	int length,i;
+        2:    5:	scanf("%d", &length);
+        2:    6:	char str[length];
+        2:    7:	int arr[length];
+        2:    8:	scanf("%s", str);
+        -:    9:	int cards[3];
+        2:   10:	cards[0]=0;
+        2:   11:	cards[1]=0;
+        2:   12:	cards[2]=0;
+        -:   13:
+        6:   14:	for (i=0; i<length; i++){
+        4:   15:		if (str[i]=='R'){
+        2:   16:			cards[0]=cards[0]+1;
+        -:   17:		}
+        2:   18:	else if (str[i]=='G'){
+        2:   19:			cards[1]=cards[1]+1;
+        -:   20:		}
+    #####:   21:	else if (str[i]=='B'){
+    #####:   22:			cards[2]=cards[2]+1;
+        -:   23:		}}
+        -:   24:
+        2:   25:	if (cards[0]>0 && cards[1]>0 && cards[2]>0){
+    #####:   26:		printf("BGR");
+       2*:   27:		return 0;
+        -:   28:	}
+       2*:   29:	if(cards[0]==0 && cards[1]==0){
+    #####:   30:		printf("B");
+    #####:   31:		return 0;
+        -:   32:	}
+       2*:   33:	if(cards[0]==0 && cards[2]==0){
+    #####:   34:		printf("G");
+    #####:   35:		return 0;
+        -:   36:	}
+        2:   37:	if(cards[2]==0 && cards[1]==0){
+    #####:   38:		printf("R");
+    #####:   39:		return 0;
+        -:   40:	}
+        -:   41:
+        2:   42:	if(cards[0]==0){
+    #####:   43:		if(cards[1]>1 && cards[2]>1){
+    #####:   44:			printf("BGR");
+    #####:   45:			return 0;
+        -:   46:		}
+    #####:   47:		if(cards[1]==1 && cards[2]==1){
+    #####:   48:			printf("R");
+    #####:   49:			return 0;
+        -:   50:		}
+    #####:   51:		if(cards[1]==1){
+    #####:   52:			printf("GR");
+    #####:   53:			return 0;
+        -:   54:		}
+    #####:   55:		if(cards[2]==1){
+    #####:   56:			printf("BR");
+    #####:   57:			return 0;
+        -:   58:		}
+        -:   59:	}
+        -:   60:	
+        2:   61:	if(cards[1]==0){
+    #####:   62:		if(cards[0]>1 && cards[2]>1){
+    #####:   63:			printf("BGR");
+    #####:   64:			return 0;
+        -:   65:		}
+    #####:   66:		if(cards[0]==1 && cards[2]==1){
+    #####:   67:			printf("G");
+    #####:   68:			return 0;
+        -:   69:		}
+    #####:   70:		if(cards[0]==1){
+    #####:   71:			printf("GR");
+    #####:   72:			return 0;
+        -:   73:		}
+    #####:   74:		if(cards[2]==1){
+    #####:   75:			printf("BG");
+    #####:   76:			return 0;
+        -:   77:		}
+        -:   78:	}
+        2:   79:	if(cards[2]==0){
+       2*:   80:		if(cards[0]>1 && cards[1]>1){
+    #####:   81:			printf("BGR");
+    #####:   82:			return 0;
+        -:   83:		}
+        2:   84:		if(cards[0]==1 && cards[1]==1){
+        2:   85:			printf("B");
+        2:   86:			return 0;
+        -:   87:		}
+    #####:   88:		if(cards[0]==1){
+    #####:   89:			printf("BR");
+    #####:   90:			return 0;
+        -:   91:		}
+    #####:   92:		if(cards[1]==1){
+    #####:   93:			printf("BG");
+    #####:   94:			return 0;
+        -:   95:		}
+        -:   96:	}
+        -:   97:
+        -:   98:
+        -:   99:
+        -:  100:
+        -:  101:
+        -:  102:
+        -:  103:
+        -:  104://printf("the number of cards is as follows: %d R, %d G, %d B", cards[0], cards[1], cards[2]);
+        -:  105:}
+        -:  106:
+        -:  107:
+        -:  108:/*
+        -:  109:int* op1(int in[]){
+        -:  110:	if (in[0]<2){return 0;}
+        -:  111:	else {
+        -:  112:		in[0]=in[0]-1;
+        -:  113:		return in;
+        -:  114:	}
+        -:  115:}
+        -:  116:
+        -:  117:int* op2(int in[]){
+        -:  118:	if (in[1]<2){return 0;}
+        -:  119:	else {
+        -:  120:		in[1]=in[1]-1;
+        -:  121:		return in;
+        -:  122:	}
+        -:  123:}
+        -:  124:
+        -:  125:int* op3(int in[]){
+        -:  126:	if (in[2]<2){return 0;}
+        -:  127:	else {
+        -:  128:		in[2]=in[2]-1;
+        -:  129:		return in;
+        -:  130:	}
+        -:  131:}
+        -:  132:
+        -:  133:int* op4(int in[]){
+        -:  134:	if(in[1]<1 || in[2]<1){return 0;}
+        -:  135:	else{
+        -:  136:		in[0]=in[0]+1;
+        -:  137:		in[1]=in[1]-1;
+        -:  138:		in[2]=in[2]-1;
+        -:  139:		return in;
+        -:  140:	}
+        -:  141:}
+        -:  142:
+        -:  143:
+        -:  144:int* op5(int in[]){
+        -:  145:	if(in[0]<1 || in[2]<1){return 0;}
+        -:  146:	else{
+        -:  147:		in[1]=in[1]+1;
+        -:  148:		in[0]=in[0]-1;
+        -:  149:		in[2]=in[2]-1;
+        -:  150:		return in;
+        -:  151:	}
+        -:  152:}
+        -:  153:
+        -:  154:
+        -:  155:int* op6(int in[]){
+        -:  156:	if(in[1]<1 || in[0]<1){return 0;}
+        -:  157:	else{
+        -:  158:		in[2]=in[2]+1;
+        -:  159:		in[1]=in[1]-1;
+        -:  160:		in[0]=in[0]-1;
+        -:  161:		return in;
+        -:  162:	}
+        -:  163:}
+        -:  164:*/

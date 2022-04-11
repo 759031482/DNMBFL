@@ -1,0 +1,20 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1553/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1553/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1553/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        1:    2:int main(int argc, char *argv[])
+        -:    3:{
+        1:    4:    int i,a[4],x,y,min=10000;
+        5:    5:    for(i=0;i<4;++i)
+        -:    6:    {
+        4:    7:        scanf("%d",a+i);
+        4:    8:        if(min>a[i])
+        1:    9:            min=a[i];
+        -:   10:    }
+        1:   11:    scanf("%d%d",&x,&y);
+        1:   12:    if(min>y)
+    #####:   13:        min=y+1;
+        1:   14:    printf("%d",0>min-x?0:min-x);
+        1:   15:    return 0;
+        -:   16:}

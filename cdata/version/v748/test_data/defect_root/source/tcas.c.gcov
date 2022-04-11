@@ -1,0 +1,20 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v748/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v748/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v748/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:11
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:long long int mod=1000000007, f1, f2;
+        -:    4:
+       11:    5:int main(int argc, char *argv[])
+        -:    6:{
+        -:    7:    long long int n, ans;
+       11:    8:    scanf("%lld %lld %lld", &f1, &f2, &n);
+       11:    9:    int a[6]={f1, f2, f2-f1, -f1, -f2, f1-f2};
+       11:   10:    ans=a[(n-1)%6];
+       11:   11:    ans=ans%mod;
+       11:   12:    if(ans<0)
+        6:   13:        ans+=mod;
+       11:   14:    printf("%lld\n", ans);
+       11:   15:    return 0;
+        -:   16:}

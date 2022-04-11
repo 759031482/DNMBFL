@@ -1,0 +1,65 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1056/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1056/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1056/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:9
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:
+        9:    4:int main(int argc, char *argv[])
+        -:    5:{
+        -:    6:    char emails[201];
+        -:    7:    char out[300];
+        9:    8:    scanf("%s", emails);
+        9:    9:    int len = strlen(emails);
+        -:   10:    
+        9:   11:    if (emails[0] == '@')
+        -:   12:    {
+    #####:   13:        printf("No solution");
+    #####:   14:        return 0;
+        -:   15:    }
+        9:   16:    out[0] = emails[0];
+        -:   17:    
+        -:   18:    int i;
+        9:   19:    int at = 0;
+        9:   20:    int wrong = 0;
+        9:   21:    int after = 0;
+        9:   22:    int j = 1;
+      611:   23:    for (i = 1; i < len; i++)
+        -:   24:    {
+      602:   25:        if (emails[i] == '@')
+        -:   26:        {  
+    #####:   27:            if ((after < 2 && at == 1) || i == len-1)
+        -:   28:            {
+    #####:   29:                wrong = 1;
+    #####:   30:                break;
+        -:   31:            }
+    #####:   32:            out[j++] = '@';
+    #####:   33:            at = 1;
+    #####:   34:            after = 0;
+    #####:   35:            continue;
+        -:   36:        }
+     602*:   37:        if (emails[i+1] == '@' && at == 1)
+        -:   38:        {
+    #####:   39:            out[j++] = ',';
+        -:   40:
+        -:   41:        }
+      602:   42:        out[j++] = emails[i];
+        -:   43:
+      602:   44:        if (at == 1)
+        -:   45:        {
+    #####:   46:            after++;
+        -:   47:
+        -:   48:        }
+        -:   49:      
+        -:   50:    }
+        -:   51:    
+        9:   52:    if (wrong || at == 0)
+        9:   53:        printf("No solution");
+        -:   54:    
+        -:   55:    else
+        -:   56:    {
+    #####:   57:        out[j] = '\0';
+    #####:   58:        printf("%s", out);
+        -:   59:    }
+        9:   60:    return 0;
+        -:   61:}

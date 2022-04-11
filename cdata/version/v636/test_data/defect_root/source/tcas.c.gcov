@@ -1,0 +1,53 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v636/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v636/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v636/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+    #####:    3:void sor(int x)
+        -:    4:{
+        -:    5:    int f,i;
+    #####:    6:    f=x/5;
+    #####:    7:    if(f==0)
+        -:    8:    {
+    #####:    9:        printf("O-|");
+    #####:   10:        for(i=1;i<=x;i++)
+    #####:   11:            printf("O");
+    #####:   12:        printf("-");
+    #####:   13:        for(i=1;i<=(4-x);i++)
+    #####:   14:            printf("O");
+        -:   15:    }
+    #####:   16:    else if(f==1)
+        -:   17:    {
+    #####:   18:        x=x-5;
+    #####:   19:        printf("-O|");
+    #####:   20:        for(i=1;i<=x;i++)
+    #####:   21:            printf("O");
+    #####:   22:        printf("-");
+    #####:   23:        for(i=1;i<=(4-x);i++)
+    #####:   24:            printf("O");
+        -:   25:    }
+        -:   26:    else
+        -:   27:    {
+    #####:   28:        printf("-O|");
+    #####:   29:        printf("-");
+    #####:   30:        for(i=1;i<=4;i++)
+    #####:   31:            printf("O");
+        -:   32:    }
+    #####:   33:}
+        2:   34:int main(int argc, char *argv[])
+        -:   35:{
+        -:   36:    int n,z,x;
+        2:   37:    scanf("%d",&n);
+        2:   38:    z=n;
+        2:   39:    if(z==0)
+        2:   40:    {printf("O-|-OOOO");return 0;}
+    #####:   41:    while(z!=0)
+        -:   42:    {
+    #####:   43:        x=z%10;
+    #####:   44:        sor(x);
+    #####:   45:        printf("\n");
+    #####:   46:        z/=10;
+        -:   47:    }
+    #####:   48:    return 0;
+        -:   49:}

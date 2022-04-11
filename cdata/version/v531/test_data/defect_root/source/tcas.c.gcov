@@ -1,0 +1,60 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v531/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v531/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v531/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:#include<math.h>
+        -:    3:/*long long int po (int base,int p)
+        -:    4:{
+        -:    5:	long long int ans=1;
+        -:    6:	while(p)
+        -:    7:	{
+        -:    8:		if(p&1)
+        -:    9:		ans=ans*base;
+        -:   10:		base=base*base;
+        -:   11:		p=p/2;
+        -:   12:	}
+        -:   13:	return ans;
+        -:   14:}*/
+        2:   15:int main(int argc, char *argv[])
+        -:   16:{
+        2:   17:	long long int p,temp=1,i,j,count=0,b,ans=1;
+        2:   18:	scanf("%lld",&p);
+        -:   19://	printf("%lld\n",po(p,4));
+        2:   20:	if(p==2)
+        -:   21:	{
+        2:   22:		printf("1");
+        2:   23:		return 0;
+        -:   24:	}
+    #####:   25:	if(p==3)
+        -:   26:	{
+    #####:   27:		printf("1");
+    #####:   28:		return 0;
+        -:   29:	}
+    #####:   30:	if(p==5)
+        -:   31:	{
+    #####:   32:		printf("2");
+    #####:   33:		return 0;
+        -:   34:	}
+    #####:   35:	for(i=1;i<=p-1;i++)
+        -:   36:	{
+    #####:   37:		ans=1;	
+    #####:   38:		temp=1;
+    #####:   39:		for(j=1;j<=p-2;j++)
+        -:   40:		{
+    #####:   41:			ans=ans*i;
+    #####:   42:			ans=ans%p;
+    #####:   43:			if(ans==1)
+        -:   44:			{
+    #####:   45:				temp=0;
+    #####:   46:				break;
+        -:   47:			}
+        -:   48:		}
+    #####:   49:		ans=ans*i;
+    #####:   50:		ans=ans%p;
+    #####:   51:		if(ans==1 && temp==1)
+    #####:   52:		count++;
+        -:   53:	}
+    #####:   54:	printf("%lld",count);
+    #####:   55:	return 0;
+        -:   56:}

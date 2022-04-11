@@ -1,0 +1,33 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v742/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v742/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v742/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:6
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        -:    3:
+        6:    4:int main(int argc, char *argv[]){
+        6:    5:  char str[100002],c='a'-1,bet[32]="abcdefghijklmnopqrstuvwxyz";
+        -:    6:  int i,j,maxnum,l,count,start;
+        6:    7:  scanf("%s%*c",str);
+        6:    8:  l=strlen(str);
+        -:    9:  //printf("%c\n",c);
+      169:   10:  for(i=0;i<l;i++){
+      163:   11:    if(str[i]>c){
+       11:   12:      c=str[i];
+        -:   13:    }
+        -:   14:  }
+        6:   15:  start=0;
+        -:   16:  //printf("%c\n",c);
+      158:   17:  for(i=c-'a';i>=0;i--,c--){
+        -:   18:    //printf("%d\n",i);
+      152:   19:    count=0;
+     1271:   20:    for(j=start;j<l;j++) if(str[j]==bet[i]){
+       36:   21:	count++;
+       36:   22:	start=j;
+        -:   23:      }
+      188:   24:    for(j=0;j<count;j++) putchar(c);
+        -:   25:  }
+        6:   26:  putchar('\n');
+        6:   27:  return 0;
+        -:   28:}
+        -:   29:    

@@ -1,0 +1,65 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1697/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1697/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1697/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        1:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:    char str[9][9],i;
+        1:    5:    int count1=0,count2=0,j;
+        9:    6:    for(i=0;i<8;i++)
+        -:    7:    {
+        8:    8:        scanf("%s",str[i]);
+        -:    9:    }
+        9:   10:    for(i=0;i<8;i++)
+        -:   11:    {
+       72:   12:        for(j=0;j<8;j++)
+        -:   13:        {
+       64:   14:            if(str[i][j]=='q')
+        -:   15:            {
+       64:   16:                count1=count1+9;
+        -:   17:            }
+    #####:   18:            else if (str[i][j]=='r')
+        -:   19:            {
+    #####:   20:                count1=count1+5;
+        -:   21:            }
+    #####:   22:            else if (str[i][j]=='b' || str[i][j]=='n')
+        -:   23:            {
+    #####:   24:                count1=count1+3;
+        -:   25:            }
+    #####:   26:            else if (str[i][j]=='p')
+        -:   27:            {
+    #####:   28:                count1=count1+1;
+        -:   29:            }
+       64:   30:            if(str[i][j]=='Q')
+        -:   31:            {
+    #####:   32:                count2=count2+9;
+        -:   33:            }
+       64:   34:            else if (str[i][j]=='R')
+        -:   35:            {
+    #####:   36:                count2=count2+5;
+        -:   37:            }
+       64:   38:            else if (str[i][j]=='B' || str[i][j]=='N')
+        -:   39:            {
+    #####:   40:                count2=count2+3;
+        -:   41:            }
+       64:   42:            else if (str[i][j]=='P')
+        -:   43:            {
+    #####:   44:                count2=count2+1;
+        -:   45:            }
+        -:   46:        }
+        -:   47:    }
+        1:   48:    if(count1>count2)
+        -:   49:    {
+        1:   50:        printf("Black");
+        -:   51:    }
+    #####:   52:    else if(count1<count2)
+        -:   53:    {
+    #####:   54:        printf("White");
+        -:   55:    }
+    #####:   56:    else if (count1==count2)
+        -:   57:    {
+    #####:   58:        printf("Draw");
+        -:   59:    }
+        1:   60:return 0;
+        -:   61:}

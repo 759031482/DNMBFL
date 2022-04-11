@@ -1,0 +1,52 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1380/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1380/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1380/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:8
+        -:    1:#include <stdio.h>
+        -:    2:
+        8:    3:int main(int argc, char *argv[])
+        -:    4:{
+        8:    5:    int n;scanf("%d",&n);
+        -:    6:    int i,x;
+        -:    7:    int data[3000];
+        -:    8:    int j;
+        -:    9:    int temp;
+        8:   10:    int answer=0;
+        8:   11:    int shift=0;
+     3265:   12:    for(i=0;i<n;i++)
+        -:   13:    {
+     3257:   14:        scanf("%d",&x);data[i]=x;
+        -:   15:    }
+        -:   16:
+     3265:   17:    for(i=0;i<n;i++)
+        -:   18:    {
+  9012525:   19:        for(j=0;j<n-1;j++)
+        -:   20:        {
+  9009268:   21:            if(data[j]>data[j+1])
+        -:   22:            {
+   286545:   23:                temp=data[j];
+   286545:   24:                data[j]=data[j+1];
+   286545:   25:                data[j+1]=temp;
+        -:   26:            }
+        -:   27:        }
+        -:   28:    }
+        -:   29:    
+     3265:   30:    for(i=1;i<=n;i++)
+        -:   31:    {
+     3257:   32:        if(data[i-1]==i+shift)
+        -:   33:        {
+        -:   34:            ;
+        -:   35:        }
+     3233:   36:        else if(data[i-1]>i+shift)
+        -:   37:        {
+       26:   38:            int dif=data[i-1]-i-shift;
+       26:   39:            shift+=dif;
+        -:   40:        }
+     3207:   41:        else if(data[i-1]<i+shift)
+        -:   42:        {
+     3207:   43:            answer+=(i+shift-data[i-1]);
+        -:   44:        }
+        -:   45:    }
+        8:   46:    printf("%d",answer);
+        8:   47:    return 0;
+        -:   48:}

@@ -1,0 +1,119 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1051/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1051/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1051/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:8
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:#define INF 1010000000
+        -:    4:
+        -:    5:typedef struct {
+        -:    6:    int first, last;
+        -:    7:    int prev, next;
+        -:    8:} Rec;
+        -:    9:
+        -:   10:Rec rec[50000];
+        -:   11:int size;
+        -:   12:
+        -:   13:int a[100000];
+        -:   14:
+        8:   15:int main(int argc, char *argv[]) {
+        -:   16:    int i, j;
+        -:   17:    int n, k;
+        -:   18:
+        8:   19:    scanf("%d %d ", &n, &k);
+        -:   20:
+       63:   21:    for (i = 0; i < n; i++) {
+       55:   22:        int ch = getchar();
+       55:   23:        if (ch == '?') {
+       41:   24:            getchar();
+       41:   25:            a[i] = INF;
+        -:   26:        } else {
+       14:   27:            ungetc(ch, stdin);
+       14:   28:            scanf("%d ", a + i);
+        -:   29:        }
+        -:   30:    }
+        -:   31:
+       28:   32:    for (i = 0; i < k; i++) {
+        -:   33:        int mode;
+        -:   34:
+       20:   35:        size = mode = 0;
+       75:   36:        for (j = i; j < n; j += k)
+       55:   37:            if (a[j] == INF) {
+       41:   38:                if (!mode) {
+       20:   39:                    mode = 1;
+       20:   40:                    rec[size].first = j;
+       20:   41:                    rec[size].prev = j - k >= 0 ? a[j - k] : -INF;
+        -:   42:                }
+        -:   43:            } else
+       14:   44:                if (mode) {
+        4:   45:                    mode = 0;
+        -:   46:
+        4:   47:                    rec[size].last = j - k;
+        4:   48:                    rec[size].next = a[j];
+        -:   49:
+        4:   50:                    if (rec[size].prev >= rec[size].next) {
+    #####:   51:                        puts("Incorrect sequence");
+    #####:   52:                        return 0;
+        -:   53:                    }
+        -:   54:
+        4:   55:                    size++;
+        -:   56:                } else
+       10:   57:                    if (j - k >= 0)
+        6:   58:                        if (a[j - k] >= a[j]) {
+    #####:   59:                            puts("Incorrect sequence");
+    #####:   60:                            return 0;
+        -:   61:                        }
+        -:   62:
+       20:   63:        if (mode) {
+       16:   64:            rec[size].last = j - k;
+       16:   65:            rec[size].next = INF;
+        -:   66:
+       16:   67:            if (rec[size].prev >= rec[size].next) {
+    #####:   68:                puts("Incorrect sequence");
+    #####:   69:                return 0;
+        -:   70:            }
+        -:   71:
+       16:   72:            size++;
+        -:   73:        }
+        -:   74:
+       40:   75:        while (size) {
+       20:   76:            Rec r = rec[--size];
+       20:   77:            int num = (r.last - r.first) / k + 1;
+        -:   78:
+       20:   79:            if (r.next - r.prev - 1 < num) {
+    #####:   80:                puts("Incorrect sequence");
+    #####:   81:                return 0;
+        -:   82:            }
+        -:   83:
+       20:   84:            if (r.next <= 0) {
+        1:   85:                int tmp = 1;
+        2:   86:                for (j = r.last; j >= r.first; j -= k)
+        1:   87:                    a[j] = r.next - tmp++;
+       35:   88:            } else if (r.prev < 0 && r.next > 0) {
+        -:   89:                int tmp;
+       16:   90:                int left = -(num / 2), right = left + num - 1;
+        -:   91:
+       16:   92:                if (!(r.prev < left))
+    #####:   93:                    left = r.prev + 1;
+       16:   94:                else if (!(right < r.next)) {
+    #####:   95:                    right = r.next - 1;
+    #####:   96:                    left = right - num + 1;
+        -:   97:                }
+        -:   98:
+       16:   99:                tmp = 0;
+       52:  100:                for (j = r.first; j <= r.last; j += k)
+       36:  101:                    a[j] = left + tmp++;
+        -:  102:            } else {
+        3:  103:                int tmp = 1;
+        7:  104:                for (j = r.first; j <= r.last; j += k)
+        4:  105:                    a[j] = r.prev + tmp++;
+        -:  106:            }
+        -:  107:        }
+        -:  108:    }
+        -:  109:
+       63:  110:    for (i = 0; i < n; i++)
+       55:  111:        printf("%d ", a[i]);
+        -:  112:
+        -:  113:
+        8:  114:    return 0;
+        -:  115:}

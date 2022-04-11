@@ -1,0 +1,55 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1002/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:8
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:
+        8:    5:int main(int argc, char *argv[]) {
+        -:    6:    char map[403][403];
+        8:    7:    int x = 202;
+        8:    8:    int y = 202;
+        -:    9:    char c;
+        -:   10:
+        8:   11:    memset(map, 0, sizeof(map));
+        -:   12:
+        8:   13:    map[x][y] = 1;
+        -:   14:
+      179:   15:    while (scanf("%c", &c) && c != '\n') {
+      177:   16:        switch (c) {
+       28:   17:            case 'L':
+       28:   18:                --x;
+       28:   19:                break;
+       32:   20:            case 'R':
+       32:   21:                ++x;
+       32:   22:                break;
+       22:   23:            case 'U':
+       22:   24:                --y;
+       22:   25:                break;
+       95:   26:            case 'D':
+       95:   27:                ++y;
+       95:   28:                break;
+        -:   29:        }
+        -:   30:
+        -:   31:
+      177:   32:        if (map[x][y] ||
+      177:   33:                (c != 'L' && map[x + 1][y]) ||
+      177:   34:                (c != 'R' && map[x - 1][y]) ||
+      177:   35:                (c != 'U' && map[x][y + 1]) ||
+      177:   36:                (c != 'D' && map[x][y - 1])) 
+        6:   37:            goto error;
+        -:   38:
+      171:   39:        map[x][y] = 1;
+        -:   40:    }
+        -:   41:
+        2:   42:    puts("OK");
+        -:   43:
+        2:   44:    return 0;
+        -:   45:
+        6:   46:error:
+        -:   47:
+        6:   48:    puts("BUG");
+        -:   49:
+        6:   50:    return 0;
+        -:   51:}

@@ -1,0 +1,36 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v944/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v944/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v944/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:10
+        -:    1:#include <stdio.h>
+        -:    2:int n,m;
+        -:    3:long long k;
+ 97303909:    4:long long min(long long a,long long b)
+        -:    5:{
+ 97303909:    6:	return a<b?a:b;
+        -:    7:}
+      350:    8:long long cal(long long lim)
+        -:    9:{
+        -:   10:	int i;
+      350:   11:	long long ret = 0;
+ 97304259:   12:	for(i=1;i<=n;i++) ret += min(lim/i,m);
+      350:   13:	return ret;
+        -:   14:}
+       10:   15:long long work()
+        -:   16:{
+       10:   17:	long long head = 1,tail = (long long)n*m,mid;
+      360:   18:	while(head<tail)
+        -:   19:	{
+      350:   20:		mid = (head+tail)>>1;
+      350:   21:		if(cal(mid)>=k) tail = mid;
+      206:   22:		else head = mid+1;
+        -:   23:	}
+       10:   24:	return head;
+        -:   25:}
+       10:   26:int main(int argc, char *argv[])
+        -:   27:{
+        -:   28:	int i;
+       10:   29:	scanf("%d%d%lld",&n,&m,&k);
+       10:   30:	printf("%lld",work());
+       10:   31:	return 0;
+        -:   32:}

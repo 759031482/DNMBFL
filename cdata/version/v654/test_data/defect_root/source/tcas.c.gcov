@@ -1,0 +1,48 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v654/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v654/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v654/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include<stdio.h>
+        -:    2:int i=0,max=0,g,girl[1000],boy[1000],b,a,n,m,s;
+        3:    3:int maxy(int hallo,int kallo){
+        3:    4:	return (hallo>kallo) ? hallo : kallo; 
+        -:    5:}
+        3:    6:int main(int argc, char *argv[]) {
+        3:    7:	scanf("%d %d",&n,&m);
+        3:    8:	max=maxy(n,m);
+        3:    9:	scanf("%d",&b);
+        6:   10:	for(a=0;a<b;a++){
+        3:   11:		scanf("%d",&s);
+        3:   12:		boy[s]=1;
+        -:   13:	}
+        3:   14:	scanf("%d",&g);
+       3*:   15:	for(a=0;a<g;a++){
+    #####:   16:		scanf("%d",&s);
+    #####:   17:		girl[s]=1;
+        -:   18:	}
+    30006:   19:	for(i=0;i<=10000;i++){
+        -:   20:		//printf("%d %d : %d %d\n",i%n,i%m,boy[i%n],girl[i%m]);
+    30003:   21:		if(boy[i%n]==1||girl[i%m]==1){
+    22603:   22:			boy[i%n]=1;
+    22603:   23:			girl[i%m]=1;
+        -:   24:		}
+        -:   25:	}
+      203:   26:	for(a=0;a<n;a++){
+      200:   27:		if(boy[a]!=1){
+    #####:   28:			printf("No\n");
+    #####:   29:			return 0;
+        -:   30:		}
+        -:   31:		//printf("%d ",boy[a]);
+        -:   32:	}
+        -:   33:	//printf("\n");
+      200:   34:	for(a=0;a<m;a++){
+      197:   35:		if(girl[a]!=1){
+    #####:   36:			printf("No\n");
+    #####:   37:			return 0;
+        -:   38:		}
+        -:   39:		//printf("%d ",girl[a]);
+        -:   40:	}
+        3:   41:	printf("Yes\n");
+        3:   42:	scanf(" ");
+        3:   43:	return 0;
+        -:   44:}

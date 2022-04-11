@@ -1,0 +1,81 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1244/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1244/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1244/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:4
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:
+        4:    4:int main(int argc, char *argv[])
+        -:    5:{
+        4:    6:int n,speed,ram,hdd,ans=0,cost;
+        -:    7:int laptop[100][4];
+        4:    8:scanf("%d",&n);
+        4:    9:if(n==1){
+    #####:   10:    printf("1");
+    #####:   11:    return 0;
+        -:   12:}
+        4:   13:int outdated[100]={0};
+        -:   14:
+       74:   15:for(int i=0;i<n;i++)
+        -:   16:
+       70:   17:scanf("%d%d%d%d",&laptop[i][0],&laptop[i][1],&laptop[i][2],&laptop[i][3]);
+        -:   18:
+        4:   19:int m=0;
+       74:   20:for(int i=0;i<n;i++)
+        -:   21:{
+       70:   22:    m=0;
+      713:   23:    for(int j=1;j+i<=n-1;j++){
+      643:   24:m=0;
+     2572:   25:            for(int k=0;k<3;k++){
+     1929:   26:                if(laptop[i][k]<laptop[i+j][k])
+     1118:   27:                   m++;
+        -:   28:            }
+        -:   29:
+      643:   30:                   if(m==3)
+      121:   31:                      outdated[i]=1;
+        -:   32:    }
+        -:   33:
+        -:   34:
+        -:   35:}
+        -:   36:
+        -:   37:
+        -:   38:
+        -:   39:
+        -:   40:
+        -:   41:
+       74:   42:for(int i=n-1;i>=0;i--)
+        -:   43:{
+       70:   44:    m=0;
+      713:   45:    for(int j=1;i-j>=0;j++){
+      643:   46:m=0;
+     2572:   47:            for(int k=0;k<3;k++){
+     1929:   48:                if(laptop[i][k]<laptop[i-j][k])
+      806:   49:                   m++;
+        -:   50:            }
+        -:   51:
+      643:   52:                   if(m==3)
+       50:   53:                      outdated[i]=1;
+        -:   54:    }
+        -:   55:
+        -:   56:
+        -:   57:}
+        -:   58:
+        -:   59:
+        -:   60:
+        -:   61:
+        -:   62:
+        -:   63:
+        -:   64:
+        -:   65:
+        4:   66:int cheapest=1000;
+        -:   67:
+        -:   68:
+       74:   69:for(int i=0;i<n;i++)
+       70:   70:    if(outdated[i]!=1 && laptop[i][3]<cheapest){
+        8:   71:        cheapest=laptop[i][3];
+        8:   72:        ans=i+1;
+        -:   73:    }
+        -:   74:
+        4:   75:printf("%d",ans);
+        4:   76:return 0;
+        -:   77:}

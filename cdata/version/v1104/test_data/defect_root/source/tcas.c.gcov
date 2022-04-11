@@ -1,0 +1,22 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1104/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1104/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1104/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        -:    3:
+        2:    4:int main(int argc, char *argv[])
+        -:    5:{
+        -:    6:    int i;
+        2:    7:    scanf("%d",&i);
+        2:    8:    switch(i)
+        -:    9:    {
+    #####:   10:        case 1: printf("2");break;
+    #####:   11:        case 2: printf("3");break;
+    #####:   12:        case 3: printf("1");break;
+    #####:   13:        case 4: printf("2");break;
+        2:   14:        case 5: printf("1");break;
+        -:   15:
+        -:   16:    }
+        2:   17:    return 0;
+        -:   18:       }

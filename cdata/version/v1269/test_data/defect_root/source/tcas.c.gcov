@@ -1,0 +1,41 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1269/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1269/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1269/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:
+        2:    4:int main(int argc, char *argv[]){
+        2:    5:	int n,d,t[100]={0},i,j,sum=0;
+        2:    6:	scanf("%d %d",&n,&d);
+        4:    7:	for(i=0;i<n;i++){
+        2:    8:		scanf("%d",&t[i]);
+        -:    9:	}
+        -:   10:
+        4:   11:	for(i=0;i<n;i++){
+        2:   12:		sum+=t[i];
+        -:   13:	}
+        -:   14:
+        -:   15:	//printf("sum = %d\n",sum);
+        -:   16:	
+        2:   17:	j=(n-1)*2;
+        2:   18:	sum+=(n-1)*10;
+        -:   19:	//printf("j : %d \t sum : %d\n",j,sum);
+        -:   20:
+        2:   21:	if(sum<d-4){
+        -:   22:		do{
+    #####:   23:			++j;
+    #####:   24:			sum+=5;
+        -:   25:		}
+    #####:   26:		while(sum<d-4);
+        -:   27:		//printf("sum = %d\n",sum);
+        -:   28:	}
+        -:   29:	//printf("sum = %d\n",sum);
+        2:   30:	else if(sum>d){
+    #####:   31:		printf("-1\n");
+    #####:   32:		exit(0);
+        -:   33:	}
+        2:   34:	printf("%d\n",j);
+        2:   35:	return 0;
+        -:   36:
+        -:   37:}

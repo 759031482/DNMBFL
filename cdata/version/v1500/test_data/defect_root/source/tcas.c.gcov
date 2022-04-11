@@ -1,0 +1,17 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1500/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1500/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1500/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:7
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:#define MIN(a,b) (a<b?a:b)
+        -:    4:
+        7:    5:int main(int argc, char *argv[]) {
+        -:    6:    int n,m;
+        7:    7:    char* players[2] = { "Akshat", "Malvika" };
+        7:    8:    scanf("%d %d", &n, &m);
+        -:    9:
+        7:   10:    printf("%s", players[!!!(MIN(n,m)%2)]);
+        -:   11:
+        7:   12:    return 0;
+        -:   13:}

@@ -1,0 +1,200 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v811/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v811/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v811/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:4
+        -:    1:#include <stdio.h>
+        -:    2:#include <math.h>
+        -:    3:
+        4:    4:void printTop(int n, int p, int ii) {
+        -:    5:	int i, j;
+        -:    6:
+        4:    7:	printf("%d\n", n);
+        -:    8:
+        8:    9:	for(i=0; i<p; i++) {
+       22:   10:		for(j=0; j<n; j++) {
+       18:   11:			printf("%c", 'A'+ii);
+        -:   12:		}
+        4:   13:		printf("\n");
+        -:   14:	}
+        4:   15:}
+        -:   16:
+        4:   17:int main(int argc, char *argv[]) {
+        4:   18:	int x[3], y[3], area, rt, max, i, j, p, a = -1, b, c, d, u, v;
+        -:   19:
+        4:   20:	scanf("%d%d%d%d%d%d", &x[0], &y[0], &x[1], &y[1], &x[2], &y[2]);
+        -:   21:
+        4:   22:	area = x[0]*y[0] + x[1]*y[1] + x[2]*y[2];
+        4:   23:	rt = sqrt(area);
+        -:   24:
+        4:   25:	if(rt * rt == area) {
+        -:   26:		//printf("%d\n", rt);
+        4:   27:		max = 0;
+       16:   28:		for(i=0; i<3; i++) {
+       12:   29:			if(x[i] > max) {
+        4:   30:				max = x[i];
+        4:   31:				j = i;
+        -:   32:			}
+       12:   33:			if(y[i] > max) {
+        1:   34:				max = y[i];
+        1:   35:				j = i;
+        -:   36:			}
+        -:   37:		}
+        -:   38:
+        4:   39:		if(rt == max) {
+        4:   40:			if(x[j] != rt) {
+        1:   41:				p = rt - x[j];
+        -:   42:			} else {
+        3:   43:				p = rt - y[j];
+        -:   44:			}
+        -:   45:
+       16:   46:			for(i=0; i<3; i++) {
+       12:   47:				if(i != j) {
+        8:   48:					if(a == -1) {
+        4:   49:						a = x[i];
+        4:   50:						b = y[i];
+        4:   51:						u = i;
+        -:   52:					} else {
+        4:   53:						c = x[i];
+        4:   54:						d = y[i];
+        4:   55:						v = i;
+        -:   56:					}
+        -:   57:				}
+        -:   58:			}
+        4:   59:			if(a == p) {
+    #####:   60:				if(c == p && b+d == rt) {
+        -:   61:					//
+    #####:   62:					printTop(rt, rt-p, j);
+    #####:   63:					for(i=0; i<p; i++) {
+    #####:   64:						for(j=0; j<b; j++) {
+    #####:   65:							printf("%c", 'A'+u);
+        -:   66:						}
+    #####:   67:						for(j=0; j<d; j++) {
+    #####:   68:							printf("%c", 'A'+v);
+        -:   69:						}
+    #####:   70:						printf("\n");
+        -:   71:					}
+    #####:   72:				} else if(d == p && b+c == rt) {
+        -:   73:					//
+    #####:   74:					printTop(rt, rt-p, j);
+    #####:   75:					for(i=0; i<p; i++) {
+    #####:   76:						for(j=0; j<b; j++) {
+    #####:   77:							printf("%c", 'A'+u);
+        -:   78:						}
+    #####:   79:						for(j=0; j<c; j++) {
+    #####:   80:							printf("%c", 'A'+v);
+        -:   81:						}
+    #####:   82:						printf("\n");
+        -:   83:					}
+        -:   84:				} else {
+    #####:   85:					printf("-1\n");
+        -:   86:				}
+        4:   87:			} else if(b == p) {
+    #####:   88:				if(c == p && a+d == rt) {
+        -:   89:					//
+    #####:   90:					printTop(rt, rt-p, j);
+    #####:   91:					for(i=0; i<p; i++) {
+    #####:   92:						for(j=0; j<a; j++) {
+    #####:   93:							printf("%c", 'A'+u);
+        -:   94:						}
+    #####:   95:						for(j=0; j<d; j++) {
+    #####:   96:							printf("%c", 'A'+v);
+        -:   97:						}
+    #####:   98:						printf("\n");
+        -:   99:					}
+    #####:  100:				} else if(d == p && a+c == rt) {
+        -:  101:					//
+    #####:  102:					printTop(rt, rt-p, j);
+    #####:  103:					for(i=0; i<p; i++) {
+    #####:  104:						for(j=0; j<a; j++) {
+    #####:  105:							printf("%c", 'A'+u);
+        -:  106:						}
+    #####:  107:						for(j=0; j<c; j++) {
+    #####:  108:							printf("%c", 'A'+v);
+        -:  109:						}
+    #####:  110:						printf("\n");
+        -:  111:					}
+        -:  112:				} else {
+    #####:  113:					printf("-1\n");
+        -:  114:				}
+        4:  115:			} else if(a == rt) {
+    #####:  116:				if(c == rt && b+d == p) {
+        -:  117:					//
+    #####:  118:					printTop(rt, rt-p, j);
+    #####:  119:					for(i=0; i<b; i++) {
+    #####:  120:						for(j=0; j<rt; j++) {
+    #####:  121:							printf("%c", 'A'+u);
+        -:  122:						}
+    #####:  123:						printf("\n");
+        -:  124:					}
+    #####:  125:					for(i=0; i<d; i++) {
+    #####:  126:						for(j=0; j<rt; j++) {
+    #####:  127:							printf("%c", 'A'+v);
+        -:  128:						}
+    #####:  129:						printf("\n");
+        -:  130:					}
+    #####:  131:				} else if(d == rt && b+c == p) {
+        -:  132:					//
+    #####:  133:					printTop(rt, rt-p, j);
+    #####:  134:					for(i=0; i<b; i++) {
+    #####:  135:						for(j=0; j<rt; j++) {
+    #####:  136:							printf("%c", 'A'+u);
+        -:  137:						}
+    #####:  138:						printf("\n");
+        -:  139:					}
+    #####:  140:					for(i=0; i<c; i++) {
+    #####:  141:						for(j=0; j<rt; j++) {
+    #####:  142:							printf("%c", 'A'+v);
+        -:  143:						}
+    #####:  144:						printf("\n");
+        -:  145:					}
+        -:  146:				} else {
+    #####:  147:					printf("-1\n");
+        -:  148:				}
+        4:  149:			} else if(b == rt) {
+        4:  150:				if(c == rt && a+d == p) {
+        -:  151:					//
+        4:  152:					printTop(rt, rt-p, j);
+       11:  153:					for(i=0; i<a; i++) {
+       40:  154:						for(j=0; j<rt; j++) {
+       33:  155:							printf("%c", 'A'+u);
+        -:  156:						}
+        7:  157:						printf("\n");
+        -:  158:					}
+       11:  159:					for(i=0; i<d; i++) {
+       40:  160:						for(j=0; j<rt; j++) {
+       33:  161:							printf("%c", 'A'+v);
+        -:  162:						}
+        7:  163:						printf("\n");
+        -:  164:					}
+    #####:  165:				} else if(d == rt && a+c == p) {
+        -:  166:					//
+    #####:  167:					printTop(rt, rt-p, j);
+    #####:  168:					for(i=0; i<a; i++) {
+    #####:  169:						for(j=0; j<rt; j++) {
+    #####:  170:							printf("%c", 'A'+u);
+        -:  171:						}
+    #####:  172:						printf("\n");
+        -:  173:					}
+    #####:  174:					for(i=0; i<c; i++) {
+    #####:  175:						for(j=0; j<rt; j++) {
+    #####:  176:							printf("%c", 'A'+v);
+        -:  177:						}
+    #####:  178:						printf("\n");
+        -:  179:					}
+        -:  180:				} else {
+    #####:  181:					printf("-1\n");
+        -:  182:				}
+        -:  183:			}  else {
+    #####:  184:				printf("-1\n");
+        -:  185:			}
+        -:  186:		} else {
+    #####:  187:			printf("-1\n");
+        -:  188:		}
+        -:  189:	} else {
+    #####:  190:		printf("-1\n");
+        -:  191:	}
+        -:  192:
+        -:  193:
+        -:  194:
+        4:  195:	return 0;
+        -:  196:}

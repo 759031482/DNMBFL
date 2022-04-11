@@ -1,0 +1,22 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1024/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1024/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1024/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:4
+        -:    1:#include<stdio.h>
+        4:    2:int main(int argc, char *argv[])
+        -:    3:{
+        4:    4:	char ch,a[1007];int i=1;
+        4:    5:	a[0]='0';
+        4:    6:	scanf("%c",&ch);
+      110:    7:	while(ch!='\n'){
+      106:    8:		if((ch=='/')&&a[i-1]=='/');
+        4:    9:		else a[i++]=ch;
+      106:   10:		scanf("%c",&ch);
+        -:   11:	}
+        4:   12:	a[i]='\0';
+        4:   13:	i--;
+       4*:   14:	while((a[i]=='/')&&i!=1)i--;
+        4:   15:	a[i+1]='\0';
+        8:   16:	for(i=1;a[i]!='\0';++i)printf("%c",a[i]);
+        4:   17:	return 0;
+        -:   18:}

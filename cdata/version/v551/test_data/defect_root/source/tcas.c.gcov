@@ -1,0 +1,43 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v551/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v551/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v551/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:6
+        -:    1:#include<stdio.h>
+        -:    2:int i,x,y,a,n,m,erkek[5000],kiz[5000];
+      671:    3:int knt(){
+        -:    4:	int i;
+     6654:    5:	for(i=0;i<n;i++)
+     6567:    6:		if(!erkek[i])
+      584:    7:			return 0;
+        -:    8:
+     1612:    9:	for(i=0;i<m;i++)
+     1606:   10:		if(!kiz[i])
+       81:   11:			return 0;
+        -:   12:	
+        6:   13:	return 1;
+        -:   14:}
+        6:   15:int main(int argc, char *argv[]){
+        6:   16:	scanf("%d %d",&n,&m);
+        6:   17:	scanf("%d",&x);
+        9:   18:	for(i=1;i<=x;i++){
+        3:   19:		scanf("%d",&a);
+        3:   20:		erkek[a]=1;
+        -:   21:	}
+        6:   22:	scanf("%d",&y);
+        9:   23:	for(i=1;i<=y;i++){
+        3:   24:		scanf("%d",&a);
+        3:   25:		kiz[a]=1;
+        -:   26:	}
+      671:   27:	for(i=0;i<=2*m*n;i++){
+      671:   28:		if(erkek[i%n] || kiz[i%m])
+      342:   29:			erkek[i%n] = kiz[i%m] = 1;
+        -:   30:		
+        -:   31:		
+      671:   32:		if(knt()){
+        6:   33:			puts("Yes");
+        6:   34:			return 0;
+        -:   35:		}
+        -:   36:	}
+    #####:   37:	puts("No");
+    #####:   38:return 0;
+        -:   39:}

@@ -1,0 +1,62 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1529/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1529/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1529/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:#include <math.h>
+        -:    4:#include <stdlib.h>
+        -:    5:
+        2:    6:int main(int argc, char *argv[])
+        -:    7:{
+        -:    8:    int n,bank[105],pile,i,j,block;
+        -:    9:
+        4:   10:    while(scanf("%d",&n)!=EOF)
+        -:   11:    {
+      204:   12:        for(i=0;i<=100;i++)
+      202:   13:            bank[i]=0;
+        -:   14:
+      202:   15:        for(i=0;i<n;i++)
+        -:   16:        {
+      200:   17:            scanf("%d",&j);
+      200:   18:            bank[j]++;
+        -:   19:        }
+        -:   20:
+        2:   21:        pile=0;
+        2:   22:        block=n;
+        -:   23:
+        4:   24:        while(block>0)
+        -:   25:        {
+      204:   26:            for(i=100;i>=0;i--)
+        -:   27:            {
+      202:   28:                if(bank[i]>0)
+        -:   29:                {
+        -:   30:                //    printf("%d\t%d\n",pile,i);
+        2:   31:                    bank[i]--;
+        2:   32:                    block--;
+        -:   33:                }
+        -:   34:                else
+        -:   35:                {
+    10302:   36:                    for(j=i;j<=100;j++)
+        -:   37:                    {
+    10300:   38:                        if(bank[j]>0)
+        -:   39:                        {
+        -:   40:
+        -:   41:                  //  printf("%d\t%d\t%d\n",pile,i,j);
+      198:   42:                            bank[j]--;
+      198:   43:                            block--;
+      198:   44:                            break;
+        -:   45:                        }
+        -:   46:                    }
+        -:   47:                }
+        -:   48:            }
+        2:   49:            pile++;
+        -:   50:        }
+        2:   51:        printf("%d\n",pile);
+        -:   52:    }
+        -:   53:
+        -:   54:
+        -:   55:
+        2:   56:  return 0;
+        -:   57:}
+        -:   58:

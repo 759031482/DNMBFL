@@ -1,0 +1,49 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v892/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v892/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v892/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include <stdio.h>
+        -:    2:
+        3:    3:int main(int argc, char *argv[])
+        -:    4:{
+        -:    5:  int m,n,r,i,flag,c;
+        3:    6:  flag = c = 0;
+        -:    7:
+        3:    8:    scanf("%i",&n);
+        3:    9:    getchar();
+        3:   10:    scanf("%i",&m);
+        3:   11:    getchar();
+        -:   12:
+        3:   13:  r = n;
+        -:   14:
+        3:   15:  if(n >= m)
+        -:   16:  {
+        -:   17:    while(1)
+        -:   18:    {
+        9:   19:      if(r >= 2)
+        -:   20:      {
+        6:   21:        r -= 2;
+        6:   22:        c++;
+        -:   23:      }
+        -:   24:      else
+        -:   25:      {
+        3:   26:        if(r != 0)
+        1:   27:          c++;
+        3:   28:        break;
+        -:   29:      }
+        -:   30:    }
+        -:   31:
+        9:   32:    for(i = 0; i < n; i++)
+        -:   33:    {
+        9:   34:      if((c % m) == 0)
+        3:   35:        break;
+        -:   36:      else
+        6:   37:        c++;
+        -:   38:    }
+        3:   39:    printf("%i\n",c);
+        -:   40:  }
+        -:   41:  else
+    #####:   42:    printf("%i\n",-1);
+        -:   43:
+        3:   44:  return 0;
+        -:   45:}

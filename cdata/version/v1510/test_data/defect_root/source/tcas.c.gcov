@@ -1,0 +1,27 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1510/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1510/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1510/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:14
+        -:    1:#include <stdio.h>
+        -:    2:#include <math.h>
+        -:    3:
+       14:    4:int main(int argc, char *argv[])
+        -:    5:{
+        -:    6:	long long q, p, i, j;
+       14:    7:	scanf("%lld", &q);
+    23772:    8:	for (i = 2LL; i <= sqrt(q); ++i)
+    23772:    9:		if (q % i == 0LL)
+        -:   10:		{
+       14:   11:			p = q / i;
+    29139:   12:			for (j = 2LL; j <= sqrt(p); ++j)
+    29139:   13:				if (p % j == 0LL)
+        -:   14:				{
+       14:   15:					printf("1\n%lld\n", i * j);
+       14:   16:					return 0;
+        -:   17:				}
+    #####:   18:			puts("2");
+    #####:   19:			return 0;
+        -:   20:		}
+    #####:   21:	puts("1\n0");
+    #####:   22:	return 0;
+        -:   23:}

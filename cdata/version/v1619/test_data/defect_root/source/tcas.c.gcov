@@ -1,0 +1,41 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1619/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1619/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1619/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include <assert.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include <stdio.h>
+        -:    5:#include <math.h>
+        -:    6:
+        -:    7:#define ARRAY_SIZEOF(a) (sizeof(a) / sizeof(a[0]))
+        -:    8:#define ZERO(p, n)      memset(p, 0, n);
+        -:    9:
+        -:   10:typedef long long int lli;
+        -:   11:
+        1:   12:int main(int argc, char *argv[])
+        -:   13:{
+        -:   14:    // freopen("in", "r", stdin);
+        -:   15:    int n, i, xs[201];
+        1:   16:    scanf("%d", &n);
+        1:   17:    int xs_n = 2 * n - 1;
+        8:   18:    for (i = 0; i < xs_n; i++) {
+        7:   19:        scanf("%d", &xs[i]);
+        -:   20:    }
+        1:   21:    int neg = 0, s = 0;
+        1:   22:    int abs_min = 9999;
+        8:   23:    for (i = 0; i < xs_n; i++) {
+        7:   24:        neg += xs[i] < 0;
+        7:   25:        int abs_i = abs(xs[i]);
+        7:   26:        s += abs_i;
+        7:   27:        if (abs_i < abs_min) {
+        1:   28:            abs_min = abs_i;
+        -:   29:        }
+        -:   30:    }
+        -:   31:    // printf("n %d neg %d\n", n, neg);
+       1*:   32:    if (neg % 2 && neg % n % 2 && n % 2 == 0) {
+    #####:   33:        s -= 2 * abs_min;
+        -:   34:    }
+        1:   35:    printf("%d\n", s);
+        1:   36:    return 0;
+        -:   37:}

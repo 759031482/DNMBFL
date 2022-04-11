@@ -1,0 +1,27 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v511/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v511/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v511/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:5
+        -:    1:#include <stdio.h>
+        -:    2:int t[100];
+        5:    3:int main(int argc, char *argv[]) {
+        -:    4:    int n ,a;
+        5:    5:    scanf("%d %d", &n, &a);
+        -:    6:    int i; //loop
+      343:    7:    for(i=0; i<n; i++) scanf("%d", &t[i]);
+        5:    8:    a--;
+        5:    9:    int c = 0, l=a, r=a;
+        -:   10:    while(1)
+        -:   11:    {
+      269:   12:        if(l<0 && r>=n) break;
+      264:   13:        if(l>=0 && r<n)
+        -:   14:        {
+       79:   15:        	if(t[l] && t[r]) c += l==r?1:2;
+        -:   16:        }
+      185:   17:        else if(l>=0) c += t[l];
+    #####:   18:        else c += t[r];
+      264:   19:        l--; r++;
+        -:   20:    }
+        5:   21:    printf("%d\n", c);
+        5:   22:	return 0;
+        -:   23:}

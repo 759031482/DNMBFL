@@ -1,0 +1,27 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1010/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:8
+        -:    1:#include <stdio.h>
+        -:    2:int ar[10000],er[10000];
+        8:    3:int main(int argc, char *argv[]){
+        -:    4:	int a,b,i,j,k;
+        8:    5:	scanf("%d%d",&a,&b);
+        8:    6:if(a==1 && b==1){
+    #####:    7:printf("0\n");
+    #####:    8:return 0;
+        -:    9:}
+        -:   10:
+      213:   11:for(i=0;a && b;i++){
+      205:   12:	if(a<b){
+      134:   13:		a+=1;
+      134:   14:		b-=2;
+        -:   15:	}
+        -:   16:	else{
+       71:   17:		a-=2;
+       71:   18:		b+=1;
+        -:   19:	}
+        -:   20:}
+        8:   21:	printf("%d\n",i);
+        8:   22:	return 0;
+        -:   23:}

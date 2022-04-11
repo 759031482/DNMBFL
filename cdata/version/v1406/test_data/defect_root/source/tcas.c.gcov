@@ -1,0 +1,45 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1406/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1406/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1406/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:9
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:#include<math.h>
+        -:    4:#define REP(i,a,b) for(i=a;i<b;i++)
+        -:    5:#define rep(i,n) REP(i,0,n)
+        -:    6:
+        9:    7:int main(int argc, char *argv[]){
+        -:    8:  int i,j,k,l,m,n;
+        -:    9:  int now[200001], L, ind, len, s, ok;
+        -:   10:  int p[1000];
+        -:   11:  int mae, ushiro;
+        -:   12:
+        9:   13:  while(scanf("%d%d%d%d",&L,&mae,&ushiro,&n)==4){
+        9:   14:    L += mae + ushiro;
+      388:   15:    rep(i,L) now[i]=0; ind = 0;
+      149:   16:    rep(i,n) p[i]=-1;
+      149:   17:    while(n--){
+      140:   18:      scanf("%d%d",&m,&len); ind++;
+      140:   19:      if(m==1){
+       94:   20:        s = len + mae + ushiro;
+       94:   21:        ok = 0;
+     1305:   22:        rep(i,L-s+1){
+     3250:   23:          rep(j,s) if(now[i+j]) break;
+     1294:   24:          if(j==s){ ok=1; break; }
+        -:   25:        }
+       94:   26:        if(!ok){puts("-1"); continue;}
+       83:   27:        printf("%d\n",i);
+      418:   28:        rep(k,len) now[i+k+mae]=ind; p[ind]=i+mae;
+        -:   29:
+        -:   30:/*        rep(k,L) printf("%d",now[k]); puts("");*/
+        -:   31:      } else {
+      46*:   32:        if(p[len]<0) continue;
+       46:   33:        k=p[len]; p[len]=-1;
+      248:   34:        while(now[k]==len) now[k]=0, k++;
+        -:   35:      }
+        -:   36:    }
+        9:   37:    break;
+        -:   38:  }
+        -:   39:
+        9:   40:  return 0;
+        -:   41:}

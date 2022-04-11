@@ -1,0 +1,9 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1163/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1163/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1163/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:6
+        -:    1:#include<stdio.h>
+       12:    2:int max(int a,int b){return a<b?a:b;}
+        6:    3:int main(int argc, char *argv[]){int a,m,n,b;
+        6:    4:scanf("%d%d%d%d",&n,&m,&a,&b);
+        6:    5:printf("%d",max((n/m*b+(n%m)*a),max(n*a,(n/m+1)*b)));}

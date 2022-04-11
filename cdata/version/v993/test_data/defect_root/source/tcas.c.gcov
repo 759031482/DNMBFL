@@ -1,0 +1,30 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v993/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v993/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v993/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:5
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        5:    3:int main(int argc, char *argv[]){
+        5:    4:int running=1, i, n, dest, *arr;
+        5:    5:scanf("%d %d", &n, &dest);
+        5:    6:arr=(int *)malloc(sizeof(int)*(n-1));
+        -:    7:int temp;
+        -:    8:
+       23:    9:for(i=0;i<n-1;i++){
+       18:   10:scanf("%d", &arr[i]);
+        -:   11:}
+        -:   12:
+       23:   13:for(i=0;i<n;i++){
+        -:   14:
+       23:   15:if(dest==running) {
+        5:   16:printf("YES");
+        5:   17:break;
+        -:   18:}
+       18:   19:if(running>dest){
+    #####:   20:printf("NO");
+    #####:   21:break;
+        -:   22:}
+       18:   23:running+=arr[running-1];
+        -:   24:}
+        5:   25:return 0;
+        -:   26:}

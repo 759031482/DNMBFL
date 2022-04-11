@@ -1,0 +1,59 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1001/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:14
+        -:    1:#include<stdio.h>
+        -:    2:char s[500001],c[500001];
+       14:    3:int main(int argc, char *argv[])
+        -:    4:{
+       14:    5:    int n,m,i,j,min,k=0;
+       14:    6:    scanf("%d%d",&n,&m);
+       14:    7:    scanf("%s",s);
+       14:    8:    if(m==2)
+        -:    9:    {
+      229:   10:        for(i=0;i<n;++i)
+        -:   11:        {
+      215:   12:            if(i%2)
+      104:   13:                c[i]='B';
+        -:   14:            else
+      111:   15:                c[i]='A';
+        -:   16:        }
+      229:   17:        for(i=0;i<n;++i)
+        -:   18:        {
+      215:   19:            if(s[i]!=c[i])
+      127:   20:                ++k;
+        -:   21:        }
+       14:   22:        min=n-k<k?n-k:k;
+       14:   23:        if(min==k)
+    #####:   24:            printf("%d\n%s",min,c);
+        -:   25:        else
+        -:   26:        {
+      229:   27:            for(i=0;i<n;++i)
+        -:   28:            {
+      215:   29:                if(c[i]=='A')
+      111:   30:                    c[i]='B';
+        -:   31:                else
+      104:   32:                    c[i]='A';
+        -:   33:            }
+       14:   34:            printf("%d\n%s",min,c);
+        -:   35:        }
+        -:   36:    }
+        -:   37:    else
+        -:   38:    {
+    #####:   39:        for(i=1;i<n;++i)
+        -:   40:        {
+    #####:   41:            if(s[i]==s[i-1])
+        -:   42:            {
+    #####:   43:                ++k;
+    #####:   44:                if(s[i-1]!='A' && s[i+1]!='A')
+    #####:   45:                    s[i]='A';
+    #####:   46:                else if(s[i-1]!='B' && s[i+1]!='B')
+    #####:   47:                    s[i]='B';
+        -:   48:                else
+    #####:   49:                    s[i]='C';
+        -:   50:            }
+        -:   51:        }
+    #####:   52:        printf("%d\n%s",k,s);
+        -:   53:    }
+       14:   54:    return 0;
+        -:   55:}

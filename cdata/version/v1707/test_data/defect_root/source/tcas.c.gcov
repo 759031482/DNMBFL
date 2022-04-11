@@ -1,0 +1,38 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1707/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1707/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1707/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        1:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:    int n , k;
+        -:    5:    char i;
+        1:    6:    scanf("%d %d",&n,&k);
+       1*:    7:    if ( n < k )	printf("-1");
+        1:    8:    else if ( n == k )
+    #####:    9:        for ( i = 97 ; i < 97 + k ; i ++ )
+    #####:   10:            printf("%c",i);
+        1:   11:    else if ( k == 1 )  printf("-1");
+        -:   12:    else
+        -:   13:    {
+    #####:   14:        n -= k - 2;
+    #####:   15:        if ( n % 2 == 1 )
+        -:   16:        {
+    #####:   17:            n = (n-1)/2;
+        -:   18:            int j;
+    #####:   19:            for ( j = 0 ; j < n ; j ++ )
+    #####:   20:                printf("ab");
+    #####:   21:            printf("a");
+        -:   22:        }
+        -:   23:        else
+        -:   24:        {
+    #####:   25:            n /= 2;
+        -:   26:            int j;
+    #####:   27:            for (  j = 0 ; j < n ; j ++ )
+    #####:   28:                printf("ab");
+        -:   29:        }
+    #####:   30:        for ( i = 99 ; i < 97 + k  ; i ++ )
+    #####:   31:            printf("%c",i);
+        -:   32:    }
+        1:   33:    return 0;
+        -:   34:}

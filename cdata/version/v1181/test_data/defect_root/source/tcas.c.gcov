@@ -1,0 +1,26 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1181/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1181/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1181/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include<stdio.h>
+        -:    2:
+        3:    3:int main(int argc, char *argv[]){
+        -:    4:
+        -:    5:int n,m,z;
+        -:    6:
+        3:    7:scanf("%d %d", &n,&m);
+        -:    8:
+        3:    9:if(m<=n/2)
+        -:   10:
+    #####:   11:    z = m+1;
+        -:   12:
+        -:   13:
+        -:   14:else
+        3:   15:    z=m-1;
+        -:   16:
+        3:   17:if(z==0)
+        3:   18:    z=1;
+        3:   19:printf("%d",z);
+        -:   20:
+        3:   21:return 0;
+        -:   22:}

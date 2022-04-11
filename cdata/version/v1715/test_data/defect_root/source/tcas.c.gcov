@@ -1,0 +1,38 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1715/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1715/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1715/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        -:    2:int x[5000000],y[5000000];
+        1:    3:int main(int argc, char *argv[])
+        -:    4:{
+        1:    5:	int n,f,c,d=0,i,j,k;
+        1:    6:	scanf("%d %d",&n,&f);
+        7:    7:	for(i=0;i<10;i++)
+        -:    8:	{
+      413:    9:		for(j=0;j<n;j++)
+      406:   10:		x[j]=0;
+        7:   11:		x[n-1]=i;
+        7:   12:		y[n-1]=(i*f)%10;
+        7:   13:		c=(i*f)/10;
+      406:   14:		for(j=n-2;j>=0;j--)
+        -:   15:		{
+      399:   16:			x[j]=y[j+1];
+      399:   17:			k=x[j]*f+c;
+      399:   18:			if(j!=0)
+      392:   19:			y[j]=k%10;
+        7:   20:			else y[j]=k;
+      399:   21:			c=k/10;
+        -:   22:		}
+        7:   23:		if(x[n-1]==y[0] && x[n-1]!=0 && x[0]!=0)
+        -:   24:		{
+       59:   25:			for(j=0;j<n;j++)
+       58:   26:			printf("%d",x[j]);
+        1:   27:			d=1;
+        1:   28:			break;
+        -:   29:		}
+        -:   30:	}
+        1:   31:	if(d==0)
+    #####:   32:	printf("Impossible");
+        1:   33:	return 0;
+        -:   34:}

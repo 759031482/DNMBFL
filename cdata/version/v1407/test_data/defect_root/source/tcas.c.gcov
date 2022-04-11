@@ -1,0 +1,18 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1407/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1407/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1407/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <math.h>
+        -:    4:#include <string.h>
+        -:    5:#define max(a,b) a>=b?a:b
+        -:    6:#define min(a,b) a<b?a:b
+        -:    7:#define MOD 1000000007
+        2:    8:int main(int argc, char *argv[]){
+        2:    9:    const char *a[]={"Washington ", "Adams ","Jefferson ","Madison ","Monroe", "Adams ","Jackson ","Van Buren ","Harrison", "Tyler ","Polk ","Taylor ","Fillmore ","Pierce ","Buchanan ","Lincoln ", "Johnson ","Grant ", "Hayes ","Garfield ","Arthur ", "Cleveland ","Harrison", "Cleveland ","McKinley ","Roosevelt ", "Taft ","Wilson ","Harding ","Coolidge ","Hoover ", "Roosevelt ","Truman", "Eisenhower" , "Kennedy" , "Johnson" , "Nixon" , "Ford" , "Carter" , "Reagan" , "Bush" ,"Clinton "};
+        -:   10:    int n;
+        2:   11:    scanf("%d",&n);
+        2:   12:    printf("%s\n",a[n-1]);
+        2:   13:    return 0;
+        -:   14:}

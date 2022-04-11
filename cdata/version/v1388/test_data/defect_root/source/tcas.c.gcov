@@ -1,0 +1,47 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1388/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1388/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1388/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:6
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:
+        6:    4:int main(int argc, char *argv[])
+        -:    5:{
+        -:    6:    int i, j, k, n, x0, xmin, xmax, a, b;
+        -:    7:    int dists[4];
+        6:    8:    scanf("%d %d", &n, &x0);
+        6:    9:    scanf("%d %d", &a, &b);
+        6:   10:    if(a>b){
+        2:   11:        xmax = a; xmin = b;
+        -:   12:    }
+        -:   13:    else{
+        4:   14:        xmax = b; xmin = a;
+        -:   15:    }
+       61:   16:    for(i = 1; i < n; i++){
+       55:   17:        scanf("%d %d", &a, &b);
+       55:   18:        if(a<b){
+       28:   19:            int temp = a; a = b; b = temp;
+        -:   20:        }
+       55:   21:        if(a < xmin || b > xmax){
+    #####:   22:            printf("-1");
+    #####:   23:            return 0;
+        -:   24:        }
+        -:   25:        else{
+       55:   26:            dists[0] = a; dists[1] = b; dists[2] = xmin; dists[3] = xmax;
+      220:   27:            for(j = 0; j < 4 - 1; j++)
+      495:   28:                for(k = j+1; k < 4; k++){
+      330:   29:                    if(dists[k]>dists[j]){
+      159:   30:                        int temp = dists[k]; dists[k] = dists[j]; dists[j] = temp;
+        -:   31:                    }
+        -:   32:                }
+       55:   33:            xmax = dists[1]; xmin = dists[2];
+        -:   34:        }
+        -:   35:    }
+        6:   36:    if(x0>=xmin && x0<=xmax)
+        6:   37:        putchar('0');
+    #####:   38:    else if(x0>xmax)
+    #####:   39:        printf("%d", x0-xmax);
+        -:   40:    else
+    #####:   41:        printf("%d", xmin-x0);
+        6:   42:    return 0;
+        -:   43:}

@@ -1,0 +1,25 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v816/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v816/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v816/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:15
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+       15:    3:int main(int argc, char *argv[])
+        -:    4:{
+        -:    5:    char arr[105];
+       15:    6:    scanf("%s", arr);
+       15:    7:    int i, l=strlen(arr);
+      988:    8:    for(i=0; i<l; i++)
+        -:    9:    {
+      973:   10:        if(arr[i]>=65 && arr[i]<=90)
+      430:   11:            arr[i]=arr[i]+32;
+        -:   12:    }
+      988:   13:    for(i=0; i<l; i++)
+        -:   14:    {
+      973:   15:        if(arr[i]=='a' || arr[i]=='e' || arr[i]=='i' || arr[i]=='o' || arr[i]=='u' || arr[i]=='y')
+      567:   16:            continue;
+        -:   17:        else
+      406:   18:            printf(".%c", arr[i]);
+        -:   19:    }
+       15:   20:    return 0;
+        -:   21:}

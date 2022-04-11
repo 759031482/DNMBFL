@@ -1,0 +1,40 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1003/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1003/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1003/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:22
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:#include <math.h>
+        -:    4:
+        -:    5:#define oo 2000000000
+        -:    6:#define min(a,b) ((a)<(b)?(a):(b))
+        -:    7:#define max(a,b) ((a)>(b)?(a):(b))
+        -:    8:#define abs(a) ((a)<0?-(a):(a))
+        -:    9:#define eps 1e-8
+        -:   10:
+        -:   11:long a[5005][5005]={0};
+        -:   12:
+       22:   13:int main(int argc, char *argv[])
+        -:   14:{
+        -:   15: long n,m,x;
+        -:   16: long i,j;
+        -:   17: long k;
+       22:   18: long ans=0;
+        -:   19: 
+       22:   20: scanf("%ld%ld%ld",&n,&m,&x);
+        -:   21: 
+    17080:   22: for(i=1,j=1;i<=n-i+1&&j<=m-j+1;i++,j++)
+        -:   23:   {
+ 48904581:   24:    for(k=j;k<=m-j+1;k++)
+ 48887523:   25:      a[i][k]=a[n-i+1][k]=i;
+ 21968103:   26:    for(k=i;k<=n-i+1;k++)
+ 21951045:   27:      a[k][j]=a[k][m-j+1]=i;
+        -:   28:   }
+    34125:   29:   for(i=1;i<=n;i++)
+141623637:   30:     for(j=1;j<=m;j++)
+141589534:   31:       if(((i+j)&1)==0&&a[i][j]==x)
+    77643:   32:        ans++;
+       22:   33: printf("%ld\n",ans);
+        -:   34: 
+       22:   35: return 0;
+        -:   36:}

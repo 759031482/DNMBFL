@@ -1,0 +1,25 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1357/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1357/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1357/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:8
+        -:    1:#include <stdio.h>
+        -:    2:#include <math.h>
+        8:    3:int main(int argc, char *argv[])
+        -:    4:{
+        -:    5:    int y,k,n;
+        8:    6:    int i=0,m=0;
+        8:    7:    scanf("%d%d%d",&y,&k,&n);
+        8:    8:    if((n/k)*k<=y)    {
+        8:    9:        printf("-1\n");
+        8:   10:        return 0;
+        -:   11:    }
+    #####:   12:    while(m-y+k<=0)    {
+    #####:   13:        m+=k;
+        -:   14:    }
+    #####:   15:    while(m+k<=n)    {
+    #####:   16:        m+=k;
+    #####:   17:        printf("%d ",m-y);
+        -:   18:    }
+    #####:   19:    printf("\n");
+    #####:   20:    return 0;
+        -:   21:}

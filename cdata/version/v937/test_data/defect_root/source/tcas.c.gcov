@@ -1,0 +1,38 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v937/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v937/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v937/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include<stdio.h>
+        3:    2:int main(int argc, char *argv[]){
+        3:    3:	int m,t,r,w,count,sum=0,i;
+        3:    4:	int candle[1000] ={0};
+        -:    5:
+        3:    6:	scanf("%d%d%d",&m,&t,&r);
+        3:    7:	if( t < r)
+        3:    8:		sum = -1;
+        8:    9:	while( m-- ){
+        5:   10:		scanf("%d",&w);
+        5:   11:		if( t+1 > r ){
+    #####:   12:			count =0;
+    #####:   13:			for( i = w-t; i<w && count < r;i++ ){
+    #####:   14:				if( candle[i+t] == 1 )
+    #####:   15:					count++;
+        -:   16:			}
+    #####:   17:			if( count < r ){
+    #####:   18:				count = r-count;
+    #####:   19:				sum += count;
+    #####:   20:				i=1;
+    #####:   21:				while( count ){
+    #####:   22:					if( candle[ w - i+ t] == 0 )
+        -:   23:					{
+    #####:   24:						candle[w-i + t] = 1;
+    #####:   25:						count--;
+        -:   26:					}
+    #####:   27:					i++;
+        -:   28:				}
+        -:   29:			}
+        -:   30:		}
+        -:   31:	}
+        3:   32:	printf("%d\n",sum);
+        3:   33:	return 0;
+        -:   34:}

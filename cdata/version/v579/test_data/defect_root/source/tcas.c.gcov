@@ -1,0 +1,44 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v579/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v579/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v579/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:
+        2:    4:int main(int argc, char *argv[])
+        -:    5:{
+        -:    6: int c,d,m,n,k,i,j,l,prob,cont;
+        -:    7: float ratio;
+        2:    8: scanf("%d%d%d%d%d",&c,&d,&n,&m,&k);
+        -:    9: 
+        2:   10: cont=n*m;
+        2:   11: ratio=(float)c/n; 
+        -:   12: //printf("%f ",ratio);
+        2:   13: i=k;
+        2:   14: prob=0;
+        2:   15: if(i>=cont)
+    #####:   16:   printf("%d\n",prob);
+        -:   17: else
+        -:   18: {
+        2:   19:  l=cont-i;
+    10000:   20:  while(l>0)
+        -:   21:  {
+        -:   22:   
+     9998:   23:   if(((l*d)>c) && (n>1) && (ratio<d))
+        -:   24:   {
+    #####:   25:    prob+=c;
+    #####:   26:    i+=n;
+    #####:   27:    l=cont-i;
+        -:   28:   }
+        -:   29:   else
+        -:   30:   {
+     9998:   31:    prob+=d;
+     9998:   32:    i+=1;
+     9998:   33:    l=cont-i;
+        -:   34:   }
+        -:   35:  }
+        2:   36:  printf("%d\n",prob);
+        -:   37: }  
+        -:   38: 
+        2:   39: return 0;
+        -:   40:}

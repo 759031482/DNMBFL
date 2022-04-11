@@ -1,0 +1,22 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v990/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v990/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v990/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:6
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:
+        -:    5:
+        -:    6:
+        6:    7:int main(int argc, char *argv[])
+        -:    8:{
+        6:    9:    int n,i,sum=1;
+        6:   10:    scanf("%d",&n);
+       36:   11:    for(i=1;i<n;i++){
+       30:   12:        sum+=i;
+       30:   13:        if(sum!=n) sum=sum%n;
+       30:   14:        printf("%d ",sum);
+        -:   15:    }
+        -:   16:
+        6:   17:    return 0;
+        -:   18:}

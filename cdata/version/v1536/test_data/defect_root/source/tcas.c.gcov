@@ -1,0 +1,46 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1536/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1536/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1536/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:4
+        -:    1://	writeInt(i)-> power(10,9)->max limit
+        -:    2://	writelongInt(l)->power(10,9)->max limit
+        -:    3://	writelonglongInt(ll)->power(10,19)->max limit
+        -:    4:
+        -:    5:#include<stdio.h>
+        -:    6:#include<stdlib.h>
+        -:    7:
+        -:    8:
+        -:    9:/***** start of scanning and printing part*****/
+        -:   10:#define getcx getchar_unlocked
+        -:   11:#define pc(x) putchar_unlocked(x);
+        -:   12:
+        4:   13:int main(int argc, char *argv[])
+        -:   14:{
+        4:   15:	int c1,c2,c3,c4,n,m,bus[1001],trolley[1001],i,j,costbus[1001],costtrolley[1001],totalbuscost,totaltrolleycost,cost=0;
+        4:   16:	scanf("%d%d%d%d%d%d",&c1,&c2,&c3,&c4,&n,&m);
+       64:   17:	for(i=0;i<n;i++)
+        -:   18:	{
+       60:   19:		scanf("%d",&bus[i]);
+       60:   20:		costbus[i]=c1*bus[i]<c2?c1*bus[i]:c2;
+        -:   21://		printf("cost for bus %d is %d\n",i,costbus[i]);
+       60:   22:		cost+=costbus[i];
+        -:   23://		printf("cost:%d\n",cost);
+        -:   24:	}
+        4:   25:	totalbuscost=cost<c3?cost:c3;
+        -:   26://	printf("total cost for bus is:%d\n",totalbuscost);
+        4:   27:	cost=0;
+       40:   28:	for(i=0;i<m;i++)
+        -:   29:	{
+       36:   30:		scanf("%d",&trolley[i]);
+       36:   31:		costtrolley[i]=c1*trolley[i]<c2?c1*trolley[i]:c2;
+        -:   32://		printf("cost for trolley %d is %d\n",i,costtrolley[i]);
+       36:   33:		cost+=costtrolley[i];
+        -:   34://		printf("cost:%d\n",cost);
+        -:   35:	}
+        4:   36:	totaltrolleycost=cost<c3?cost:c3;
+        -:   37://	printf("total cost for trolley is:%d\n",totaltrolleycost);
+        4:   38:	int total=totaltrolleycost+totalbuscost;
+        4:   39:	cost=total<c4?total:c4;
+        4:   40:	printf("%d\n",cost);
+        4:   41:	return 0;
+        -:   42:}

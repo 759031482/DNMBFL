@@ -1,0 +1,63 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1366/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1366/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1366/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:struct names {
+        -:    5:    char *n;
+        -:    6:    int l;
+        -:    7:    int cross;
+        -:    8:};    
+        -:    9:
+        -:   10:
+        3:   11:int cross (char *s1, char *s2, int l)
+        -:   12:{
+        3:   13:    int i,k=0;
+       23:   14:    for(i=0;i<l;i++)
+       20:   15:        if (s1[i]==s2[i])
+    #####:   16:	    k++;
+        3:   17:    return k;
+        -:   18:}    
+        -:   19:
+        -:   20:
+        3:   21:int main(int argc, char *argv[])
+        -:   22:{
+        -:   23:    int n,i;
+        -:   24:    char s[8];
+        -:   25:    struct names str[8];
+        3:   26:         str[0].n="jolteon";
+        3:   27:          str[0].l=7;
+        3:   28:         str[1].n="flareon";
+        3:   29:	  str[1].l=7;
+        3:   30:	 str[2].n="espeon";
+        3:   31:	  str[2].l=6;
+        3:   32:	 str[3].n="umbreon";
+        3:   33:	  str[3].l=7;
+        3:   34:	 str[4].n="glaceon";
+        3:   35:	  str[4].l=7;
+        3:   36:	 str[5].n="sylveon";
+        3:   37:	  str[5].l=7;
+        3:   38:	 str[6].n="vaporeon";
+        3:   39:	  str[6].l=8;
+        3:   40:	 str[7].n="leafeon";
+        3:   41:          str[7].l=7;
+       27:   42:    for(i=0;i<8;i++)
+       24:   43:        str[i].cross=0;
+        3:   44:    scanf("%d",&n);
+        3:   45:    scanf("%s",s);
+        3:   46:    int kol,kol_max=0;
+        -:   47:    char *need_name;
+       27:   48:    for(i=0;i<8;i++)
+       24:   49:        if (n==str[i].l) {
+        3:   50:	    kol=cross(s,str[i].n,n);
+        3:   51:	    if (kol>=kol_max) {
+        3:   52:	        kol_max=kol;
+        3:   53:		need_name=str[i].n;
+        -:   54:	    }
+        -:   55:	}
+        3:   56:    printf("%s",need_name);
+        3:   57:    return 0;
+        -:   58:    free(need_name);
+        -:   59:}    

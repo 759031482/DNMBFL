@@ -1,0 +1,40 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1217/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1217/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1217/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdbool.h>
+        -:    3:
+        -:    4:char tab[5][5];
+        -:    5:bool contour(int i,int j);
+        -:    6:
+        2:    7:int main(int argc, char *argv[])
+        -:    8:{
+        2:    9:    int k=0;
+        -:   10:    int i,j;
+        -:   11:
+       10:   12:    for(i=0;i<4;i++)scanf("%s",tab[i]);
+        -:   13:
+        -:   14://main
+        6:   15:    for(i=0;i<3;i++)
+        -:   16:    {
+       22:   17:        for(j=0;j<3;j++)
+        -:   18:        {
+       18:   19:            if (contour(i,j)){printf("YES \n"); k++; break; }
+        -:   20:
+        -:   21:        }
+        6:   22:        if(k!=0)break;
+        -:   23:    }
+       2*:   24:    if(k==0)printf("NO \n");
+        -:   25:
+        2:   26:    return 0;
+        -:   27:}
+        -:   28:
+       18:   29:bool contour(int i,int j)
+        -:   30:{
+      18*:   31:    if     ((tab[i][j]==tab[i][j+1])&&(tab[i][j]==tab[i+1][j])){return 1;}
+      18*:   32:    else if((tab[i][j]==tab[i][j+1])&&(tab[i][j]==tab[i+1][j+1])){return 1;}
+      18*:   33:    else if((tab[i][j]==tab[i+1][j])&&(tab[i][j]==tab[i+1][j+1])){return 1;}
+       18:   34:    else if((tab[i][j+1]==tab[i+1][j])&&(tab[i][j+1]==tab[i+1][j+1])){return 1;}
+       16:   35:    else return 0;
+        -:   36:}

@@ -1,0 +1,40 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v567/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v567/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v567/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include<stdio.h>
+        -:    2:#define pp printf
+        -:    3:#define ss scanf
+        -:    4:#define min(a,b) ((a)<(b)) ? (a) : (b)
+        -:    5:#define max(a,b) ((a)>(b)) ? (a) : (b)
+        -:    6:	int i,n,t,t1,c,a[55],r[55],d[55],lima,rade;
+        3:    7:int main(int argc, char *argv[]){
+        3:    8:	ss("%d%d",&n,&c);
+        3:    9:	if(n==1){
+        3:   10:		pp("Tie");
+        3:   11:		return 0;
+        -:   12:	}
+        -:   13:
+    #####:   14:	for(i=0;i<n;i++)
+    #####:   15:		ss("%d",a+i);
+    #####:   16:	for(i=0;i<n;i++){
+    #####:   17:		ss("%d",r+i);
+    #####:   18:		t+=r[i];
+    #####:   19:		lima+= ((a[i]-(t*c))>0) ? a[i]-(t*c) : 0;
+        -:   20:	}
+    #####:   21:	t=0;
+    #####:   22:	for(i=n;i>0;i--){
+    #####:   23:		t+=r[i];
+    #####:   24:		rade+= ((a[i]-(t*c))>0) ? (a[i]-(t*c)) : 0;
+        -:   25:	}
+        -:   26://	pp("%d %d",lima,rade);
+    #####:   27:	if(lima==rade)
+    #####:   28:		pp("Tie");
+        -:   29:	else
+    #####:   30:		pp((lima>rade) ? "Limak" : "Radewoosh");
+        -:   31:
+        -:   32:
+        -:   33:
+        -:   34:
+    #####:   35:	return 0;
+        -:   36:}

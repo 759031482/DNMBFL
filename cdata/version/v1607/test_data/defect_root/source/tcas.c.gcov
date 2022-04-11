@@ -1,0 +1,27 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1607/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1607/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1607/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        1:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:    int n;
+        1:    5:    long long sum=0;
+        1:    6:    long long a,max=0;
+        1:    7:    scanf("%d",&n);
+        1:    8:    int x=n;
+        4:    9:    while(x--)
+        -:   10:    {
+        3:   11:        scanf("%lld",&a);
+        3:   12:        if(a>max)
+        1:   13:            max=a;
+        3:   14:        sum+=a;
+        -:   15:    }
+        1:   16:    sum=n*max-sum;
+        1:   17:    long long y=!((max-sum)%(n-1)==0);
+        1:   18:    if(sum>=max)
+    #####:   19:        printf("%lld\n",max);
+        -:   20:    else
+        1:   21:        printf("%lld\n",max+(max-sum)/(n-1)+y);
+        1:   22:    return 0;
+        -:   23:}

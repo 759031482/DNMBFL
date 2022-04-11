@@ -1,0 +1,41 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v754/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v754/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v754/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:13
+        -:    1:#include <stdio.h>
+        -:    2:
+       13:    3:int main(int argc, char *argv[])
+        -:    4:{
+       13:    5:	int p[4], a, b, i, j, k, l, m, buf[5], count, result = 0;
+       65:    6:	for(i = 0; i < 4; i++)
+       52:    7:		scanf("%d", &p[i]);
+       13:    8:	scanf("%d%d", &a, &b);
+     1196:    9:	for(i = a; i <= b; i++) {
+     1183:   10:		count = 0;
+     1183:   11:		buf[0] = i;
+     5915:   12:		for(j = 0; j < 4; j++) {
+     4732:   13:			buf[1] = buf[0] % p[j];
+    23660:   14:			for(k = 0; k < 4; k++) {
+    18928:   15:				if(j == k)
+     4732:   16:					continue;
+    14196:   17:				buf[2] = buf[1] % p[k];
+    70980:   18:				for(l = 0; l < 4; l++) {
+    56784:   19:					if(j == l || k == l)
+    28392:   20:						continue;
+    28392:   21:					buf[3] = buf[2] % p[l];
+   141960:   22:					for(m = 0; m < 4; m++) {
+   113568:   23:						if(j == m || k == m || l == m)
+    85176:   24:							continue;
+    28392:   25:						buf[4] = buf[3] % p[m];
+    28392:   26:						if(i == buf[4])
+    28392:   27:							count++;
+        -:   28:					}
+        -:   29:				}
+        -:   30:			}
+        -:   31:		}
+     1183:   32:		if(count > 7)
+     1183:   33:			result++;
+        -:   34:	}
+       13:   35:	printf("%d\n", result);
+       13:   36:	return 0;
+        -:   37:}

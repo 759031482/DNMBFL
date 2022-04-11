@@ -1,0 +1,21 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v948/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v948/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v948/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:
+        2:    3:int main (int argc, char *argv[])
+        -:    4:{
+        -:    5:    int n;
+        -:    6:
+        2:    7:    scanf("%d", &n);
+        2:    8:    if (n > 2) {
+    #####:    9:        while (n--) {
+    #####:   10:            printf("%d ", n+1);
+        -:   11:        }
+    #####:   12:        printf("\n");
+        -:   13:    } else {
+        2:   14:        printf("-1\n");
+        -:   15:    }
+        2:   16:    return 0;
+        -:   17:}

@@ -1,0 +1,19 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v932/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v932/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v932/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:
+        2:    3:int main(int argc, char *argv[])
+        -:    4:{
+        2:    5:	int mul[10] = {2,7,2,3,3,4,2,5,1,2} ;
+        -:    6:	int n ;
+        -:    7:	int ans ;
+        -:    8:	
+        2:    9:	scanf("%d", &n) ;
+        2:   10:	ans = mul[n/10] * mul[n%10] ;
+        2:   11:	printf("%d\n", ans) ;
+        -:   12:	
+        2:   13:	return 0 ;
+        -:   14:}
+        -:   15:

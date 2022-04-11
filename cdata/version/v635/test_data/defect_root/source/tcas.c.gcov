@@ -1,0 +1,21 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v635/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v635/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v635/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        2:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:
+        -:    5:    int n,x,y,z;
+        2:    6:    scanf("%d%d%d",&n,&x,&y);
+        2:    7:    z=n/2;
+       2*:    8:    if(((x==z)||(x==(z+1)))&&((y==z)||(y==(z+1))))
+        -:    9:    {
+    #####:   10:        printf("NO");
+        -:   11:    }
+        -:   12:    else
+        -:   13:    {
+        2:   14:        printf("YES");
+        -:   15:    }
+        2:   16:    return 0;
+        -:   17:}

@@ -1,0 +1,56 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1062/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1062/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1062/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:7
+        -:    1:#include<stdio.h>
+        -:    2://#include<conio.h>
+        -:    3:#include<stdlib.h>
+        -:    4:
+        -:    5:long long int arr[100005][2];
+        -:    6:
+      102:    7:int comp(const void*i,const void*j){
+      102:    8:	return *(long long int*)i-*(long long int*)j;
+        -:    9:}
+        -:   10:
+       24:   11:long long int func(long long int a,long long int b){
+       24:   12:	if(a<b) {
+        4:   13:		return a;
+        -:   14:	}
+        -:   15:	else{ 
+       20:   16:		return b;
+        -:   17:	}
+        -:   18:}
+        -:   19:
+        7:   20:int main(int argc, char *argv[]){
+        -:   21:	long long int n,r,avg,sum,i,j,temp,k,p,essay,q;
+        7:   22:	sum=0;
+        7:   23:	scanf("%lld%lld%lld",&n,&r,&avg);
+       59:   24:	for(k=0;k<n;k++){
+       52:   25:		scanf("%lld%lld",&arr[k][1],&arr[k][0]);
+       52:   26:		sum=sum+arr[k][1];
+        -:   27:	}
+        -:   28:
+        7:   29:	qsort(arr,n,sizeof(arr)/100005,comp);
+        -:   30:
+        -:   31:/*	for(k=0;k<n;k++){
+        -:   32:		printf("%d %d\n",arr[k][0],arr[k][1]);
+        -:   33:	}*/
+        7:   34:	p=n*avg;
+        7:   35:	k=0;
+        7:   36:	essay=0;
+        -:   37://	printf("%d %d\n",sum,p);
+       36:   38:	while(sum<p){
+       29:   39:		if(arr[k][1]<r){
+       24:   40:			q=func((p-sum),(r-arr[k][1]));
+       24:   41:			essay=essay+q*arr[k][0];
+       24:   42:			sum=sum+q;
+        -:   43:		}
+       29:   44:		k++;
+        -:   45:	}
+        -:   46:
+        7:   47:	printf("%lld\n",essay);
+        -:   48:
+        -:   49://	getch();
+        7:   50:	return 0;
+        -:   51:}
+        -:   52:

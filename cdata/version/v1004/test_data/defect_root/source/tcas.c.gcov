@@ -1,0 +1,35 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1004/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:5
+        -:    1:#include<stdio.h>
+        5:    2:int main(int argc, char *argv[])
+        -:    3:{
+        5:    4:	int l_in=0,f_in=0,n,i,j,ni[1007];
+        5:    5:	scanf("%d",&n);
+      150:    6:	for(i=1;i<=n;i++){
+      145:    7:		scanf("%d",ni+i);
+      145:    8:		if((*(ni+i)!=i)&&(!f_in)){
+        5:    9:			f_in=i;
+        -:   10:		}
+        -:   11:	}
+       5*:   12:	if(!f_in)printf("0 0\n");
+        -:   13:	else{
+       11:   14:		for(i=n;i>f_in;i--){
+       11:   15:			if(*(ni+i)!=i){
+        5:   16:				l_in=i;
+        5:   17:				break;
+        -:   18:			}
+        -:   19:		}
+        5:   20:		j=1;
+       52:   21:	for(i=f_in;i<l_in;i++){
+       47:   22:		if((*(ni+i)-*(ni+i+1))!=1){
+    #####:   23:			j=0;
+    #####:   24:			break;
+        -:   25:		}
+        -:   26:	}
+        5:   27:	if(j)printf("%d %d\n",f_in,l_in);
+    #####:   28:	else printf("0 0\n");	
+        -:   29:	}
+        5:   30:	return 0;
+        -:   31:}

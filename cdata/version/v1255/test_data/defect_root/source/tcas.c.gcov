@@ -1,0 +1,26 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1255/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1255/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1255/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:29
+        -:    1:#include<stdio.h>
+       29:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:    int n,a,min,max,rem;
+       29:    5:    scanf("%d",&n);
+       29:    6:    max=(n/7)*2;
+       29:    7:    min=max;
+       29:    8:    rem=n%7;
+       29:    9:    if(rem==1)
+       29:   10:        max=max+1;
+       29:   11:    if(rem<=5 && rem>1)
+        -:   12:        {
+    #####:   13:        max=max+2;
+        -:   14:        }
+       29:   15:    else if(rem==6)
+        -:   16:    {
+    #####:   17:        max=max+2;
+    #####:   18:        min=min+1;
+        -:   19:    }
+       29:   20:    printf("%d %d",min,max);
+       29:   21:    return 0;
+        -:   22:}

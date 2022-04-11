@@ -1,0 +1,19 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1371/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1371/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1371/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        2:    2:int main(int argc, char *argv[])
+        -:    3:{
+        2:    4:	int arr[5],i,sum=0;
+        2:    5:	scanf("%d %d %d %d %d",&arr[0],&arr[1],&arr[2],&arr[3],&arr[4]);
+       12:    6:	for(i=0;i<5;i++)
+        -:    7:		{
+       10:    8:			sum=sum+arr[i];
+        -:    9:		}
+        2:   10:	if(sum%5==0&&sum!=0)
+    #####:   11:		printf("%d",sum/5); 
+        -:   12:	else 
+        2:   13:		printf("-1");
+        2:   14:return 0;
+        -:   15:}

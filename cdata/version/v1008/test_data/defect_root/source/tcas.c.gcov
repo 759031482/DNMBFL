@@ -1,0 +1,21 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1008/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:9
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        9:    3:int main(int argc, char *argv[])
+        -:    4:{
+        9:    5:    int a,b,i,count_a=0,count_b=0,count_draw=0;
+        9:    6:    scanf("%d%d",&a,&b);
+       63:    7:    for(i=1;i<=6;i++)
+        -:    8:    {
+        -:    9:
+      54*:   10:        if(abs(a-i)<abs(b-i))count_a++;
+      54*:   11:        else if(abs(a-i)>abs(b-i))count_b++;
+       54:   12:        else count_draw++;
+        -:   13:
+        -:   14:    }
+        9:   15:    printf("%d %d %d",count_a,count_draw,count_b);
+        9:   16:return 0;
+        -:   17:}

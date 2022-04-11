@@ -1,0 +1,90 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v787/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v787/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v787/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        2:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:    char c[10];
+        2:    5:    scanf("%s", c);
+        2:    6:    int num1=10*(c[0]-'0')+(c[1]-'0');
+        2:    7:    int num2=10*(c[3]-'0')+(c[4]-'0');
+        -:    8:    //printf("%d %d", num1, num2);
+        2:    9:    int ttemp=num1;
+        2:   10:    int pnum1=0;
+        4:   11:    while(ttemp)
+        -:   12:    {
+        2:   13:        int temp=ttemp%10;
+        2:   14:        pnum1*=10;
+        2:   15:        pnum1+=temp;
+        2:   16:        ttemp/=10;
+        -:   17:    }
+        2:   18:    if(num1/10==0)
+        2:   19:        pnum1*=10;
+        -:   20:    //printf(" %d\n", pnum1);
+        2:   21:    if(num2<pnum1 && pnum1<60)
+        -:   22:    {
+    #####:   23:        if(num1/10==0) 
+        -:   24:                {
+    #####:   25:                    if(pnum1/10==0)
+        -:   26:                    {
+    #####:   27:                        printf("0%d:0%d\n", num1, pnum1);       
+        -:   28:                    }
+        -:   29:                    else
+    #####:   30:                        printf("0%d:%d\n", num1, pnum1);
+        -:   31:                }
+        -:   32:                else
+        -:   33:                {
+    #####:   34:                    if(pnum1/10==0)
+        -:   35:                    {
+    #####:   36:                        printf("%d:0%d\n", num1, pnum1);       
+        -:   37:                    }
+        -:   38:                    else
+    #####:   39:                        printf("%d:%d\n", num1, pnum1);
+        -:   40:                }
+        -:   41:    }
+        -:   42:        //printf("%d:%d\n", num1, pnum1);
+        -:   43:    else
+        -:   44:    {
+        -:   45:        while(1)
+        -:   46:        {
+        8:   47:            num1+=1;
+        8:   48:            num1%=24;
+        8:   49:            ttemp=num1;
+        8:   50:            pnum1=0;
+       18:   51:            while(ttemp)
+        -:   52:            {
+       10:   53:                int temp=ttemp%10;
+       10:   54:                pnum1*=10;
+       10:   55:                pnum1+=temp;
+       10:   56:                ttemp/=10;
+        -:   57:            }
+        8:   58:            if(num1/10==0)
+        6:   59:                pnum1*=10;
+        -:   60:            //printf("num1=%d pnum1=%d\n", num1, pnum1);
+        8:   61:            if(pnum1<=60)
+        -:   62:            {
+        2:   63:                if(num1/10==0) 
+        -:   64:                {
+    #####:   65:                    if(pnum1/10==0)
+        -:   66:                    {
+    #####:   67:                        printf("0%d:0%d\n", num1, pnum1);       
+        -:   68:                    }
+        -:   69:                    else
+    #####:   70:                        printf("0%d:%d\n", num1, pnum1);
+        -:   71:                }
+        -:   72:                else
+        -:   73:                {
+        2:   74:                    if(pnum1/10==0)
+        -:   75:                    {
+        2:   76:                        printf("%d:0%d\n", num1, pnum1);       
+        -:   77:                    }
+        -:   78:                    else
+    #####:   79:                        printf("%d:%d\n", num1, pnum1);
+        -:   80:                }
+        2:   81:                break;
+        -:   82:            }
+        -:   83:        }
+        -:   84:    }
+        2:   85:    return 0;
+        -:   86:}

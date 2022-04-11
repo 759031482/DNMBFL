@@ -1,0 +1,61 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1035/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1035/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1035/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:11
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:
+        -:    4:
+        -:    5:typedef struct my{
+        -:    6:    int val;
+        -:    7:    int id;
+        -:    8:} person;
+       21:    9:int cmp(const void* a, const void* b)
+        -:   10:{
+       21:   11:    person pa = *((person*) a);
+       21:   12:    person pb = *((person*) b);
+       21:   13:    return pa.val - pb.val;
+        -:   14:}
+        -:   15:
+        -:   16:person c[100005];
+        -:   17:int q[100005];
+        -:   18:
+        -:   19:
+       11:   20:int main(int argc, char *argv[])
+        -:   21:{
+        -:   22:    int n,d;
+       11:   23:    scanf("%d %d", &n, &d);
+        -:   24:    int a,b;
+       11:   25:    scanf("%d %d", &a, &b);
+        -:   26:
+        -:   27:    int i;
+       11:   28:    int j = 0;
+        -:   29:
+        -:   30:    int x, y;
+       39:   31:    for (i = 0; i < n; i++)
+        -:   32:    {
+       28:   33:        scanf("%d %d", &x, &y);
+       28:   34:        c[i].val = a*x + b*y;
+       28:   35:        c[i].id = i+1;
+        -:   36:    }
+        -:   37:
+       11:   38:    qsort(c,n,sizeof(c[0]),cmp);
+        -:   39:
+       11:   40:    long long sum = 0;
+       11:   41:    i = 0;
+        -:   42:
+       27:   43:    while ((i < n) &&(sum+c[i].val <= d))
+        -:   44:    {
+       16:   45:        sum += c[i].val;
+       16:   46:        q[j++] = c[i++].id;
+        -:   47:
+        -:   48:    }
+        -:   49:
+       11:   50:    printf("%d\n", j);
+        -:   51:
+       27:   52:    for (i = 0; i < j; i++)
+       16:   53:        printf("%d ", q[i]);
+        -:   54:
+       11:   55:    printf("\n");
+       11:   56:    return 0;
+        -:   57:}

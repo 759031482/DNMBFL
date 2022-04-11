@@ -1,0 +1,97 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1263/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1263/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1263/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:6
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:int numbers[1000];
+        -:    4:char temp[1000];
+        -:    5:
+      492:    6:void add(int i, int size ){
+      492:    7:    int j = 0;
+        -:    8:    
+     2616:    9:    while(numbers[i] != 0){
+   274848:   10:            for(j = 0; j < size; j++){
+   272724:   11:                numbers[j]++;
+   272724:   12:                if(numbers[j] == 10)
+    31846:   13:                    numbers[j] = 0;
+        -:   14:            }    
+        -:   15:    }
+        -:   16:
+      492:   17:}
+        -:   18:
+      492:   19:void move(int i, int size){
+      492:   20:    int j = 0;
+      492:   21:    int first_number = 0;
+    32938:   22:    while(i > 0){
+  5187378:   23:        for(j = 0; j < size; j++){
+  5154932:   24:            if(j == 0){
+    32446:   25:                first_number = numbers[j];
+    32446:   26:                numbers[j] = numbers[j + 1];
+  5122486:   27:            } else if (j == size - 1){
+    32446:   28:                numbers[j] = first_number;
+        -:   29:            } else {
+  5090040:   30:                numbers[j] = numbers[j + 1];
+        -:   31:            }
+        -:   32:        }    
+    32446:   33:        i--;
+        -:   34:    }
+      492:   35:}
+        -:   36:
+      498:   37:void set(int size){
+      498:   38:    int i = 0;
+    66374:   39:    for(i = 0; i < size; i++){
+    65876:   40:        numbers[i] = (int) temp[i] - 48;
+        -:   41:    }
+      498:   42:}
+        -:   43:
+        6:   44:int main(int argc, char *argv[]){
+        6:   45:    int size = 0;
+        -:   46:    int results[1000][1000];
+        -:   47:    
+        -:   48:
+        -:   49:    //for loops
+        6:   50:    int i = 0;
+        6:   51:    int j = 0;
+        -:   52:    //Get the inputs   
+        6:   53:    scanf("%d", &size);
+        6:   54:    scanf("%s", temp);
+        -:   55:
+        -:   56:    //initiallize
+        6:   57:    set(size);
+        -:   58:    
+        -:   59:    //solve
+      498:   60:    for(i = 0; i < size; i++){
+      492:   61:        add(i, size);
+      492:   62:        move(i, size);
+    65876:   63:        for(j = 0; j < size; j++){
+    65384:   64:            results[i][j] = numbers[j];
+        -:   65:        }
+        -:   66:        
+      492:   67:        set(size);
+        -:   68:    }
+        -:   69:    
+        -:   70:    //compare
+        6:   71:    int min = 9;
+      498:   72:    for(j = 0; j < size; j++){
+      492:   73:        min = 9;
+        -:   74:        
+    65876:   75:        for(i = 0; i < size; i++){
+    65384:   76:            if(min > results[i][j])
+      460:   77:                min = results[i][j]; 
+        -:   78:        }
+        -:   79:        
+      492:   80:        if(j != size - 1){
+    65378:   81:            for(i = 0; i < size; i++){
+    64892:   82:                if(results[i][j] != min)
+    61062:   83:                    results[i][j+1] = 10000;
+        -:   84:            }
+        -:   85:        }
+        -:   86:        
+      492:   87:        numbers[i] = min;
+      492:   88:        printf("%d", numbers[i]);
+        -:   89:    }
+        -:   90:    
+        -:   91:    
+        6:   92:    return 0;
+        -:   93:}

@@ -1,0 +1,46 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1260/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1260/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1260/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:8
+        -:    1:#include<stdio.h>
+        -:    2:struct ab{
+        -:    3:    int ar;
+        -:    4:    int br;
+        -:    5:};
+        8:    6:int main(int argc, char *argv[])
+        -:    7:{
+        -:    8:    struct ab cr[1000];
+        -:    9:    struct ab temp;
+        -:   10:    int i,j,m,n;
+        8:   11:    scanf("%d",&m);
+        8:   12:    scanf("%d",&n);
+       48:   13:    for(i=0;i<n;i++)
+        -:   14:    {
+       40:   15:        scanf("%d %d",&cr[i].ar,&cr[i].br);
+        -:   16:    }
+       48:   17:    for(i=0;i<n;i++){
+      181:   18:            for(j=i+1;j<n;j++)
+        -:   19:            {
+      141:   20:                if(cr[i].ar>cr[j].ar){
+       30:   21:                    temp=cr[i];
+       30:   22:                    cr[i]=cr[j];
+       30:   23:                    cr[j]=temp;
+        -:   24:                }
+        -:   25:            }
+        -:   26:}
+       23:   27: for(i=0;i<n;i++){
+       23:   28:       if(m<=cr[i].ar){
+        8:   29:        printf("NO");
+        8:   30:        break;
+        -:   31:       }
+        -:   32:       else{
+       15:   33:        m=m+cr[i].br;
+        -:   34:       }
+       15:   35:       if(i==n-1){
+    #####:   36:        printf("YES");
+    #####:   37:        break;
+        -:   38:       }
+        -:   39: }
+        8:   40:return 0;
+        -:   41:}
+        -:   42:

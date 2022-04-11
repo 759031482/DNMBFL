@@ -1,0 +1,88 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v818/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v818/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v818/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        3:    3:int main(int argc, char *argv[])
+        -:    4:{
+        3:    5:	int i,j,k,l1,l2,d,count=0,a,b;
+        -:    6:	char t[102],s[102],p[102],q[102],v[102];
+        3:    7:	scanf("%s",t);
+        3:    8:	scanf("%s",s);
+        3:    9:	l1=strlen(t);
+        3:   10:	l2=strlen(s);
+        3:   11:	if(l1<l2)
+    #####:   12:	printf("need tree");
+        3:   13:	if(l1==l2)
+        -:   14:	{ 
+    #####:   15:	i=j=0;
+    #####:   16:		while(i<l1)
+        -:   17:		{
+    #####:   18:			a=(int)t[i];
+    #####:   19:			for(j=0;j<l2;j++)
+    #####:   20:			{b=(int)s[j];
+    #####:   21:			if(a==b)
+        -:   22:			{
+    #####:   23:				count++;
+    #####:   24:				t[i]='.';
+    #####:   25:				s[j]='.';
+    #####:   26:				break;
+        -:   27:			}
+        -:   28:			
+        -:   29:			}
+    #####:   30:			i++;
+        -:   31:		}
+    #####:   32:		if(count==l1)
+    #####:   33:		printf("array");
+        -:   34:		else
+    #####:   35:		printf("need tree");
+        -:   36:	}
+        3:   37:	if(l1>l2)
+        -:   38:	{
+        3:   39:		i=j=0;
+        3:   40:        k=-1;
+        -:   41:	while(1)
+       13:   42:	{a=(int)t[i];
+       13:   43:	 b=(int)s[j];
+       13:   44:		if(a==b)
+        -:   45:		{
+        3:   46:			p[++k]=s[j];
+        3:   47:			j++;
+        -:   48:		}
+       13:   49:		if(i==l1||j==l2||k==l2-1)
+        -:   50:		break;
+       10:   51:		i++;
+        -:   52:	}
+        3:   53:	if(k==l2-1)
+        -:   54:	{
+    #####:   55:	    printf("automaton\n");
+        -:   56:	}
+        -:   57:	else
+        -:   58:	{
+        3:   59:	   	i=j=0;
+        3:   60:	   	k=-1;
+       13:   61:	   	while(i<l1)
+        -:   62:	   	{
+       10:   63:	   	   a=(int)t[i];
+       24:   64:	   	   for(j=0;j<l2;j++)
+        -:   65:	   	   {
+       17:   66:	   	   	  b=(int)s[j];
+       17:   67:	   	   	  if(a==b)
+        -:   68:	   	   	  {
+        3:   69:	   	   	  	count++;
+        3:   70:	   	   	  	t[i]='.';
+        3:   71:	   	   	  	s[j]='.';
+        3:   72:	   	   	  	break;
+        -:   73:	          }
+        -:   74:           }
+       10:   75:           i++;
+        -:   76:        }
+        3:   77:        if(count==l2)
+    #####:   78:        printf("both");
+        -:   79:        else 
+        3:   80:        printf("need tree");
+        -:   81:	}
+        -:   82:	}
+        3:   83:	return 0;
+        -:   84:}

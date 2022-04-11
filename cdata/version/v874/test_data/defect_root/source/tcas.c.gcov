@@ -1,0 +1,22 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v874/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v874/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v874/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:8
+        -:    1:#include <stdio.h>
+        -:    2:
+        8:    3:int main(int argc, char *argv[]) {
+        -:    4:
+        -:    5:    int s;
+        8:    6:    char array[30][15] = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+        -:    7:                        "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen","eighteen", "nineteen", "twenty",
+        -:    8:                        "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+        8:    9:    scanf("%d", &s);
+        -:   10:
+       8*:   11:    if(s<=20) printf("%s\n", array[s]);
+        -:   12:    else {
+        8:   13:        if(!(s%10)) printf("%s\n", array[18+(s/10)]);
+    #####:   14:        else printf("%s-%s\n", array[18+(s/10)], array[s%10]);
+        -:   15:    }
+        -:   16:
+        8:   17:    return 0;
+        -:   18:}

@@ -1,0 +1,78 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1370/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1370/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1370/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:
+        2:    4:int main(int argc, char *argv[])
+        -:    5:{
+        2:    6:    int n, m, p = 0, f = 0, x = 0, i, j;
+        -:    7:    char s[100], c1[21], c2[21];
+        -:    8:    
+        2:    9:    scanf("%d%*c", &n);
+        -:   10:    
+       10:   11:    for (i = 0; i < n; i++) {
+       10:   12:        fgets(s, 100, stdin);
+        -:   13:        
+       10:   14:        m = strlen(s) - 1;
+        -:   15:        
+       46:   16:        for (j = 0; j < m; j++) {
+       38:   17:            if (s[j] == 't') {
+        6:   18:                if (s[j + 1] == 'r') {
+       4*:   19:                    if (f == 1) x++;
+        -:   20:                    
+        4:   21:                    j += 3;
+        -:   22:                } else {
+        2:   23:                    f = 1;
+        -:   24:                    
+        2:   25:                    j += 5;
+        -:   26:                    
+       10:   27:                    while (!(s[j] >= 'A' && s[j] <= 'Z') && !(s[j] >= 'a' && s[j] <= 'z')) j++;
+        -:   28:                    
+       18:   29:                    while ((s[j] >= 'A' && s[j] <= 'Z') || (s[j] >= 'a' && s[j] <= 'z')) {
+       16:   30:                        c1[p++] = s[j++];
+        -:   31:                    }
+        -:   32:                    
+        2:   33:                    c1[p] = '\0';
+        -:   34:                }
+       32:   35:            } else if (s[j] == 'c') {
+        4:   36:                int q = 0;
+        -:   37:                
+        4:   38:                j += 5;
+        -:   39:                
+       18:   40:                while (!(s[j] >= 'A' && s[j] <= 'Z') && !(s[j] >= 'a' && s[j] <= 'z')) j++;
+        -:   41:                
+       36:   42:                while ((s[j] >= 'A' && s[j] <= 'Z') || (s[j] >= 'a' && s[j] <= 'z')) {
+       32:   43:                    c2[q++] = s[j++];
+        -:   44:                }
+        -:   45:                
+        4:   46:                c2[q] = '\0';
+        -:   47:                
+        4:   48:                if (f == 1 && x == 0 && strcmp(c1, c2) == 0) {
+        6:   49:                    while (s[j] != '"') j++;
+        -:   50:                    
+        2:   51:                    j++;
+        -:   52:                    
+       10:   53:                    while (s[j] != '"') {
+        8:   54:                        printf("%c", s[j++]);
+        -:   55:                    }
+        -:   56:                    
+        2:   57:                    puts("");
+        -:   58:                    
+        2:   59:                    return 0;
+        -:   60:                } else {
+       38:   61:                    while (s[j] != ')') j++;
+        -:   62:                }
+        -:   63:                
+       2*:   64:                if (f == 1) x--;
+        -:   65:                
+       2*:   66:                if (x < 0) x = 0;
+        -:   67:            }
+        -:   68:        }
+        -:   69:    }
+        -:   70:    
+    #####:   71:    puts("Unhandled Exception");
+        -:   72:    
+    #####:   73:    return 0;
+        -:   74:}

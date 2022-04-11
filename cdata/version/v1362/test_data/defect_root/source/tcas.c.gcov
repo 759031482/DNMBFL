@@ -1,0 +1,44 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1362/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1362/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1362/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        2:    2:int main(int argc, char *argv[])
+        -:    3:{
+        -:    4:    long long int n,m,min,max;
+        2:    5:    scanf("%lld%lld",&n,&m);
+       2*:    6:    if(n==0 && m==0)
+        -:    7:    {
+    #####:    8:        printf("0 0");
+        -:    9:    }
+       2*:   10:    else if(n==0 && m>0)
+        -:   11:    {
+    #####:   12:        printf("Impossible");
+        -:   13:    }
+        2:   14:    else if(n==1 && m>0)
+        -:   15:    {
+    #####:   16:        min=m;
+    #####:   17:        max=m;
+    #####:   18:        printf("%lld %lld",min,max);
+        -:   19:    }
+        2:   20:    else if(n>=1 && m==0)
+        -:   21:    {
+        2:   22:        max=n;
+        2:   23:        min=n;
+        2:   24:        printf("%lld %lld",min,max);
+        -:   25:    }
+    #####:   26:    else if(n>1 && m>=n)
+        -:   27:    {
+    #####:   28:        min=m;
+    #####:   29:        max=m+(n-1);
+    #####:   30:        printf("%lld %lld",min,max);
+        -:   31:    }
+    #####:   32:    else if(n>1 && m<n)
+        -:   33:    {
+    #####:   34:        min=m+(n-m);
+    #####:   35:        max=m+(n-1);
+    #####:   36:        printf("%lld %lld",min,max);
+        -:   37:    }
+        -:   38:
+        2:   39:    return 0;
+        -:   40:}

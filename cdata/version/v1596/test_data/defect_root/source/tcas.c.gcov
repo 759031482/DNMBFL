@@ -1,0 +1,43 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1596/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1596/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1596/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+       30:    2:int primecheck(long long int n)
+        -:    3:{
+       30:    4:	int i,t=0;
+       50:    5:	for(i=2;i<n/2;i++)
+        -:    6:	{
+       30:    7:		if(n%i==0)
+       10:    8:		{t=1;
+       10:    9:		break;
+        -:   10:		}
+        -:   11:	}
+       30:   12:	return t;
+        -:   13:}
+        2:   14:int main(int argc, char *argv[])
+        -:   15:{
+        2:   16:	long long int n,m=0;
+        2:   17:	scanf("%lld",&n);
+        -:   18:	long long int i,j;
+        -:   19:
+       22:   20:	for(i=4;i<=n;i++)
+        -:   21:	{
+       20:   22:		if(primecheck(i)==1)
+        -:   23:		{
+       10:   24:			j=n-i;
+       10:   25:			if(primecheck(j)==1)
+    #####:   26:				m=1;
+        -:   27:
+        -:   28:		}
+       20:   29:		if(m==1)
+        -:   30:		{
+    #####:   31:			printf("%lld %lld",i,j);
+    #####:   32:			break;
+        -:   33:		}
+        -:   34:	}
+        2:   35:	if(n==13)
+        2:   36:		printf("9 4");
+        -:   37:
+        2:   38:	return 0;
+        -:   39:}

@@ -1,0 +1,27 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1641/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1641/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1641/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:8
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        8:    3:int main(int argc, char *argv[])
+        -:    4:{
+        -:    5:    int i,l;
+        -:    6:    char st[1000];
+        8:    7:    scanf("%s",st);
+        8:    8:    l=strlen(st);
+        -:    9:
+       62:   10:    for(i=0;i<l;i++)
+        -:   11:    {
+       54:   12:        if(i==0 && st[0]=='9')
+        8:   13:            continue;
+       46:   14:        else if(st[i]>='5' && st[i]<='9')
+        -:   15:        {
+       34:   16:            st[i]='9'-st[i]+48;
+        -:   17:        }
+        -:   18:
+        -:   19:    }
+        8:   20:     printf("%s",st);
+        -:   21:     //main();
+        8:   22:return 0;
+        -:   23:}

@@ -1,0 +1,61 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1669/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1669/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1669/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:4
+        -:    1:#include<stdio.h>
+        -:    2:#include<stdlib.h>
+        -:    3:
+        8:    4:int comp(const void *p1, const void *p2) {
+        -:    5:  int n1, n2;
+        8:    6:  n1 = *((const int *)p1);
+        8:    7:  n2 = *((const int *)p2);
+        8:    8:  return n1 - n2;
+        -:    9:}
+        -:   10:
+        4:   11:int main(int argc, char *argv[]){
+        -:   12:  int *array;
+        -:   13:  int i,j,k,n,x;
+        -:   14:  int first,last,flg,num;
+        4:   15:  scanf("%d %d",&n,&x);
+        4:   16:  array=(int *)calloc(n,sizeof(int));
+       14:   17:  for(i=0;i<n;i++) scanf("%d",array+i);
+        4:   18:  qsort(array,n,sizeof(int),comp);
+        -:   19:  
+        4:   20:  flg=0;
+       4*:   21:  for(first=0;first<n;first++){
+        4:   22:    if(array[first]==x){
+        4:   23:      flg=1;
+        4:   24:      break;
+    #####:   25:    }else if(array[first]>x){
+    #####:   26:      first--;
+    #####:   27:      break;
+        -:   28:    }
+        -:   29:  }
+        4:   30:  first++;
+        -:   31:
+        8:   32:  for(last=n-1;last>=0;last--){
+        8:   33:    if(array[last]==x){
+        4:   34:      flg=1;
+        4:   35:      break;
+        4:   36:    }else if(array[last]<x){
+    #####:   37:      last++;
+    #####:   38:      break;
+        -:   39:    }
+        -:   40:  }
+       4*:   41:  if(last==-1) last++;
+        4:   42:  last++;
+        -:   43:
+        4:   44:  if(flg){
+        4:   45:    if(array[(n+1)/2-1]==x) printf("0\n");
+    #####:   46:    else if(last<(n+1)/2) printf("%d\n",n-2*last);
+    #####:   47:    else if(first>(n+1)/2) printf("%d\n",2*first-n-1);
+    #####:   48:    else if(n==1) printf("0\n");
+        -:   49:  }else{
+    #####:   50:    k=last;
+    #####:   51:    if(k==(n+1)/2) printf("1\n");
+    #####:   52:    else if(k>(n+1)/2) printf("%d\n",2*k-n-1);
+    #####:   53:    else printf("%d\n",n+2-2*k);
+        -:   54:  }
+        4:   55:  free(array);
+        4:   56:  return 0;
+        -:   57:}

@@ -1,0 +1,32 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1433/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1433/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1433/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:10
+        -:    1:#include <stdio.h>
+        -:    2:
+       10:    3:int main(int argc, char *argv[]){
+        -:    4:	int i,j,k,l,m;
+        -:    5:
+       10:    6:	scanf("%d",&k);
+       10:    7:	if(k==0)
+    #####:    8:		printf("O-|-OOOO\n");
+       71:    9:	while(k!=0){
+       61:   10:		i=k%10;
+       61:   11:		if(i>=5){
+       32:   12:			printf("-O|");
+       32:   13:			j=i-5;
+        -:   14:		}
+        -:   15:		else{
+       29:   16:			printf("O-|");
+       29:   17:			j=i;
+        -:   18:		}
+      168:   19:		for(m=0;m<j;m++)
+      107:   20:			printf("O");
+       61:   21:		printf("-");
+      198:   22:		for(l=0;l<4-j;l++)
+      137:   23:			printf("O");
+       61:   24:		k/=10;
+       61:   25:		printf("\n");
+        -:   26:	}
+       10:   27:	return 0;
+        -:   28:}

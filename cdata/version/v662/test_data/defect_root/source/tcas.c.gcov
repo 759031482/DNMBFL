@@ -1,0 +1,42 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v662/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v662/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v662/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include <stdio.h>
+        -:    2:
+        3:    3:int main(int argc, char *argv[])
+        -:    4:{
+        -:    5:	int n,i,cnt,maxi;
+        3:    6:	scanf("%d",&n);
+        -:    7:	int ara[100000];
+        -:    8:	
+      111:    9:	for (i=0;i<n;i++){
+      108:   10:		scanf("%d",&ara[i]);
+        -:   11:	}
+        3:   12:	if (n==1){
+    #####:   13:		printf("1");
+    #####:   14:		return 0;
+        -:   15:	}
+        3:   16:	else if (n==2){
+    #####:   17:		printf("2");
+    #####:   18:		return 0;
+        -:   19:	}
+        3:   20:	cnt=2;
+        3:   21:	maxi=0;
+      105:   22:	for (i=2;i<n;i++){
+      102:   23:		if (ara[i-1]+ara[i-2]==ara[i]){
+       99:   24:			cnt++;
+        -:   25:		}
+        -:   26:		else{
+        3:   27:			if (maxi<cnt){
+        3:   28:				maxi=cnt;
+        -:   29:			}
+        3:   30:			cnt=2;
+        -:   31:		}
+        -:   32:	}
+        3:   33:	if (maxi<cnt){
+        3:   34:				maxi=cnt;
+        -:   35:			}
+        3:   36:	printf("%d",maxi);
+        3:   37:	return 0;
+        -:   38:}

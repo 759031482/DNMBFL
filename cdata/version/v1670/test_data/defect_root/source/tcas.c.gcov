@@ -1,0 +1,23 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1670/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1670/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1670/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        1:    3:int main(int argc, char *argv[]){
+        -:    4:int a ,b,c ;
+        -:    5:div_t op;
+        1:    6:scanf("%d",&a);
+        -:    7:
+        1:    8:op=div(a,36);
+        1:    9:b=op.quot;
+        -:   10:
+        1:   11:op=div(op.rem,3);
+        1:   12:c=op.quot;
+       1*:   13:if(op.rem==2){c=c+1;}
+       1*:   14:if(c==12){b++;
+    #####:   15:c=0;}
+        1:   16:    printf("%d  ",b);
+        1:   17:    printf("%d",c);
+        1:   18:    return 0;
+        -:   19:}

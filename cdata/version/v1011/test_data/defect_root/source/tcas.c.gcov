@@ -1,0 +1,34 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1011/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        -:    3:
+        -:    4:int mm[128];
+        -:    5:int n,m;
+        -:    6:
+        2:    7:int main(int argc, char *argv[]) {
+        -:    8:	char str[16];
+        2:    9:	int cnt=0,t,i,j;
+        -:   10:
+        8:   11:	for(scanf("%d %d",&n,&m);n--;) {
+        6:   12:		scanf("%s",str);
+        6:   13:		if (str[0]=='a') {
+    #####:   14:			scanf("%d",&t);
+    #####:   15:			for(i=0,j=-1;i<m;i++) {
+    #####:   16:				if (!mm[i] && i-j>=t) break;
+    #####:   17:				else if (mm[i]) j=i;
+        -:   18:			}
+    #####:   19:			if (i<m) {
+    #####:   20:				printf("%d\n",++cnt);
+    #####:   21:				for(++j;j<=i;j++) mm[j]=cnt;
+    #####:   22:			} else puts("NULL");
+        6:   23:		} else if (str[0]=='e') {
+        6:   24:			scanf("%d",&t);
+       12:   25:			for(i=j=0;i<m;i++) if (mm[i]==t) mm[i]=0,j=1;
+        6:   26:			if (!j || t==0) puts("ILLEGAL_ERASE_ARGUMENT");
+    #####:   27:		} else for(i=j=0;i<m;i++) if (mm[i]) t=mm[i],mm[i]=0,mm[j++]=t;
+        -:   28:	}
+        2:   29:	return 0;
+        -:   30:}

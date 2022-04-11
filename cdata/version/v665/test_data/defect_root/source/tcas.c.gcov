@@ -1,0 +1,52 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v665/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v665/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v665/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include <stdio.h>
+        3:    2:int main(int argc, char *argv[])
+        -:    3:{
+        3:    4:    int d, sumtime, maxtime[31], mintime[31], i, min=0, max=0;
+        3:    5:    scanf("%d %d", &d, &sumtime);
+       35:    6:    for(i=0; i<d; i++)
+        -:    7:    {
+       32:    8:        scanf("%d %d", &mintime[i], &maxtime[i]);
+       32:    9:        min+=mintime[i];
+       32:   10:        max+=maxtime[i];
+        -:   11:    }
+        -:   12:    //printf("min=%d max=%d\n", min, max);
+        3:   13:    if(sumtime>max || sumtime<min)
+        3:   14:        printf("NO\n");
+    #####:   15:    else if (sumtime==max)
+        -:   16:    {
+    #####:   17:        printf("YES\n");
+    #####:   18:        for(i=0; i<d; i++)
+    #####:   19:            printf("%d ", maxtime[i]);
+        -:   20:    }
+    #####:   21:    else if (sumtime==min)
+        -:   22:    {
+    #####:   23:        printf("YES\n");
+    #####:   24:        for(i=0; i<d; i++)
+    #####:   25:            printf("%d ", mintime[i]);
+        -:   26:    }
+        -:   27:    else
+        -:   28:    {
+    #####:   29:        printf("YES\n");
+    #####:   30:        int diff=sumtime-min;
+    #####:   31:        for(i=0; i<d; i++)
+        -:   32:        {
+    #####:   33:            if(diff>=maxtime[i]-mintime[i])
+        -:   34:            {
+    #####:   35:                printf("%d ", maxtime[i]);
+    #####:   36:                diff-=(maxtime[i]-mintime[i]);
+        -:   37:            }
+    #####:   38:            else if(diff==0)
+    #####:   39:                printf("%d ", mintime[i]);
+        -:   40:            else 
+        -:   41:            {
+    #####:   42:                printf("%d ", mintime[i]+diff);
+    #####:   43:                diff-=diff;
+        -:   44:            }
+        -:   45:        }
+        -:   46:    }
+        3:   47:    return 0;
+        -:   48:}

@@ -1,0 +1,84 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v659/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v659/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v659/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:8
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        -:    3:int act_pos[26],prime_no[1050],included[1050],a[26];char t[1050];
+        8:    4:int main(int argc, char *argv[])
+        -:    5:{
+        8:    6:    char s[1050];int pos2=0,char_to_int,i,j;
+        8:    7:    scanf("%s",s);
+        8:    8:    int k=strlen(s);
+        8:    9:    if(k==1)
+        -:   10:    {
+    #####:   11:        printf("YES\n");
+    #####:   12:        printf("%s",s);
+    #####:   13:        return 0;
+        -:   14:    }
+      971:   15:    for(i=0;i<k;i++)
+        -:   16:    {
+      963:   17:        char_to_int=s[i]-97;
+      963:   18:       a[char_to_int]++;
+        -:   19:    }
+        8:   20:    int max=a[0];
+      216:   21:    for(i=0;i<26;i++)
+        -:   22:    {
+      208:   23:      if(max<a[i])
+        -:   24:      {
+        6:   25:          max=a[i];pos2=i;
+        -:   26:      }
+        -:   27:    }
+        8:   28:    int b[k+1],m=0;
+      963:   29:    for(i=2;i<=k;i++)
+        -:   30:    {
+      955:   31:      if(!prime_no[i]&&i*2<=k)
+        -:   32:      {
+      114:   33:          included[i-1]=1;b[m++]=i-1;
+    27641:   34:          for(j=i+1;j<=k;j++)
+        -:   35:          {
+    27527:   36:              if(j%i==0)
+        -:   37:              {
+     1636:   38:            prime_no[j]=1;
+     1636:   39:            if(!included[j-1])
+        -:   40:              {
+      750:   41:                  included[j-1]=1;
+      750:   42:                  b[m++]=j-1;
+        -:   43:              }
+        -:   44:              }
+        -:   45:             }
+        -:   46:      }
+        -:   47:    }
+        8:   48:    if(max<m)
+        -:   49:    {
+    #####:   50:        printf("NO");
+    #####:   51:        return 0;
+        -:   52:    }
+        8:   53:    printf("YES\n");
+        8:   54:    char c=(char)pos2+97;
+      872:   55:    for(i=0;i<m;i++)
+      864:   56:        t[b[i]]=c;
+        8:   57:        j=0;int time=0;
+        8:   58:        i=0;
+      192:   59:    while(i<k)
+        -:   60:    {
+      184:   61:        if(t[j]=='\0')
+        -:   62:        {
+      963:   63:        while(s[i]==c&&++time<=m&&i<k)
+      864:   64:                       i++;
+       99:   65:            if(i<k)
+        -:   66:            {
+       99:   67:                t[j]=s[i];
+       99:   68:                j++;i++;
+        -:   69:            }
+        -:   70:        }
+        -:   71:    else
+        -:   72:    {
+      932:   73:        while(t[j]!='\0')
+      847:   74:            j++;
+        -:   75:    }
+        -:   76:    }
+      971:   77:  for(i=0;i<k;i++)
+      963:   78:    printf("%c",t[i]);
+        8:   79:  return 0;
+        -:   80:}

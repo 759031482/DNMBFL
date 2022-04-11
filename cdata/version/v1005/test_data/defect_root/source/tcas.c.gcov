@@ -1,0 +1,26 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1005/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:29
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:
+       29:    4:int main(int argc, char *argv[]){
+        -:    5:	unsigned int n;
+        -:    6:	unsigned int min;
+        -:    7:	unsigned int max;
+       29:    8:	scanf("%u",&n);
+       29:    9:	min=n/7*2;
+       29:   10:	if(n%7>=2){
+       29:   11:		max=2;
+       29:   12:		if(n%7==6){
+       29:   13:			min++;
+       29:   14:			max--;
+        -:   15:		}
+        -:   16:	}else{
+    #####:   17:		max=n%7;
+        -:   18:	}
+       29:   19:	printf("%u %u",min,min+max);
+        -:   20:	
+       29:   21:return 0;
+        -:   22:}

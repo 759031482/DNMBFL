@@ -1,0 +1,37 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1503/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1503/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1503/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:5
+        -:    1:#include <stdio.h>
+        -:    2:
+        5:    3:int main(int argc, char *argv[])
+        -:    4:{
+        5:    5:     int n, k, t, sum = 0, i, j;
+        -:    6:
+        5:    7:     scanf("%d %d %d", &n, &k, &t);
+        -:    8:
+       74:    9:     for (i = 0; i < n; i++) {
+       69:   10:	  if (i > 0) putchar(' ');
+        -:   11:
+       69:   12:	  if ((sum + k) * 100 <= n * k * t) {
+       17:   13:	       sum += k;
+        -:   14:
+       17:   15:	       printf("%d", k);
+       52:   16:	  } else if ((sum + 1) * 100 > n * k * t) {
+       47:   17:	       printf("0");
+        -:   18:	  } else {
+      230:   19:	       for (j = 0; j <= k; j++) {
+      230:   20:		    if ((sum + j) * 100 > n * k * t) {
+        5:   21:			 sum += j - 1;
+        -:   22:
+        5:   23:			 printf("%d", j - 1);
+        -:   24:
+        5:   25:			 break;
+        -:   26:		    }
+        -:   27:	       }
+        -:   28:	  }
+        -:   29:     }
+        5:   30:     puts("");
+        -:   31:
+        5:   32:     return 0;
+        -:   33:}

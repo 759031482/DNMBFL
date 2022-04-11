@@ -1,0 +1,21 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1757/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1757/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1757/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#define abs(x) x >= 0 ? x : -x;
+        -:    3:
+        1:    4:int main(int argc, char *argv[])
+        -:    5:{
+        -:    6:	long long a, b ,n;
+        1:    7:	scanf("%lld %lld %lld", &a, &b, &n);
+        1:    8:	a = abs(a);
+        1:    9:	b = abs(b);
+       1*:   10:	if (a + b <= n && (n - a - b) % 2 == 0  || (a + b) % 2 != 0 && n % 2 != 0 && n >= a + b)
+        -:   11:	{
+    #####:   12:		printf("%s\n", "Yes");
+    #####:   13:		return 0;
+        -:   14:	}
+        1:   15:	printf("%s\n", "No");
+        1:   16:	return 0;
+        -:   17:}

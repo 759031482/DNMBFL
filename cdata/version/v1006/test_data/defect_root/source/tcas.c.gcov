@@ -1,0 +1,37 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1006/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:10
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        -:    3:int i,n,f;
+        -:    4:char arr[1000];
+       10:    5:int main(int argc, char *argv[]){
+       10:    6:	scanf("%s",arr);
+       10:    7:	n = strlen(arr);
+       10:    8:	if(arr[0] == 'd' && arr[1] == 'o' && arr[2] == 't') {
+        6:    9:		printf("dot");
+        6:   10:                i=3;
+        -:   11:        }
+        4:   12:	else if(arr[0] == 'a' && arr[1] == 't') {
+        1:   13:		printf("at");
+        1:   14:                i=2;
+        -:   15:        }
+        -:   16:
+      294:   17:	for(;i<n;i++){
+      284:   18:		if(i+3<n && arr[i] == 'd' && arr[i+1] == 'o' && arr[i+2] == 't') {
+       86:   19:			printf(".");
+       86:   20:                        i+=2;
+        -:   21:                }
+        -:   22:
+      198:   23:		else if(!f && i+1<n && arr[i] == 'a' && arr[i+1] == 't') {
+       10:   24:				printf("@");
+       10:   25:                                f=1;
+       10:   26:                                i+=1;
+        -:   27:                }
+        -:   28:
+        -:   29:		else
+      188:   30:			printf("%c",arr[i]);
+        -:   31:	}
+       10:   32:	return 0;
+        -:   33:}

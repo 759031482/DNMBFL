@@ -1,0 +1,27 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1126/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1126/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1126/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:6
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:char s[1001];
+        -:    4:
+        -:    5:int count[26] = {0};
+        -:    6:
+        6:    7:int main(int argc, char *argv[])
+        -:    8:{
+        6:    9:	int i, odd_count = 0;;
+        6:   10:	scanf("%s", s);
+      234:   11:	for(i = 0; s[i]; i++)
+        -:   12:	{
+      228:   13:		count[s[i]-'a']++;
+        -:   14:	}
+      162:   15:	for(i = 0; i < 26; i++)
+        -:   16:	{
+      156:   17:		odd_count += (count[i] & 1);
+        -:   18:	}
+        6:   19:	if(!odd_count) puts("First");
+    #####:   20:	else if(odd_count & 1) puts("First");
+    #####:   21:	else puts("Second");
+        6:   22:	return 0;
+        -:   23:}

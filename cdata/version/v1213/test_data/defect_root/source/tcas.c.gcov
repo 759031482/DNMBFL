@@ -1,0 +1,39 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1213/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1213/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1213/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include <math.h>
+        -:    5:
+        -:    6:
+        2:    7:int main(int argc, char *argv[])
+        -:    8:{
+        2:    9:    int n, m, a[100], k = 0, i, j, min = 1000, max = 0, ans = 0;
+        2:   10:    scanf("%d%d", &n, &m);
+       72:   11:    for (i = 0; i < n; i++){
+       70:   12:       scanf("%d", &j);
+       70:   13:        if (j >= m){
+       68:   14:            a[k] = j;
+       68:   15:            k++;
+       68:   16:            if (j < min){
+        8:   17:                min = j;
+        -:   18:            }
+       68:   19:            if (j > max){
+       10:   20:                max = j;
+        -:   21:            }
+        -:   22:        }
+        -:   23:    }
+      148:   24:    for (i = m; i <= max; i++){
+      146:   25:        n = 0;
+     5110:   26:        for (j = 0; j < k; j++){
+     4964:   27:            n += a[j] / i;
+        -:   28:        }
+      146:   29:        if (n * i > ans){
+        2:   30:            ans = n * i;
+        -:   31:        }
+        -:   32:    }
+        2:   33:    printf("%d", ans);
+        2:   34:    return 0;
+        -:   35:}

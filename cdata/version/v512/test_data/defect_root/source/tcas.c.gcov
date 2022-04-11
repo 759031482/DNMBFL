@@ -1,0 +1,60 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v512/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v512/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v512/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:12
+        -:    1:#include<stdio.h>
+        -:    2:#include<limits.h>
+    #####:    3:int f(int a,int b)
+        -:    4:{
+    #####:    5:	if(a>=b)
+    #####:    6:	return b;
+    #####:    7:	return a;
+        -:    8:}
+       12:    9:int main(int argc, char *argv[])
+        -:   10:{
+        -:   11:	int n,x;
+       12:   12:	scanf("%d%d",&n,&x);
+       12:   13:    int nn=n;
+       12:   14:	int a[1001]={0};
+      134:   15:	while(n--)
+        -:   16:	{
+        -:   17:		int p,q;
+      122:   18:		scanf("%d%d",&p,&q);
+      122:   19:		if(p>q)
+        -:   20:		{
+        -:   21:			int t;
+       63:   22:			t=p;
+       63:   23:			p=q;
+       63:   24:			q=t;
+        -:   25:		}
+        -:   26:		int i;
+    11141:   27:		for(i=p;i<=q;i++)
+    11019:   28:		a[i]++;
+        -:   29:	}
+       12:   30:	n=nn;
+       12:   31:	int i=x;
+        -:   32:	int dist;
+     2681:   33:	while(i>=0)
+        -:   34:	{
+     2669:   35:		if(a[i]==n)
+    #####:   36:		break;
+     2669:   37:		i--;
+        -:   38:	}
+       12:   39:	if(i<=0)
+       12:   40:	dist=INT_MAX;
+        -:   41:	else
+    #####:   42:	dist=x-i;
+       12:   43:	i=x;
+     9367:   44:	while(i<1001)
+        -:   45:	{
+     9355:   46:		if(a[i]==n)
+    #####:   47:		break;
+     9355:   48:		i++;
+        -:   49:	}
+        -:   50://		printf("%d %d\n",i,x);
+       12:   51:	if(i<1001)
+    #####:   52:	dist=f(dist,i-x);
+       12:   53:	if(dist!=INT_MAX)
+    #####:   54:	printf("%d\n",dist);
+       12:   55:	else printf("-1\n");
+        -:   56:}

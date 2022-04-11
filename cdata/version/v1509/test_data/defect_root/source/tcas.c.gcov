@@ -1,0 +1,30 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1509/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1509/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1509/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:8
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:
+        8:    4:int main(int argc, char *argv[])
+        -:    5:{
+        8:    6:    char k[] = "qwertyuiopasdfghjkl;zxcvbnm,./";
+        -:    7:    char a[100], b;
+        8:    8:    int l,c=1,i,j;
+        8:    9:    scanf("%c", &b);
+        8:   10:    if(b == 'R') c=-1;
+        8:   11:    scanf("%s", a);
+        8:   12:    l = strlen(a);
+      522:   13:    for(i=0;i<l;i++)
+        -:   14:    {
+     8011:   15:        for(j=0;j<30;j++)
+        -:   16:        {
+     8011:   17:            if(a[i] == k[j])
+        -:   18:            {
+      514:   19:                printf("%c", k[j+c]);
+      514:   20:                break;
+        -:   21:            }
+        -:   22:        }
+        -:   23:    }
+        -:   24:
+        8:   25:    return 0;
+        -:   26:}

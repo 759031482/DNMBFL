@@ -1,0 +1,35 @@
+        -:    0:Source:E:/Prgorams/Python/access/cdata/version/v1016/test_data/defect_root/source/tcas.c
+        -:    0:Graph:tcas.gcno
+        -:    0:Data:tcas.gcda
+        -:    0:Runs:2
+        -:    1:#include<stdio.h>
+        -:    2://#include<conio.h>
+        -:    3:
+        2:    4:int main(int argc, char *argv[])
+        -:    5:{
+        -:    6:    int n;
+        -:    7:
+        2:    8:    scanf("%d",&n);
+        -:    9:
+        2:   10:    if(n<=2)
+        -:   11:    {
+        2:   12:        printf("NO");
+        -:   13:    }
+        -:   14:    else
+        -:   15:    {
+    #####:   16:        if(n<=100)
+        -:   17:        {
+    #####:   18:        if(n%2==0)
+    #####:   19:        printf("YES");
+        -:   20:
+        -:   21:        else
+    #####:   22:        printf("NO");
+        -:   23:        }
+        -:   24:        
+        -:   25:        else
+    #####:   26:        printf("NO");
+        -:   27:    }
+        -:   28:
+        2:   29:return 0;
+        -:   30:
+        -:   31:}

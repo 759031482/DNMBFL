@@ -1,0 +1,68 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1356/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1356/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1356/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:9
+        -:    1:#include<stdio.h>
+        9:    2:int main(int argc, char *argv[])
+        -:    3:{
+        9:    4:    int a,n,x,y,z,i,j,c=0,arr[100];
+        9:    5:    scanf("%d",& n);
+        9:    6:    if(n>=-9)
+        -:    7:    {
+    #####:    8:        printf("%d", n);
+        -:    9:    }
+        9:   10:    else if(n<0 && -n/10<10 && -n%10==0)
+        -:   11:    {
+    #####:   12:        printf("0");
+        -:   13:    }
+        9:   14:    else if(n<0 && -n%100==0)
+        -:   15:    {
+    #####:   16:        y=n/10;
+    #####:   17:        printf("%d", y);
+        -:   18:    }
+        -:   19:    else
+        -:   20:        {
+        9:   21:         printf("-");
+        9:   22:         a=-n;
+       27:   23:        for(i=a,j=0;i>0;i=i/10,j++)
+        -:   24:        {
+       18:   25:            if(i<10)
+        -:   26:            {
+        9:   27:                x=i;
+        -:   28:            }
+       18:   29:            y=i/10;
+       18:   30:            x=i%10;
+       18:   31:            arr[j]=x;
+       18:   32:            c++;
+        -:   33:        }
+        9:   34:        if(arr[0]>arr[1])
+        -:   35:        {
+       12:   36:            for(j=c-1;j>=0;j--)
+        -:   37:            {
+        8:   38:                if(j==0) continue;
+        4:   39:                printf("%d", arr[j]);
+        -:   40:            }
+        -:   41:        }
+        5:   42:        else if(arr[0]<arr[1])
+        -:   43:        {
+        9:   44:            for(j=c-1;j>=0;j--)
+        -:   45:            {
+        6:   46:                if(j==1) continue;
+        3:   47:                printf("%d", arr[j]);
+        -:   48:            }
+        -:   49:        }
+        2:   50:        else if(arr[0]=arr[1])
+        -:   51:        {
+        6:   52:            for(j=c-1;j>=0;j--)
+        -:   53:            {
+        4:   54:                if(j==0) continue;
+        2:   55:                printf("%d", arr[j]);
+        -:   56:            }
+        -:   57:        }
+        -:   58:
+        -:   59:
+        -:   60:
+        -:   61:
+        -:   62:        }
+        9:   63:        return 0;
+        -:   64:}

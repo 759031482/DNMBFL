@@ -1,0 +1,33 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1019/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1019/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1019/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:12
+        -:    1:#include<stdio.h>
+        -:    2:#include<string.h>
+        -:    3:#include<stdlib.h>
+        -:    4:#include<math.h>
+        -:    5:#include<limits.h>
+        -:    6:
+        -:    7:long long int c1,c2,x,y;
+        -:    8:
+      372:    9:long long int check(long long int a)
+        -:   10:{
+      372:   11:	return (((a-a/x >= c1) && (a-a/y >= c2)) && (a-a/(x*y) >= c1+c2));
+        -:   12:}
+        -:   13:
+       12:   14:int main(int argc, char *argv[])
+        -:   15:{
+       12:   16:	scanf("%lld %lld %lld %lld",&c1,&c2,&x,&y);
+       12:   17:	long long int high = INT_MAX,low=0,mid;
+      384:   18:	while(high>low)
+        -:   19:	{
+      372:   20:		mid = high+low;
+      372:   21:		mid /= 2;
+      372:   22:		if(check(mid))
+      155:   23:			high = mid;
+        -:   24:		else
+      217:   25:			low = mid+1;
+        -:   26:	}
+       12:   27:	printf("%lld\n",high);
+       12:   28:	return 0;
+        -:   29:}

@@ -1,0 +1,36 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v624/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v624/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v624/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:9
+        -:    1:#include <stdio.h>
+        -:    2:#include <math.h>
+        9:    3:int main(int argc, char *argv[])
+        -:    4:{
+        -:    5:    int a,b,c,d,x,y,z;
+        9:    6:    scanf("%d %d %d %d",&a,&b,&c,&d);
+        9:    7:    if(a==c||b==d){
+        6:    8:        x=1;
+        -:    9:    }
+        -:   10:    else{
+        3:   11:        x=2;
+        -:   12:    }
+       9*:   13:    if(((a%2!=0&&b%2!=0)&&(c%2==0&&d%2!=0))||((a%2!=0&&b%2!=0)&&(c%2!=0&&d%2==0))||((a%2==0&&b%2==0)&&(c%2==0&&d%2!=0))||((a%2==0&&b%2==0)&&(c%2!=0&&d%2==0))||((a%2==0&&b%2!=0)&&(c%2!=0&&d%2!=0))||((a%2==0&&b%2!=0)&&(c%2==0&&d%2==0))||((a%2!=0&&b%2==0)&&(c%2!=0&&d%2!=0))||((a%2!=0&&b%2==0)&&(c%2==0&&d%2==0))){
+        9:   14:        y=0;
+        -:   15:    }
+        -:   16:    else{
+    #####:   17:        if((a-c)*(a-c)==(b-d)*(b-d)){
+    #####:   18:            y=1;
+        -:   19:        }
+        -:   20:        else{
+    #####:   21:            y=2;
+        -:   22:        }
+        -:   23:    }
+        9:   24:    if((a-c)*(a-c)>(b-d)*(b-d)){
+        5:   25:        z=sqrt((a-c)*(a-c));
+        -:   26:    }
+        -:   27:    else{
+        4:   28:        z=sqrt((b-d)*(b-d));
+        -:   29:    }
+        9:   30:    printf("%d %d %d",x,y,z);
+        9:   31:    return 0;
+        -:   32:}

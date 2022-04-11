@@ -1,0 +1,43 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1535/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1535/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1535/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:6
+        -:    1://emre
+        -:    2:#include <stdio.h>
+        -:    3:#include <string.h>
+        6:    4:int main(int argc, char *argv[])
+        -:    5:{
+        6:    6:    int r1,r2,d1,d2,c1,c2,x,y,z,t,emre,f,g,var=-1;
+        6:    7:    scanf("%d %d",&r1,&r2);
+        6:    8:    scanf("%d %d",&c1,&c2);
+        6:    9:    scanf("%d %d",&d1,&d2);
+        -:   10:    
+       60:   11:    for(x=1;x<=9;x++)
+        -:   12:        {
+       54:   13:            y=r1-x;
+       54:   14:            t=d1-x;
+       54:   15:            z=c1-x;
+       54:   16:            if ( (r2==t+z) && (d2==y+z) && (c2==y+t) )
+        -:   17:            {
+       6*:   18:                if(x==y || x==z || x==t || y==z || y==t || z==t || x>9 || y>9 || z>9 || t>9 || x<=0 || t<=0 || z<=0 || t<=0 )
+        -:   19:                {
+        6:   20:                    var=-1;
+        -:   21:                }
+        -:   22:                else
+        -:   23:                {           
+    #####:   24:                printf("%d %d\n",x,y);
+    #####:   25:                printf("%d %d\n",z,t);
+    #####:   26:                var=0;
+    #####:   27:                x+=10;
+        -:   28:                }
+        -:   29:            }
+        -:   30:        }
+        -:   31:    
+        6:   32:    if(var==-1)
+        -:   33:    {
+        6:   34:        printf("-1");
+        -:   35:    }
+        -:   36:    
+        -:   37:        
+        6:   38:        return 0;
+        -:   39:}

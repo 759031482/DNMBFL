@@ -1,0 +1,41 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v797/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v797/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v797/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:7
+        -:    1:#include <stdio.h>
+        -:    2:
+        -:    3:int m; int found = 0;
+        -:    4:char w[20]; int seen[11][11], next[11][11];
+      131:    5:void dfs(int diff, int last, int depth) {
+        -:    6:    int i;
+      131:    7:    if (depth == m || seen[diff][last]) {
+        3:    8:        found = 1; return;
+        -:    9:    }
+      128:   10:    seen[diff][last] = 1;
+     1302:   11:    for (i = 1; i <= 10; i++) {
+     1202:   12:        if (w[i-1] == '0') continue;
+      406:   13:        if (i == last || i <= diff) continue;
+        -:   14:        //printf("%d %d %d %c %d\n", diff, last, i, w[i-1], w[i-1] == '0');
+      124:   15:        next[diff][last] = i;
+      124:   16:        dfs(i - diff, i, depth+1);
+      124:   17:        if (found) return;
+        -:   18:    }
+      100:   19:    seen[diff][last] = 0;
+        -:   20:}
+        7:   21:int main(int argc, char *argv[]) {
+        -:   22:    int i, d, l, t;
+        -:   23:
+        7:   24:    scanf("%s %d", w, &m);
+        7:   25:    dfs(0, 0, 0);
+        7:   26:    if (!found) printf("NO\n");
+        -:   27:    else {
+        3:   28:        printf("YES\n");
+       31:   29:        for (i = d = l = 0; i < m; i++) {
+       28:   30:            printf("%d%c", next[d][l], i == m-1 ? '\n' : ' ');
+       28:   31:            t = next[d][l] - d;
+       28:   32:            l = next[d][l]; d = t;
+        -:   33:        }
+        -:   34:    }
+        -:   35:
+        7:   36:    return 0;
+        -:   37:}

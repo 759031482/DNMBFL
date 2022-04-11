@@ -1,0 +1,37 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1713/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1713/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1713/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        -:    2:#include<math.h>
+        -:    3:
+        -:    4:
+        1:    5:int main(int argc, char *argv[])
+        -:    6:{
+        -:    7:    long long int input;
+        1:    8:    scanf("%llu",&input);
+        -:    9:    long int n,m,marker;
+        -:   10:    long long int triangle2;
+        -:   11:    int tag;
+    46500:   12:    for(n=1;n<46500;n++)
+    46499:   13:    { marker=0;
+    46499:   14:        triangle2=input-(n*n+n)+input;
+    46499:   15:        tag=sqrt(triangle2);
+    46499:   16:        if(triangle2==0)
+        -:   17:        {
+    #####:   18:            marker=2;
+    #####:   19:            printf("NO");
+    #####:   20:            return 0;
+        -:   21:        }
+    46499:   22:        if(tag*tag+tag==triangle2)
+        -:   23:        {
+    #####:   24:             marker=1;
+    #####:   25:                break;
+        -:   26:        }
+        -:   27:    }
+        1:   28:    if(marker==1)
+    #####:   29:        printf("YES");
+        -:   30:    else
+        1:   31:        printf("NO");
+        1:   32:    return 0;
+        -:   33:}

@@ -1,0 +1,47 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1036/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1036/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1036/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:#include <stdio.h>
+        -:    2:
+        3:    3:int main(int argc, char *argv[]) {
+        -:    4:    int k;
+        3:    5:    scanf("%i", &k);
+        -:    6:
+        3:    7:    if( k % 2 == 0 ) {
+    #####:    8:	puts("NO");
+    #####:    9:	return 0;
+        -:   10:    }
+        -:   11:
+        3:   12:    puts("YES");
+        -:   13:    
+        3:   14:    int n = 4 * (k - 1) + 2;
+        3:   15:    int m = k * n / 2;
+        -:   16:
+        3:   17:    printf("%i %i\n", n, m);
+        -:   18:
+        3:   19:    int shift = 2 * (k - 1);
+        -:   20:    
+        -:   21:    int i, j;
+       3*:   22:    for( i = 1; i <= k - 1; i++ )
+    #####:   23:	for( j = k; j <= 2 * k - 2; j++ ) {
+    #####:   24:	    printf("%i %i\n", i, j);
+    #####:   25:	    printf("%i %i\n", i + shift, j + shift);
+        -:   26:	}
+        -:   27:
+       3*:   28:    for( i = k; i <= 2 * (k - 1); i += 2 ) {
+    #####:   29:	printf("%i %i\n", i, i + 1);
+    #####:   30:	printf("%i %i\n", i + shift, i + shift + 1);
+        -:   31:    }
+        -:   32:
+        3:   33:    int l0 = n - 1, l1 = n;
+        -:   34:
+        3:   35:    printf("%i %i\n", l0, l1);
+        -:   36:
+       3*:   37:    for( i = 1; i <= k - 1; i++ ) {
+    #####:   38:	printf("%i %i\n", l0, i);
+    #####:   39:	printf("%i %i\n", l1, i + shift);
+        -:   40:    }
+        -:   41:	
+        3:   42:    return 0;
+        -:   43:}

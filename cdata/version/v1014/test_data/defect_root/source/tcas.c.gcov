@@ -1,0 +1,74 @@
+        -:    0:Source:/home/cyxy/files/access/cdata/version/v1014/test_data/defect_root/source/tcas.c
+        -:    0:Graph:/home/cyxy/files/access/cdata/version/v1014/test_data/defect_root/source/tcas.gcno
+        -:    0:Data:/home/cyxy/files/access/cdata/version/v1014/test_data/defect_root/source/tcas.gcda
+        -:    0:Runs:3
+        -:    1:/*************************************************************************
+        -:    2:    > File Name: 371C.c
+        -:    3:    > Author: Stomach_ache
+        -:    4:    > Mail: 1179998621@qq.com 
+        -:    5:    > Created Time: 2013年12月10日 星期二 18时45分51秒
+        -:    6: ************************************************************************/
+        -:    7:
+        -:    8:#include<stdio.h>
+        -:    9:#include<string.h>
+        -:   10:#include<stdlib.h>
+        -:   11:
+        -:   12:#define max(x,y) ((x)>(y)?(x):(y))
+        -:   13:
+        -:   14:typedef long long ll;
+        -:   15:int nb, ns, nc, pb, ps, pc, cb, cs, cc;
+        -:   16:ll r;
+        -:   17:char str[105];
+        -:   18:
+       21:   19:int ok(ll x) {
+       21:   20:	ll tmp = x * cb - nb, rr = r;
+       21:   21:	if (tmp * pb > rr || rr < 0)
+        1:   22:		return 0;
+       20:   23:	if (tmp > 0)
+        3:   24:		rr -= tmp * pb;
+        -:   25:
+       20:   26:	tmp = x * cs - ns;
+       20:   27:	if (tmp * ps > rr || rr < 0)
+        1:   28:		return 0;
+       19:   29:	if (tmp > 0)
+    #####:   30:		rr -= tmp * ps;
+        -:   31:
+       19:   32:	tmp = x * cc - nc;
+       19:   33:	if (tmp * pc > rr || rr < 0)
+    #####:   34:		return 0;
+       19:   35:	if (tmp > 0)
+    #####:   36:		rr -= tmp * ps;
+        -:   37:	
+       19:   38:	return 1;
+        -:   39:}
+        -:   40:
+        3:   41:int main(int argc, char *argv[]) {
+        6:   42:	while (~scanf("%s", str)) {
+        3:   43:		scanf("%d %d %d", &nb, &ns, &nc);
+        3:   44:		scanf("%d %d %d", &pb, &ps, &pc);
+        3:   45:		scanf("%lld", &r);
+        -:   46:		int i;
+        3:   47:		cb = cs = cc = 0;
+        8:   48:		for (i = 0; i < strlen(str); i++) {
+        5:   49:			if (str[i] == 'B')
+        3:   50:				cb++;
+        2:   51:			else if (str[i] == 'S')
+        1:   52:				cs++;
+        -:   53:			else
+        1:   54:				cc++;
+        -:   55:		}
+        3:   56:		ll lf = 0, rg = 100*r+cb+cs+cc, ans = 0;
+       24:   57:		while (lf <= rg) {
+       21:   58:			ll mid = (lf + rg) >> 1;
+       21:   59:			if (ok(mid)) {
+       19:   60:				ans = mid;
+       19:   61:				lf = mid + 1;
+        -:   62:			}
+        -:   63:			else
+        2:   64:				rg = mid - 1;
+        -:   65:		}
+        3:   66:		printf("%lld\n", ans);
+        -:   67:	}
+        -:   68:
+        3:   69:	return 0;
+        -:   70:}
